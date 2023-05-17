@@ -3,8 +3,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebBanHangOnline.Models.EF
 {
-  
-
     [Table("Counters")]
     public class Counter
     {
