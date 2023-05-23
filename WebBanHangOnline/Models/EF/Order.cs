@@ -13,7 +13,7 @@ namespace WebBanHangOnline.Models.EF
         }
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int OrderId { get; set; }
         [Required]
         public string Code { get; set; }
         [Required(ErrorMessage = "Tên khách hàng không để trống")]

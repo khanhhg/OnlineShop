@@ -10,8 +10,8 @@ namespace WebBanHangOnline.Models.EF
     {
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        [Required(ErrorMessage = "Bạn không để trống tiêu đề tin")]
+        public int NewsId { get; set; }
+        [Required(ErrorMessage = "Title can't be emptyn")]
         [StringLength(150)]
         public string Title { get; set; }
         public string Alias { get; set; }
@@ -19,11 +19,10 @@ namespace WebBanHangOnline.Models.EF
         [AllowHtml]
         public string Detail { get; set; }
         public string Image { get; set; }
-        public int CategoryId { get; set; }
         public string SeoTitle { get; set; }
         public string SeoDescription { get; set; }
         public string SeoKeywords { get; set; }
         public bool IsActive { get; set; }
-        public virtual Category Category { get; set; }
+        public Category Category { get; set; }
     }
 }

@@ -8,7 +8,7 @@ namespace WebBanHangOnline.Models.EF
     {
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int SubscribeId { get; set; }
         [EmailAddress]
         [Required]
         public string Email { get; set; }

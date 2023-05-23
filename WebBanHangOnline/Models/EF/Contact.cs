@@ -9,7 +9,7 @@ namespace WebBanHangOnline.Models.EF
     {
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int ContactId { get; set; }
 
         [Required(ErrorMessage = "Name cannot be null")]
         [StringLength(150, ErrorMessage = "Must not exceed 150 characters")]

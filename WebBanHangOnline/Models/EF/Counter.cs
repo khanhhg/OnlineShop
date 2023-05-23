@@ -8,7 +8,7 @@ namespace WebBanHangOnline.Models.EF
     {
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int CounterId { get; set; }
         public DateTime TimeCount { get; set; }
         public long HitCount { get; set; }
     }

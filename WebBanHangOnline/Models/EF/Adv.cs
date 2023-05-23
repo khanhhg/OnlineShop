@@ -9,7 +9,7 @@ namespace WebBanHangOnline.Models.EF
     {
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int AdvId { get; set; }
         [Required]
         [StringLength(150)]
         public string Title { get; set; }
