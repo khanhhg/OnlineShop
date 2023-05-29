@@ -21,35 +21,35 @@ namespace WebBanHangOnline.Models.EF
         public string Title { get; set; }
 
         [StringLength(250)]
-        public string Alias { get; set; }
+        public string? Alias { get; set; }
 
         [StringLength(50)]
-        public string ProductCode { get; set; }
-        public string Description { get; set; }
+        public string? ProductCode { get; set; }
+        public string? Description { get; set; }
 
         [AllowHtml]
-        public string Detail { get; set; }
+        public string? Detail { get; set; }
 
         [StringLength(250)]
-        public string Image { get; set; }
-        public decimal OriginalPrice { get; set; }
-        public decimal Price { get; set; }
+        public string? Image { get; set; }
+        public decimal? OriginalPrice { get; set; }
+        public decimal? Price { get; set; }
         public decimal? PriceSale { get; set; }
-        public int Quantity { get; set; }
-        public int ViewCount { get; set; }
-        public bool IsHome { get; set; }
-        public bool IsSale { get; set; }
-        public bool IsFeature { get; set; }
-        public bool IsHot { get; set; }
-        public bool IsActive { get; set; }
+        public int? Quantity { get; set; }
+        public int? ViewCount { get; set; }
+        public bool IsHome { get; set; } = false;
+        public bool IsSale { get; set; } = false;
+        public bool IsFeature { get; set; } = false;
+        public bool IsHot { get; set; } = false;
+        public bool IsActive { get; set; } = false;
         public int ProductCategoryId { get; set; }
 
         [StringLength(250)]
-        public string SeoTitle { get; set; }
+        public string? SeoTitle { get; set; }
         [StringLength(500)]
-        public string SeoDescription { get; set; }
+        public string? SeoDescription { get; set; }
         [StringLength(250)]
-        public string SeoKeywords { get; set; }
+        public string? SeoKeywords { get; set; }
 
         public virtual ProductCategory ProductCategory { get; set; }
         public virtual ICollection<ProductImage> ProductImage { get; set; }

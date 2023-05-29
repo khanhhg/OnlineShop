@@ -17,7 +17,7 @@ namespace WebBanHangOnline.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.15")
+                .HasAnnotation("ProductVersion", "6.0.16")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -239,17 +239,14 @@ namespace WebBanHangOnline.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Link")
-                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
@@ -264,7 +261,7 @@ namespace WebBanHangOnline.Data.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<int>("Type")
+                    b.Property<int?>("Type")
                         .HasColumnType("int");
 
                     b.HasKey("AdvId");
@@ -348,11 +345,10 @@ namespace WebBanHangOnline.Data.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<bool>("IsRead")
+                    b.Property<bool?>("IsRead")
                         .HasColumnType("bit");
 
                     b.Property<string>("Message")
-                        .IsRequired()
                         .HasMaxLength(4000)
                         .HasColumnType("nvarchar(4000)");
 
@@ -368,7 +364,6 @@ namespace WebBanHangOnline.Data.Migrations
                         .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("Website")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ContactId");
@@ -404,7 +399,6 @@ namespace WebBanHangOnline.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("NewsId"), 1L, 1);
 
                     b.Property<string>("Alias")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CategoryId")
@@ -417,18 +411,15 @@ namespace WebBanHangOnline.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Detail")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsActive")
+                    b.Property<bool?>("IsActive")
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModifiedDate")
@@ -438,15 +429,12 @@ namespace WebBanHangOnline.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SeoDescription")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SeoKeywords")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SeoTitle")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
@@ -488,7 +476,6 @@ namespace WebBanHangOnline.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("ModifiedDate")
@@ -617,7 +604,6 @@ namespace WebBanHangOnline.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"), 1L, 1);
 
                     b.Property<string>("Alias")
-                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -628,31 +614,28 @@ namespace WebBanHangOnline.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Detail")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<bool>("IsActive")
+                    b.Property<bool?>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("IsFeature")
+                    b.Property<bool?>("IsFeature")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("IsHome")
+                    b.Property<bool?>("IsHome")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("IsHot")
+                    b.Property<bool?>("IsHot")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("IsSale")
+                    b.Property<bool?>("IsSale")
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModifiedDate")
@@ -661,10 +644,10 @@ namespace WebBanHangOnline.Data.Migrations
                     b.Property<string>("Modifiedby")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("OriginalPrice")
+                    b.Property<decimal?>("OriginalPrice")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("Price")
+                    b.Property<decimal?>("Price")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal?>("PriceSale")
@@ -674,25 +657,21 @@ namespace WebBanHangOnline.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ProductCode")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("Quantity")
+                    b.Property<int?>("Quantity")
                         .HasColumnType("int");
 
                     b.Property<string>("SeoDescription")
-                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("SeoKeywords")
-                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("SeoTitle")
-                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -701,7 +680,7 @@ namespace WebBanHangOnline.Data.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<int>("ViewCount")
+                    b.Property<int?>("ViewCount")
                         .HasColumnType("int");
 
                     b.HasKey("ProductId");
@@ -731,11 +710,9 @@ namespace WebBanHangOnline.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Icon")
-                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -746,17 +723,14 @@ namespace WebBanHangOnline.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SeoDescription")
-                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("SeoKeywords")
-                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("SeoTitle")
-                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -779,10 +753,9 @@ namespace WebBanHangOnline.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductImageId"), 1L, 1);
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsDefault")
+                    b.Property<bool?>("IsDefault")
                         .HasColumnType("bit");
 
                     b.Property<int>("ProductId")
@@ -822,7 +795,6 @@ namespace WebBanHangOnline.Data.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("SettingDescription")
-                        .IsRequired()
                         .HasMaxLength(4000)
                         .HasColumnType("nvarchar(4000)");
 

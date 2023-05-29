@@ -16,13 +16,13 @@ namespace WebBanHangOnline.Models.EF
         public int OrderId { get; set; }
         [Required]
         public string Code { get; set; }
-        [Required(ErrorMessage = "Tên khách hàng không để trống")]
+        [Required(ErrorMessage = "CustomerName can't be empty")]
         public string CustomerName { get; set; }
-        [Required(ErrorMessage = "Số điện thoại không để trống")]
+        [Required(ErrorMessage = "Phone can't be empty")]
         public string Phone { get; set; }
-        [Required(ErrorMessage = "Địa chỉ khổng để trống")]
+        [Required(ErrorMessage = "Address can't be empty")]
         public string Address { get; set; }
-        public string Email { get; set; }
+        public string? Email { get; set; }
         public decimal TotalAmount { get; set; }
         public int Quantity { get; set; }
         public int TypePayment { get; set; }
