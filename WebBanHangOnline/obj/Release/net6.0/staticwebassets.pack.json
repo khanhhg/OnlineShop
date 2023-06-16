@@ -9165,6 +9165,30 @@
       "PackagePath": "staticwebassets\\Files\\banner_3.jpg"
     },
     {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Files\\product_1.png",
+      "PackagePath": "staticwebassets\\Files\\product_1.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Files\\product_3.png",
+      "PackagePath": "staticwebassets\\Files\\product_3.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Files\\product_7.png",
+      "PackagePath": "staticwebassets\\Files\\product_7.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Files\\product_9.png",
+      "PackagePath": "staticwebassets\\Files\\product_9.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Files\\single_3.jpg",
+      "PackagePath": "staticwebassets\\Files\\single_3.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Files\\single_3_thumb.jpg",
+      "PackagePath": "staticwebassets\\Files\\single_3_thumb.jpg"
+    },
+    {
       "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\css\\PagedList.css",
       "PackagePath": "staticwebassets\\css\\PagedList.css"
     },
@@ -9359,6 +9383,10 @@
     {
       "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\jsConvert.js",
       "PackagePath": "staticwebassets\\js\\jsConvert.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\jsLayout.js",
+      "PackagePath": "staticwebassets\\js\\jsLayout.js"
     },
     {
       "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\jsShopping.js",

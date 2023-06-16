@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -22,21 +23,20 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         }
 
         // GET: Admin/Products
-        public async Task<IActionResult> Index(int? page = 1)
+        public  IActionResult Index(int? page = 1)
         {
-            //var applicationDbContext = _context.Product.Include(p => p.ProductCategory);
-            //return View(await applicationDbContext.ToListAsync());
-            if (page != null && page < 1)
+            
+            IEnumerable<Product> items =  _context.Product.Include(x=>x.ProductCategory).OrderByDescending(x => x.ProductId);
+            var pageSize = 10;
+            if (page == null)
             {
                 page = 1;
             }
-            var pageSize = 10;
-
-            var objProduct = _context.Product
-                .OrderByDescending(s => s.CreatedDate)
-                .ToPagedList(page ?? 1, pageSize);
-
-            return View(objProduct);
+            var pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+            items = items.ToPagedList(pageIndex, pageSize);
+            ViewBag.PageSize = pageSize;
+            ViewBag.Page = page;
+            return View(items);
         }
 
         // GET: Admin/Products/Details/5
@@ -61,7 +61,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         // GET: Admin/Products/Create
         public IActionResult Create()
         {
-            ViewData["ProductCategoryId"] = new SelectList(_context.ProductCategory, "ProductCategoryId", "Alias");
+            ViewBag.ProductCategory = new SelectList(_context.ProductCategory.ToList(), "ProductCategoryId", "Title");
             return View();
         }
 
@@ -70,15 +70,66 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,Title,Alias,ProductCode,Description,Detail,Image,OriginalPrice,Price,PriceSale,Quantity,ViewCount,IsHome,IsSale,IsFeature,IsHot,IsActive,ProductCategoryId,SeoTitle,SeoDescription,SeoKeywords,CreatedBy,CreatedDate,ModifiedDate,Modifiedby")] Product product)
+        public async Task<IActionResult> Create(Product product, ICollection<IFormFile> files)
         {
+            ModelState.ClearValidationState("ProductCategory");
+            ModelState.MarkFieldValid("ProductCategory");
             if (ModelState.IsValid)
             {
-                _context.Add(product);
+                int countImage = 0;
+                foreach (var fileImage in files)
+                {
+                    if (fileImage.FileName != null)
+                    {
+                       
+                        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Files");
+                        FileInfo fileInfo = new FileInfo(fileImage.FileName);
+
+                        if (fileInfo.Extension == ".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")
+                        {
+                            countImage++;
+                            if (!Directory.Exists(path))
+                            {
+                                Directory.CreateDirectory(path);
+                            }
+                            string filename = fileImage.FileName;
+                            string fileNameWithPath = Path.Combine(path, filename);
+                            using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
+                            {
+                                fileImage.CopyTo(stream);
+                            }
+                            if (countImage == 1)
+                            {
+                                product.ProductImages.Add(new ProductImage
+                                {
+                                    ProductId = product.ProductId,
+                                    Image = filename,
+                                    IsDefault = true
+                                });
+                                product.Image = filename;
+                            }
+                            else
+                            {
+                                product.ProductImages.Add(new ProductImage
+                                {
+                                    ProductId = product.ProductId,
+                                    Image = filename,
+                                    IsDefault = false
+                                });
+                            }                          
+                        }
+                    }
+                }
+                product.CreatedDate = DateTime.Now;
+                product.ModifiedDate = DateTime.Now;
+                product.CreatedBy = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                product.ProductCategory = _context.ProductCategory.Where(x => x.ProductCategoryId == product.ProductCategoryId).FirstOrDefault();
+
+                _context.Product.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductCategoryId"] = new SelectList(_context.ProductCategory, "ProductCategoryId", "Alias", product.ProductCategoryId);
+            ViewBag.ProductCategory = new SelectList(_context.ProductCategory.ToList(), "ProductCategoryId", "Title");
             return View(product);
         }
 
@@ -95,7 +146,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["ProductCategoryId"] = new SelectList(_context.ProductCategory, "ProductCategoryId", "Alias", product.ProductCategoryId);
+            ViewData["ProductCategoryId"] = new SelectList(_context.ProductCategory, "ProductCategoryId", "Alias", product.ProductCategory.ProductCategoryId);
             return View(product);
         }
 
@@ -131,7 +182,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductCategoryId"] = new SelectList(_context.ProductCategory, "ProductCategoryId", "Alias", product.ProductCategoryId);
+            ViewData["ProductCategoryId"] = new SelectList(_context.ProductCategory, "ProductCategoryId", "Alias", product.ProductCategory.ProductCategoryId);
             return View(product);
         }
 

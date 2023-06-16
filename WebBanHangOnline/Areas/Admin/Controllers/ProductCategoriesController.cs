@@ -59,8 +59,10 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(ProductCategory productCategory,IFormFile fileImage)
+        public async Task<IActionResult> Create( ProductCategory productCategory,IFormFile fileImage)
         {
+            ModelState.ClearValidationState("Products");
+            ModelState.MarkFieldValid("Products");
             if (ModelState.IsValid)
             {
                 //_context.Add(productCategory);

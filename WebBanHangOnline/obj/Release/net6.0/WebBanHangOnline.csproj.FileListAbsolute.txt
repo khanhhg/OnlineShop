@@ -288,3 +288,7 @@ E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\ref\WebBanHangOnline.dl
 E:\NET\BanHangOnline\WebBanHangOnline\bin\Release\net6.0\JetBrains.Annotations.dll
 E:\NET\BanHangOnline\WebBanHangOnline\bin\Release\net6.0\X.PagedList.dll
 E:\NET\BanHangOnline\WebBanHangOnline\bin\Release\net6.0\X.PagedList.Mvc.Core.dll
+E:\NET\BanHangOnline\WebBanHangOnline\bin\Release\net6.0\Castle.Core.dll
+E:\NET\BanHangOnline\WebBanHangOnline\bin\Release\net6.0\Microsoft.EntityFrameworkCore.Proxies.dll
+E:\NET\BanHangOnline\WebBanHangOnline\bin\Release\net6.0\AspNetCoreHero.ToastNotification.Views.dll
+E:\NET\BanHangOnline\WebBanHangOnline\bin\Release\net6.0\AspNetCoreHero.ToastNotification.dll

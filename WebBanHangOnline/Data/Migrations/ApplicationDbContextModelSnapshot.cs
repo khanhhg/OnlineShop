@@ -623,19 +623,19 @@ namespace WebBanHangOnline.Data.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<bool?>("IsActive")
+                    b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("IsFeature")
+                    b.Property<bool>("IsFeature")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("IsHome")
+                    b.Property<bool>("IsHome")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("IsHot")
+                    b.Property<bool>("IsHot")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("IsSale")
+                    b.Property<bool>("IsSale")
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModifiedDate")
@@ -914,7 +914,7 @@ namespace WebBanHangOnline.Data.Migrations
             modelBuilder.Entity("WebBanHangOnline.Models.EF.ProductImage", b =>
                 {
                     b.HasOne("WebBanHangOnline.Models.EF.Product", "Product")
-                        .WithMany("ProductImage")
+                        .WithMany("ProductImages")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -938,7 +938,7 @@ namespace WebBanHangOnline.Data.Migrations
                 {
                     b.Navigation("OrderDetails");
 
-                    b.Navigation("ProductImage");
+                    b.Navigation("ProductImages");
                 });
 
             modelBuilder.Entity("WebBanHangOnline.Models.EF.ProductCategory", b =>

@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Web.Mvc;
 using WebBanHangOnline.Data;
+using AspNetCoreHero.ToastNotification;
+using AspNetCoreHero.ToastNotification.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +17,12 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddNotyf(config =>
+{
+	config.DurationInSeconds = 5;
+	config.IsDismissable = true;
+	config.Position = NotyfPosition.TopRight;
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -49,6 +56,8 @@ app.UseEndpoints(endpoints =>
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 });
+
+app.UseNotyf();
 app.MapRazorPages();
 
 app.Run();

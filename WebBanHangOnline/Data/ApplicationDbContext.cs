@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Connections;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 using WebBanHangOnline.Models.EF;
 
 namespace WebBanHangOnline.Data
@@ -23,5 +25,16 @@ namespace WebBanHangOnline.Data
         public DbSet<ProductImage> ProductImage { get; set; }
         public DbSet<Subscribe> Subscribe { get; set; }
         public DbSet<SystemSetting> SystemSetting { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder
+                    .UseLazyLoadingProxies()
+                    .UseSqlServer("Server=DESKTOP-I94G0UB\\SQLEXPRESS;Database=OnlineShop;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True");
+            }
+
+        }     
     }
 }

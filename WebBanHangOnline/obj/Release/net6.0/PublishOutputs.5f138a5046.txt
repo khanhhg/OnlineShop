@@ -2,10 +2,10 @@ E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\WebBanHangOn
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\appsettings.json
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\WebBanHangOnline.dll
-E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\WebBanHangOnline.deps.json
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\WebBanHangOnline.runtimeconfig.json
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\WebBanHangOnline.pdb
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\Humanizer.dll
+E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\JetBrains.Annotations.dll
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\MessagePack.dll
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\MessagePack.Annotations.dll
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\System.Web.Mvc.dll
@@ -42,7 +42,6 @@ E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\Microsoft.Di
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\Microsoft.DotNet.Scaffolding.Shared.dll
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\Microsoft.EntityFrameworkCore.dll
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Abstractions.dll
-E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Design.dll
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Relational.dll
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\Microsoft.EntityFrameworkCore.SqlServer.dll
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.Caching.Memory.dll
@@ -91,6 +90,8 @@ E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\System.Runti
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\System.Security.Permissions.dll
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\System.Windows.Extensions.dll
+E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\X.PagedList.dll
+E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\X.PagedList.Mvc.Core.dll
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\cs\Microsoft.CodeAnalysis.resources.dll
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\de\Microsoft.CodeAnalysis.resources.dll
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\es\Microsoft.CodeAnalysis.resources.dll
@@ -259,3 +260,4 @@ E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\runtimes\win
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+E:\NET\BanHangOnline\WebBanHangOnline\obj\Release\net6.0\PubTmp\Out\WebBanHangOnline.deps.json

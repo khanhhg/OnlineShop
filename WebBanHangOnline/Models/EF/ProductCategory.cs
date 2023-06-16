@@ -6,11 +6,7 @@ namespace WebBanHangOnline.Models.EF
 {
     [Table("tb_ProductCategory")]
     public class ProductCategory : CommonAbstract
-    {
-        public ProductCategory()
-        {
-            this.Products = new HashSet<Product>();
-        }
+    {       
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int ProductCategoryId { get; set; }

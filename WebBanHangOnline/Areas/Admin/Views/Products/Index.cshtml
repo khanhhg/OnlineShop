@@ -4,7 +4,7 @@
 @using X.PagedList;
 @using X.PagedList.Mvc.Core;
 @{
-    ViewData["Title"] = "Products";
+    ViewData["Title"] = " List Product";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -78,14 +78,15 @@
                 <tbody>
                     @if (Model != null && Model.Any())
                     {
-                        var i = ((ViewBag.Page - 1) * ViewBag.PageSize) + 1;
+                         var i = ((ViewBag.Page - 1) * ViewBag.PageSize) + 1;
+                     
                         foreach (var item in Model)
                         {
                             var strCheck = item.IsActive == true ? "<i class='fa fa-check text-success'></i>" : "<i class='fas fa-times text-danger'></i>";
                             var strCheckHome = item.IsHome ==true? "<i class='fa fa-check text-success'></i>" : "<i class='fas fa-times text-danger'></i>";
                             var strCheckSale = item.IsSale==true? "<i class='fa fa-check text-success'></i>" : "<i class='fas fa-times text-danger'></i>";
                             var strImg = "";
-                            var CheckImage = item.ProductImage.Where(x => x.IsDefault == true).FirstOrDefault();
+                            var CheckImage = item.ProductImages.Where(x => x.IsDefault == true).FirstOrDefault();
                             if (CheckImage != null)
                             {
                                 strImg = CheckImage.Image;
@@ -95,7 +96,7 @@
                         <td>@i</td>
                                 <td><img class="imgproduct" data-id="@item.ProductId" src="@strImg" width="50" /></td>
                         <td>@item.Title</td>
-                        <td>@item.ProductCategory.Title</td>
+                        <td>@item.ProductCategory.Title</td>                    
                         <td>@item.Quantity</td>
                         <td>@WebBanHangOnline.Common.Common.FormatNumber(item.Price, 0)</td>
                         <td>@item.CreatedDate?.ToString("dd/MM/yyyy")</td>
