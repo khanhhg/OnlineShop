@@ -19,7 +19,6 @@ namespace WebBanHangOnline.Data
         public DbSet<News> News { get; set; }
         public DbSet<Order> Order { get; set; }
         public DbSet<OrderDetail> OrderDetail { get; set; }
-        public DbSet<Posts> Posts { get; set; }
         public DbSet<Product> Product { get; set; }
         public DbSet<ProductCategory> ProductCategory { get; set; }
         public DbSet<ProductImage> ProductImage { get; set; }

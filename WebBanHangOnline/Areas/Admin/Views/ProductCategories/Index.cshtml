@@ -56,9 +56,10 @@
                     <tr>
                         <th><input type="checkbox" id="SelectAll" /></th>
                         <th>#</th>
+                        <th>Image</th>
                         <th>Title</th>
                         <th>Create Date</th>
-                        @*<th>Hiển thị</th>*@
+                       
 
                         <th style="width:150px;"></th>
                     </tr>
@@ -69,10 +70,11 @@
                         var i =  1;
                         foreach (var item in Model)
                         {
-                            //var strCheck = item.IsActive ? "<i class='fa fa-check text-success'></i>" : "<i class='fas fa-times text-danger'></i>";
+                           @* var strCheck = item.IsActive == true ? "<i class='fa fa-check text-success'></i>" : "<i class='fas fa-times text-danger'></i>";*@
                             <tr id="trow_@item.ProductCategoryId">
                                 <td><input type="checkbox" class="cbkItem" value="@item.ProductCategoryId" /></td>
                                 <td>@i</td>
+                                <td><img src="/images/ProductCategory/@item.Icon" width="50" /></td>
                                 <td>@item.Title</td>
                                 <td>@item.CreatedDate?.ToString("dd/MM/yyyy")</td>
                                 @*<td class="text-center">

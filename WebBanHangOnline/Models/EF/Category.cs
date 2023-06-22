@@ -10,8 +10,7 @@ namespace WebBanHangOnline.Models.EF
     {
         public Category()
         {
-            this.News = new HashSet<News>();
-            this.Posts = new HashSet<Posts>();
+            
         }
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
@@ -35,7 +34,5 @@ namespace WebBanHangOnline.Models.EF
 
         [Range(0, int.MaxValue, ErrorMessage = "Please enter valid integer Number")]
         public int? Position { get; set; }
-        public ICollection<News> News { get; set; }
-        public ICollection<Posts> Posts { get; set; }
     }
 }

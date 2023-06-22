@@ -11,7 +11,7 @@ namespace WebBanHangOnline.Models.EF
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int NewsId { get; set; }
-        [Required(ErrorMessage = "Title can't be emptyn")]
+        [Required(ErrorMessage = "Title can't be empty")]
         [StringLength(150)]
         public string Title { get; set; }
         public string? Alias { get; set; }
@@ -22,7 +22,6 @@ namespace WebBanHangOnline.Models.EF
         public string? SeoTitle { get; set; }
         public string? SeoDescription { get; set; }
         public string? SeoKeywords { get; set; }
-        public bool? IsActive { get; set; }
-        public Category Category { get; set; }
+        public bool IsActive { get; set; }
     }
 }

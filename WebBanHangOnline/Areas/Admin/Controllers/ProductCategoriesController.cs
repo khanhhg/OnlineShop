@@ -71,7 +71,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 if (fileImage.FileName != null)
                 {
                    
-                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Files");
+                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\ProductCategory");
                     FileInfo fileInfo = new FileInfo(fileImage.FileName);
                    
                     if(fileInfo.Extension ==".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")
@@ -130,6 +130,8 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             {
                 return NotFound();
             }
+            ModelState.ClearValidationState("Products");
+            ModelState.MarkFieldValid("Products");
             ModelState.ClearValidationState("fileImage");
             ModelState.MarkFieldValid("fileImage");
             if (ModelState.IsValid)
@@ -139,7 +141,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                     if (fileImage != null)
                     {
 
-                        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Files");
+                        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\ProductCategory");
                         FileInfo fileInfo = new FileInfo(fileImage.FileName);
 
                         if (fileInfo.Extension == ".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")

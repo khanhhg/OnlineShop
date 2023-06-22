@@ -21,7 +21,7 @@
 	<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/main_styles.css">
 	<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/single_responsive.css">
 	<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/single_styles.css">
-
+   
 </head>
 
 
@@ -33,7 +33,9 @@
         <button class="btn btn-warning" name="submit" value="Warning">Toast Warning</button>
     </div>
 </form>
+
 *@
+
 <body>
     <div class="super_container">
 
@@ -106,8 +108,9 @@
                              @*   @Html.Action("MenuTop", "Menu")*@
 
                                 <!-- Main Menu -->
-                                <div id="PartialMenuTop"></div>
                                
+                                <div id="PartialMenuTop"></div>
+                                                         
                                 <ul class="navbar_user">
                                     <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
@@ -181,10 +184,11 @@
 
         <!-- Newsletter -->
       @*  @Html.Action("Partial_Subcrice", "Home")*@
-        <partial name="_PartialSubscribe" />
+      @*  <partial name="_PartialSubscribe" />*@
        @* <div id="PartialSubscribe"></div>*@
+       @* <div id="PartialHomeSubscribe"></div>*@
         <!-- Footer -->
-
+        <div id="PartialHomeSubscribe"></div>
         <footer class="footer">
             <div class="container">
                 <div class="row">
@@ -239,9 +243,9 @@
 	<script src="~/js/jquery.validate.min.js"></script>
 	<script src="~/js/jquery.validate.unobtrusive.min.js"></script>
 	<script src="~/js/jquery.unobtrusive-ajax.min.js"></script>	
-	<script src="~/js/jsLayout.js"></script>
-    @*<script src="~/js/jsShopping.js"></script>*@
 
+    @*<script src="~/js/jsShopping.js"></script>*@
+ 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

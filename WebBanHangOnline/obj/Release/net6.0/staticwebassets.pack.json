@@ -9153,6 +9153,18 @@
       "PackagePath": "staticwebassets\\Files\\346150422_1045914723052777_4776364427522638362_n.jpg.jpg"
     },
     {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Files\\News\\blog_1.jpg",
+      "PackagePath": "staticwebassets\\Files\\News\\blog_1.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Files\\News\\blog_2.jpg",
+      "PackagePath": "staticwebassets\\Files\\News\\blog_2.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Files\\News\\blog_3.jpg",
+      "PackagePath": "staticwebassets\\Files\\News\\blog_3.jpg"
+    },
+    {
       "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Files\\banner_1.jpg",
       "PackagePath": "staticwebassets\\Files\\banner_1.jpg"
     },
@@ -9189,6 +9201,10 @@
       "PackagePath": "staticwebassets\\Files\\single_3_thumb.jpg"
     },
     {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\css\\NewsStyle.css",
+      "PackagePath": "staticwebassets\\css\\NewsStyle.css"
+    },
+    {
       "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\css\\PagedList.css",
       "PackagePath": "staticwebassets\\css\\PagedList.css"
     },
@@ -9199,6 +9215,30 @@
     {
       "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\News\\blog_1.jpg",
+      "PackagePath": "staticwebassets\\images\\News\\blog_1.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\News\\blog_2.jpg",
+      "PackagePath": "staticwebassets\\images\\News\\blog_2.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\News\\blog_3.jpg",
+      "PackagePath": "staticwebassets\\images\\News\\blog_3.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\ProductCategory\\banner_1.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductCategory\\banner_1.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\ProductCategory\\banner_2.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductCategory\\banner_2.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\ProductCategory\\banner_3.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductCategory\\banner_3.jpg"
     },
     {
       "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\banner_1.jpg",

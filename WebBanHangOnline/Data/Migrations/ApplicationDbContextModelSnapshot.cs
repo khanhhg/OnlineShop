@@ -17,7 +17,7 @@ namespace WebBanHangOnline.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.16")
+                .HasAnnotation("ProductVersion", "6.0.18")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -401,9 +401,6 @@ namespace WebBanHangOnline.Data.Migrations
                     b.Property<string>("Alias")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
@@ -419,7 +416,7 @@ namespace WebBanHangOnline.Data.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("IsActive")
+                    b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModifiedDate")
@@ -443,8 +440,6 @@ namespace WebBanHangOnline.Data.Migrations
                         .HasColumnType("nvarchar(150)");
 
                     b.HasKey("NewsId");
-
-                    b.HasIndex("CategoryId");
 
                     b.ToTable("tb_News");
                 });
@@ -529,70 +524,6 @@ namespace WebBanHangOnline.Data.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("tb_OrderDetail");
-                });
-
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.Posts", b =>
-                {
-                    b.Property<int>("PostsId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PostsId"), 1L, 1);
-
-                    b.Property<string>("Alias")
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Detail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Image")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<bool?>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Modifiedby")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SeoDescription")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<string>("SeoKeywords")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<string>("SeoTitle")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.HasKey("PostsId");
-
-                    b.HasIndex("CategoryId");
-
-                    b.ToTable("tb_Posts");
                 });
 
             modelBuilder.Entity("WebBanHangOnline.Models.EF.Product", b =>
@@ -859,17 +790,6 @@ namespace WebBanHangOnline.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.News", b =>
-                {
-                    b.HasOne("WebBanHangOnline.Models.EF.Category", "Category")
-                        .WithMany("News")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
-                });
-
             modelBuilder.Entity("WebBanHangOnline.Models.EF.OrderDetail", b =>
                 {
                     b.HasOne("WebBanHangOnline.Models.EF.Order", "Order")
@@ -887,17 +807,6 @@ namespace WebBanHangOnline.Data.Migrations
                     b.Navigation("Order");
 
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.Posts", b =>
-                {
-                    b.HasOne("WebBanHangOnline.Models.EF.Category", "Category")
-                        .WithMany("Posts")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("WebBanHangOnline.Models.EF.Product", b =>
@@ -920,13 +829,6 @@ namespace WebBanHangOnline.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.Category", b =>
-                {
-                    b.Navigation("News");
-
-                    b.Navigation("Posts");
                 });
 
             modelBuilder.Entity("WebBanHangOnline.Models.EF.Order", b =>

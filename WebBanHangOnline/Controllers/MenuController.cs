@@ -15,12 +15,16 @@ namespace WebBanHangOnline.Controllers
 		{
 			return View();
 		}
-
-		public IActionResult MenuTop()
+        public IActionResult HomeSubscribe()
+        {
+            return PartialView("_HomeSubscribe");
+        }
+        public IActionResult MenuTop()
 		{
 			var items = _context.Category.OrderBy(x => x.Position).ToList();
-			return PartialView("_MenuTop", items);
-		}
+            return PartialView("_MenuTop", items);
+          
+        }
 
 		public IActionResult MenuProductCategory()
 		{
@@ -53,5 +57,6 @@ namespace WebBanHangOnline.Controllers
             }
             return Json(new { success = false });
         }
+       
     }
 }
