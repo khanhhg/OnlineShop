@@ -82,7 +82,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                     if (fileImage.FileName != null)
                     {
                        
-                        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Files");
+                        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\products");
                         FileInfo fileInfo = new FileInfo(fileImage.FileName);
 
                         if (fileInfo.Extension == ".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")

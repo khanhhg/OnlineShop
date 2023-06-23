@@ -38,6 +38,7 @@
     <Folder Include="wwwroot\Files\ProductCategory\" />
     <Folder Include="wwwroot\Files\Products\" />
     <Folder Include="wwwroot\Files\News\" />
+    <Folder Include="wwwroot\images\Products\" />
   </ItemGroup>
 
 </Project>
