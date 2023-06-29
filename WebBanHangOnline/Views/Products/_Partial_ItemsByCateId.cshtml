@@ -1,7 +1,14 @@
 ﻿@model IEnumerable<WebBanHangOnline.Models.EF.Product>
+
+
 @if (Model != null && Model.Any())
 {
-    foreach (var item in Model)
+
+    <div class="row">
+        <div class="col">
+            <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+
+     @foreach (var item in Model)
     {
         <!-- Product 1 -->
         var strImge = "";
@@ -13,7 +20,7 @@
         <div class="product-item">
             <div class="product discount product_filter">
                 <div class="product_image">
-                    <img src="@strImge" alt="@item.Title">
+                    <img src="/images/products/@strImge" alt="@item.Title">
                 </div>
                 <div class="favorite favorite_left"></div>
                 @if (item.PriceSale > 0)
@@ -37,4 +44,12 @@
             <div class="red_button add_to_cart_button"><a href="#" class="btnAddToCart" data-id="@item.ProductId">add to cart</a></div>
         </div>
     }
+            </div>
+        </div>
+    </div>
 }
+
+  
+@*@section scripts{
+    <script src="~/Content/assets/js/categories_custom.js"></script>
+}*@

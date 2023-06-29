@@ -21,7 +21,25 @@
 	<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/main_styles.css">
 	<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/single_responsive.css">
 	<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/single_styles.css">
-   
+    <script src="~/Content/assets/js/jquery-3.2.1.min.js"></script>
+    <script src="~/Content/assets/styles/bootstrap4/popper.js"></script>
+    <script src="~/Content/assets/styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="~/Content/assets/js/categories_custom.js"></script>
+    <script src="~/Content/assets/plugins/Isotope/isotope.pkgd.min.js"></script>
+    <script src="~/Content/assets/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+    <script src="~/Content/assets/plugins/easing/easing.js"></script>
+    <script src="~/Content/assets/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <script src="~/Content/assets/js/custom.js"></script>
+    <script src="~/js/jquery.validate.min.js"></script>
+    <script src="~/js/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/js/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/js/jsLayout.js"></script>
+
+    @*<script src="~/js/jsShopping.js"></script>*@
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 </head>
 
 
@@ -232,23 +250,10 @@
 		<!-- Footer -->
 
 	
-	<script src="~/Content/assets/js/jquery-3.2.1.min.js"></script>
-	<script src="~/Content/assets/styles/bootstrap4/popper.js"></script>
-	<script src="~/Content/assets/styles/bootstrap4/bootstrap.min.js"></script>
-	<script src="~/Content/assets/plugins/Isotope/isotope.pkgd.min.js"></script>
-	<script src="~/Content/assets/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-	<script src="~/Content/assets/plugins/easing/easing.js"></script>
-	<script src="~/Content/assets/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
-	<script src="~/Content/assets/js/custom.js"></script>
-	<script src="~/js/jquery.validate.min.js"></script>
-	<script src="~/js/jquery.validate.unobtrusive.min.js"></script>
-	<script src="~/js/jquery.unobtrusive-ajax.min.js"></script>	
-    <script src="~/js/jsLayout.js"></script>
-    @*<script src="~/js/jsShopping.js"></script>*@
- 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+
+
+
+
     @await Component.InvokeAsync("Notyf")
 	@RenderSection("scripts", required:  false)
 

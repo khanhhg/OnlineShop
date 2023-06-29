@@ -54,14 +54,15 @@ namespace WebBanHangOnline.Controllers
 
         public ActionResult Partial_ItemsByCateId()
         {
-            var items = _context.Product.Where(x => x.IsHome && x.IsActive).Take(12).ToList();
-            return PartialView(items);
+            var items = _context.Product.Include(x => x.ProductImages).Include(x => x.ProductCategory).Take(12).ToList();
+            return PartialView("_Partial_ItemsByCateId", items);
         }
 
         public ActionResult Partial_ProductSales()
         {
-            var items = _context.Product.Where(x => x.IsSale && x.IsActive).Take(12).ToList();
-            return PartialView(items);
+            //var items = _context.Product.Where(x => x.IsSale && x.IsActive).Take(12).ToList();
+			var items = _context.Product.Include(x=>x.ProductImages).Include(x=>x.ProductCategory).Take(12).ToList();
+            return PartialView("_Partial_ProductSales", items);
         }
     }
 }

@@ -26,7 +26,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         public  IActionResult Index(int? page = 1)
         {
             
-            IEnumerable<Product> items =  _context.Product.Include(x=>x.ProductCategory).OrderByDescending(x => x.ProductId);
+            IEnumerable<Product> items =  _context.Product.Include(x=>x.ProductCategory).Include(x=>x.ProductImages).OrderByDescending(x => x.ProductId);
             var pageSize = 10;
             if (page == null)
             {
@@ -146,7 +146,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["ProductCategoryId"] = new SelectList(_context.ProductCategory, "ProductCategoryId", "Alias", product.ProductCategory.ProductCategoryId);
+            ViewBag.ProductCategory = new SelectList(_context.ProductCategory.ToList(), "ProductCategoryId", "Title");
             return View(product);
         }
 
@@ -155,19 +155,69 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,Title,Alias,ProductCode,Description,Detail,Image,OriginalPrice,Price,PriceSale,Quantity,ViewCount,IsHome,IsSale,IsFeature,IsHot,IsActive,ProductCategoryId,SeoTitle,SeoDescription,SeoKeywords,CreatedBy,CreatedDate,ModifiedDate,Modifiedby")] Product product)
+        public async Task<IActionResult> Edit(int id, Product product, ICollection<IFormFile> files)
         {
             if (id != product.ProductId)
             {
                 return NotFound();
             }
-
+            ModelState.ClearValidationState("ProductCategory");
+            ModelState.MarkFieldValid("ProductCategory");
+            ModelState.ClearValidationState("files");
+            ModelState.MarkFieldValid("files");
             if (ModelState.IsValid)
             {
                 try
                 {
+                    int countImage = 0;
+                    foreach (var fileImage in files)
+                    {
+                        if (fileImage.FileName != null)
+                        {
+
+                            string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\products");
+                            FileInfo fileInfo = new FileInfo(fileImage.FileName);
+
+                            if (fileInfo.Extension == ".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")
+                            {
+                                countImage++;
+                                if (!Directory.Exists(path))
+                                {
+                                    Directory.CreateDirectory(path);
+                                }
+                                string filename = fileImage.FileName;
+                                string fileNameWithPath = Path.Combine(path, filename);
+                                using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
+                                {
+                                    fileImage.CopyTo(stream);
+                                }
+                                if (countImage == 1)
+                                {
+                                    product.ProductImages.Add(new ProductImage
+                                    {
+                                        ProductId = product.ProductId,
+                                        Image = filename,
+                                        IsDefault = true
+                                    });
+                                    product.Image = filename;
+                                }
+                                else
+                                {
+                                    product.ProductImages.Add(new ProductImage
+                                    {
+                                        ProductId = product.ProductId,
+                                        Image = filename,
+                                        IsDefault = false
+                                    });
+                                }
+                            }
+                        }
+                    }
+                    product.Modifiedby = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                    product.ModifiedDate = DateTime.Now;
                     _context.Update(product);
-                    await _context.SaveChangesAsync();
+                    await _context.SaveChangesAsync();            
+                   
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -182,7 +232,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductCategoryId"] = new SelectList(_context.ProductCategory, "ProductCategoryId", "Alias", product.ProductCategory.ProductCategoryId);
+            ViewBag.ProductCategory = new SelectList(_context.ProductCategory.ToList(), "ProductCategoryId", "Title");
             return View(product);
         }
 

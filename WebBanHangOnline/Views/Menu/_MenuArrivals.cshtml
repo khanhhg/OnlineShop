@@ -22,11 +22,18 @@
             </div>
         </div>
     </div>
-   @* <div class="row">
+@*    <div class="row">
         <div class="col">
-            <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
-                @Html.Partial("Partial_ItemsByCateId", "Products")
+            <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>          
+              <div id="ItembyCateId"></div>
             </div>
         </div>
     </div>*@
+}
+@section scripts{
+   @* <script>
+        $('#ItembyCateId').load("/Products/Partial_ItemsByCateId")
+    </script>*@
+
+    <script src="~/Content/assets/js/categories_custom.js"></script>
 }

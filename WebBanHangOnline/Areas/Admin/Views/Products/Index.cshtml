@@ -4,7 +4,7 @@
 @using X.PagedList;
 @using X.PagedList.Mvc.Core;
 @{
-    ViewData["Title"] = " List Product";
+    ViewData["Title"] = "Products";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -94,7 +94,7 @@
                     <tr id="trow_@item.ProductId">
                                 <td><input type="checkbox" class="cbkItem" value="@item.ProductId" /></td>
                         <td>@i</td>
-                                <td><img class="imgproduct" data-id="@item.ProductId" src="@strImg" width="50" /></td>
+                                <td><img class="imgproduct" data-id="@item.ProductId" src="/images/products/@strImg" width="50" /></td>
                         <td>@item.Title</td>
                         <td>@item.ProductCategory.Title</td>                    
                         <td>@item.Quantity</td>
