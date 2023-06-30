@@ -1,9 +1,9 @@
 ﻿@model WebBanHangOnline.Models.EF.Product
-@{
+@*@{
     ViewBag.Title = Model.SeoTitle;
     ViewBag.SeoDescription = Model.SeoDescription ?? Model.Title;
     ViewBag.SeoKeyWord = Model.SeoKeywords ?? Model.Title;
-}
+}*@
 <link rel="stylesheet" type="text/css" href="~/Content/assets/styles/single_styles.css">
 <link rel="stylesheet" type="text/css" href="~/Content/assets/styles/single_responsive.css">
 @if (Model != null)
@@ -38,11 +38,11 @@
                                         {
                                             if (item.IsDefault ==true)
                                             {
-                                                <li class="active"><img src="@item.Image" alt="" data-image="@item.Image"></li>
+                                                <li class="active"><img src="/images/products/@item.Image" alt="" data-image="@item.Image"></li>
                                             }
                                             else
                                             {
-                                                <li><img src="@item.Image" alt="" data-image="@item.Image"></li>
+                                                <li ><img src="/images/products/@item.Image" alt="" data-image="@item.Image"></li>
                                             }
                                         }
                                     </ul>
@@ -50,7 +50,7 @@
                             </div>
                             <div class="col-lg-9 image_col order-lg-2 order-1">
                                 <div class="single_product_image">
-                                    <div class="single_product_image_background" style="background-image:url(@Model.ProductImages.FirstOrDefault().Image)"></div>
+                                    <div class="single_product_image_background" style="background-image:url(/images/products/@Model.ProductImages.FirstOrDefault().Image)"></div>
                                 </div>
                             </div>
                         </div>

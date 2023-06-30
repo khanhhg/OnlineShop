@@ -19,9 +19,17 @@ namespace WebBanHangOnline.Controllers
 			_toastNotification = toastNotification;
 		}
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-			return View();
+            HomeViewModel objHomeView = new HomeViewModel();
+			var itemSales = await _context.Product.Include(x => x.ProductImages).Include(x => x.ProductCategory).Take(12).ToListAsync();
+			var item_by_Category = await _context.Product.Include(x => x.ProductImages).Include(x => x.ProductCategory).Take(12).ToListAsync();
+            var CateroryArrivals = await _context.ProductCategory.ToListAsync();
+
+            objHomeView.CateroryArrivals = CateroryArrivals;
+            objHomeView.ProductSales = itemSales;
+			objHomeView.Product_ByCategory = item_by_Category;
+			return View(objHomeView);
         }
 
         public IActionResult Privacy()

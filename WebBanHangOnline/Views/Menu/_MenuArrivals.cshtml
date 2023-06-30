@@ -16,24 +16,10 @@
                     <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked" data-filter="*">all</li>
                     @foreach (var item in Model)
                     {
-                        <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".@item.Alias">@item.Title</li>
+                        <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".@item.Title">@item.Title</li>
                     }               
                 </ul>
             </div>
         </div>
     </div>
-@*    <div class="row">
-        <div class="col">
-            <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>          
-              <div id="ItembyCateId"></div>
-            </div>
-        </div>
-    </div>*@
-}
-@section scripts{
-   @* <script>
-        $('#ItembyCateId').load("/Products/Partial_ItemsByCateId")
-    </script>*@
-
-    <script src="~/Content/assets/js/categories_custom.js"></script>
 }
