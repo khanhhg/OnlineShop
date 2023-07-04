@@ -15,9 +15,9 @@ namespace WebBanHangOnline.Controllers
             _context = context;
             _toastNotification = toastNotification;
         }
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {          
-            var items = _context.Product.Include(x => x.ProductImages).OrderByDescending(x => x.ProductId).ToList();
+            var items = _context.Product.Where(x=> (id == 0 || x.ProductCategoryId == id)).Include(x => x.ProductImages).OrderByDescending(x => x.ProductId).ToList();
 
             return View(items);
         }

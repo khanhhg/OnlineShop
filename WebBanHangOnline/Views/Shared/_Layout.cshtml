@@ -14,11 +14,9 @@
 	<link rel="stylesheet" type="text/css" href="~/Content/assets/plugins/OwlCarousel2-2.2.1/animate.css">
 	<link rel="stylesheet" type="text/css" href="~/Content/assets/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/responsive.css">
-	<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/categories_responsive.css">
-	<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/categories_styles.css">
+	<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/categories_responsive.css">	
 	<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/contact_responsive.css">
 	<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/contact_styles.css">
-	<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/main_styles.css">
 	<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/single_responsive.css">
 	<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/single_styles.css">
     <script src="~/Content/assets/js/jquery-3.2.1.min.js"></script>
@@ -37,6 +35,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/jsShopping.js" asp-append-version="true"></script>
 </head>
 
 
@@ -130,7 +129,7 @@
                                     <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
                                     <li class="checkout">
-                                        <a href="/gio-hang">
+                                        <a href="/shoppingCart/index">
                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                             <span id="checkout_items" class="checkout_items">0</span>
                                         </a>
@@ -241,15 +240,7 @@
     </div>
 
 
-
-	
-
 		<!-- Footer -->
-
-	
-
-
-
 
     @await Component.InvokeAsync("Notyf")
 	@RenderSection("scripts", required:  false)

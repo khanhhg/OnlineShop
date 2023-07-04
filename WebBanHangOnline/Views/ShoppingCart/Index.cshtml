@@ -25,6 +25,7 @@
 
             <div class="row">
                 <div class="col-md-12" id="load_data">
+                    <div id="CartContent"></div>
                    @* @Html.Action("Partial_Item_Cart", "ShoppingCart")*@
                 </div>
                 <div class="col-md-12">
@@ -32,7 +33,7 @@
                     {
                         <div class="text-right">
                             <a href="#" class="btn btn-danger btnDeleteAll">Delete</a>
-                            <a href="/thanh-toan" class="btn btn-success">Checkout</a>
+                            <a href="/ShoppingCart/CheckOut" class="btn btn-success">Checkout</a>
                         </div>
                     }
 
@@ -43,5 +44,7 @@
 </div>
 
 @section scripts{
-    <script src="~/Content/assets/js/categories_custom.js"></script>
+    <script>
+        $('#CartContent').load("/ShoppingCart/Partial_Item_Cart")
+    </script>
 }

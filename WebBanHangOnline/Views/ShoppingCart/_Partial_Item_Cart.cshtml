@@ -23,9 +23,9 @@
             _totalPrice += item.TotalPrice;
             <tr class="text-center" id="trow_@item.ProductId">
                 <td>@(i + 1)</td>
-                <td><img src="@item.ProductImg" width="60" /></td>
+                <td><img src="/images/products/@item.ProductImg" width="60" /></td>
                 <td>
-                    <a href="/chi-tiet/@item.Alias-p@(item.ProductId)">
+                    <a href="/products/detail/@(item.ProductId)">
                         @item.ProductName
                     </a>
                 </td>

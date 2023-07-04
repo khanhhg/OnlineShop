@@ -3,7 +3,8 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/categories_styles.css">
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/main_styles.css">
 <!-- Slider -->
 <div class="main_slider" style="background-image:url(images/slider_1.jpg)">
 	<div class="container fill_height">
@@ -97,7 +98,7 @@
 										}
 									</div>
 								</div>
-								<div class="red_button add_to_cart_button"><a href="#" class="btnAddToCart" data-id="@item.ProductId">add to cart</a></div>
+								<div class="red_button add_to_cart_button"><a class="btnAddToCart" data-id="@item.ProductId">add to cart</a></div>
 							</div>
 						}
 					</div>
@@ -204,7 +205,7 @@
 												}
 											</div>
 										</div>
-										<div class="red_button add_to_cart_button"><a href="#" class="btnAddToCart" data-id="@item.ProductId">add to cart</a></div>
+										<div class="red_button add_to_cart_button"><a class="btnAddToCart" data-id="@item.ProductId">add to cart</a></div>
 									</div>
 								</div>
 
@@ -323,6 +324,4 @@
 		$('#PartialProductCategory').load("/Menu/MenuProductCategory")		
 		$('#new_content').load("/News/Partial_News_Home")			
 	</script>
-
-			
 }
