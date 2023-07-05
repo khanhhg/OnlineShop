@@ -13,8 +13,8 @@
             type: 'POST',
             data: { id: id, quantity: quantity },
             success: function (rs) {
-                if (rs.Success) {
-                    $('#checkout_items').html(rs.Count);
+                if (rs.success == true) {
+                    $('#checkout_items').html(rs.count);
                     alert(rs.msg);
                 }
             }
@@ -29,7 +29,7 @@
     });
     $('body').on('click', '.btnDeleteAll', function (e) {
         e.preventDefault();
-        var conf = confirm('Bạn có chắc muốn xóa hết sản phẩm trong giỏ hàng?');
+        var conf = confirm('Are you sure you want to delete all the products in your cart?');
         //debugger;
         if (conf == true) {
             DeleteAll();
@@ -40,15 +40,15 @@
     $('body').on('click', '.btnDelete', function (e) {
         e.preventDefault();
         var id = $(this).data('id');
-        var conf = confirm('Bạn có chắc muốn xóa sản phẩm này khỏi giỏ hàng?');
+        var conf = confirm('Are you sure you want to remove this product from the cart ? ');
         if (conf == true) {
             $.ajax({
                 url: '/shoppingcart/Delete',
                 type: 'POST',
                 data: { id: id },
                 success: function (rs) {
-                    if (rs.Success) {
-                        $('#checkout_items').html(rs.Count);
+                    if (rs.success == true) {
+                        $('#checkout_items').html(rs.count);
                         $('#trow_' + id).remove();
                         LoadCart();
                     }
@@ -66,7 +66,7 @@ function ShowCount() {
         url: '/shoppingcart/ShowCount',
         type: 'GET',
         success: function (rs) {
-            $('#checkout_items').html(rs.Count);
+            $('#checkout_items').html(rs.count);
         }
     });
 }
@@ -75,7 +75,7 @@ function DeleteAll() {
         url: '/shoppingcart/DeleteAll',
         type: 'POST',
         success: function (rs) {
-            if (rs.Success) {
+            if (rs.success ==true) {
                 LoadCart();
             }
         }
@@ -87,7 +87,7 @@ function Update(id,quantity) {
         type: 'POST',
         data: { id: id, quantity: quantity },
         success: function (rs) {
-            if (rs.Success) {
+            if (rs.success == true) {
                 LoadCart();
             }
         }

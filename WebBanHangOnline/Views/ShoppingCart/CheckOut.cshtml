@@ -1,8 +1,6 @@
 ﻿@{
     ViewBag.Title = "Checkout";
 }
-
-
 <style>
     .error {
         color: red;
@@ -41,17 +39,18 @@
                     <div id="show_success"></div>
                     <div class="col-md-9">
                        @* @Html.Action("Partial_CheckOut", "Shoppingcart")*@
+                        <div id="Content_Partial_CheckOut"></div>
                     </div>
                     <div class="col-md-3">
                        @* @Html.Action("Partial_Item_ThanhToan", "ShoppingCart")*@
-
+                        <div id="Content_Partial_Item"></div>
                     </div>
                 </div>
             }
             else
             {
                 <div>
-                    Bạn chưa có sản phẩm nào. Vui long quay lại trang <a href="/san-pham">sản phẩm</a> để mua hàng.
+                    <a href="/Products/index"> You don't have any products yet. Please return to the page shop to purchase.</a>
                 </div>
             }
         </div>
@@ -59,37 +58,41 @@
 </div>
 
 @section scripts{
-    <script src="~/Content/assets/js/categories_custom.js"></script>
+  @*  <script src="~/Content/assets/js/categories_custom.js"></script>*@
+
     <script>
-        function Ònailure(rs) {
-            if (!rs.Success) {
-                $('#show_success').html("Bạn mua hàng thất bại! Xin vui lòng thử lại");
-            }
-        }
-        $(document).ready(function () {
-            $('#myForm').validate({
-                rules: {
-                    'CustomerName': {
-                        required: true
-                    },
-                    'Phone': {
-                        required: true
-                    },
-                    'Address': {
-                        required: true
-                    },
-                    'Email': {
-                        required: true,
-                        email: true
-                    }
-                },
-                messages: {
-                    'CustomerName': 'Bạn khổng để trống trường này',
-                    'Phone': 'Bạn khổng để trống trường này',
-                    'Address': 'Bạn khổng để trống trường này',
-                    'Email': 'Email chưa hợp lệ'
-                }
-            });
-        });
+        $('#Content_Partial_CheckOut').load("/ShoppingCart/Partial_CheckOut")
+        $('#Content_Partial_Item').load("/ShoppingCart/Partial_Item_CheckOut")
+
+        //function Onfailure(rs) {
+        //    if (!rs.Success) {
+        //        $('#show_success').html("Bạn mua hàng thất bại! Xin vui lòng thử lại");
+        //    }
+        //}
+        //$(document).ready(function () {
+        //    $('#myForm').validate({
+        //        rules: {
+        //            'CustomerName': {
+        //                required: true
+        //            },
+        //            'Phone': {
+        //                required: true
+        //            },
+        //            'Address': {
+        //                required: true
+        //            },
+        //            'Email': {
+        //                required: true,
+        //                email: true
+        //            }
+        //        },
+        //        messages: {
+        //            'CustomerName': 'Bạn khổng để trống trường này',
+        //            'Phone': 'Bạn khổng để trống trường này',
+        //            'Address': 'Bạn khổng để trống trường này',
+        //            'Email': 'Email chưa hợp lệ'
+        //        }
+        //    });
+        //});
     </script>
 }

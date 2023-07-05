@@ -21,8 +21,14 @@ namespace WebBanHangOnline.Controllers
 
             return View(items);
         }
+		public ActionResult Promotion(int id)
+		{
+			var items = _context.Product.Where(x => (id == 0 || x.ProductCategoryId == id) && x.IsSale ==true).Include(x => x.ProductImages).OrderByDescending(x => x.ProductId).ToList();
 
-        public ActionResult Detail(int id)
+			return View(items);
+		}
+
+		public ActionResult Detail(int id)
         {
             var item = _context.Product.Where(x=>x.ProductId ==id).Include(x=>x.ProductCategory).Include(x => x.ProductImages).FirstOrDefault();
             if (item != null)
@@ -61,7 +67,7 @@ namespace WebBanHangOnline.Controllers
         public async Task<IActionResult> Partial_ProductSales()
         {
             //var items = _context.Product.Where(x => x.IsSale && x.IsActive).Take(12).ToList();
-			var items = await _context.Product.Include(x=>x.ProductImages).Include(x=>x.ProductCategory).Take(12).ToListAsync();
+			var items = await _context.Product.Where(x=>x.IsSale ==true).Include(x=>x.ProductImages).Include(x=>x.ProductCategory).Take(12).ToListAsync();
             return PartialView("_Partial_ProductSales", items);
         }
     }

@@ -39,8 +39,8 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             return View(items);
         }
 
-        // GET: Admin/Products/Details/5
-        public async Task<IActionResult> Details(int? id)
+		// GET: Admin/Products/Details/5
+		public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Product == null)
             {
