@@ -1,7 +1,15 @@
-﻿using Microsoft.AspNetCore.Connections;
+﻿//using Microsoft.AspNetCore.Connections;
+//using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+//using Microsoft.EntityFrameworkCore;
+//using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
+//using System.Diagnostics;
+//using System.Linq.Expressions;
+//using WebBanHangOnline.Models.EF;
+
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System.Diagnostics;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
+using System.Linq.Expressions;
 using WebBanHangOnline.Models.EF;
 
 namespace WebBanHangOnline.Data
@@ -33,7 +41,6 @@ namespace WebBanHangOnline.Data
                     .UseLazyLoadingProxies()
                     .UseSqlServer("Server=DESKTOP-I94G0UB\\SQLEXPRESS;Database=OnlineShop;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True");
             }
-
-        }     
+        }
     }
 }

@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using NuGet.Packaging;
 using WebBanHangOnline.Data;
 using WebBanHangOnline.Models.EF;
+using X.PagedList;
 
 namespace WebBanHangOnline.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Administrator")]
     public class ProductCategoriesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -23,11 +24,23 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         }
 
         // GET: Admin/ProductCategories
-        public async Task<IActionResult> Index()
+        public IActionResult Index(string Searchtext, int? page = 1)
         {
-              return _context.ProductCategory != null ? 
-                          View(await _context.ProductCategory.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.ProductCategory'  is null.");
+            IEnumerable<ProductCategory> items = _context.ProductCategory.OrderByDescending(x => x.ProductCategoryId);
+            var pageSize = 10;
+            if (page == null)
+            {
+                page = 1;
+            }
+            if (!string.IsNullOrEmpty(Searchtext))
+            {
+                items = items.Where(x => x.Title.Contains(Searchtext));
+            }
+            var pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+            items = items.ToPagedList(pageIndex, pageSize);
+            ViewBag.PageSize = pageSize;
+            ViewBag.Page = page;
+            return View(items);
         }
 
         // GET: Admin/ProductCategories/Details/5
@@ -65,9 +78,6 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             ModelState.MarkFieldValid("Products");
             if (ModelState.IsValid)
             {
-                //_context.Add(productCategory);
-                //await _context.SaveChangesAsync();
-                //return RedirectToAction(nameof(Index));
                 if (fileImage.FileName != null)
                 {
                    
@@ -180,41 +190,57 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             return View(productCategory);
         }
 
-        // GET: Admin/ProductCategories/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        [HttpPost]
+        public ActionResult Delete(int id)
         {
-            if (id == null || _context.ProductCategory == null)
+            var item = _context.ProductCategory.Find(id);
+            if (item != null )
             {
-                return NotFound();
+                // Check product in Product Category
+                var productItem = _context.Product.Find(item.ProductCategoryId);
+                if (productItem == null)
+                {
+                    _context.ProductCategory.Remove(item);
+                    _context.SaveChanges();
+                    return Json(new { success = true });
+                }
+                else
+                {
+                    return Json(new { success = false });
+                }            
             }
 
-            var productCategory = await _context.ProductCategory
-                .FirstOrDefaultAsync(m => m.ProductCategoryId == id);
-            if (productCategory == null)
-            {
-                return NotFound();
-            }
-
-            return View(productCategory);
+            return Json(new { success = false });
         }
 
-        // POST: Admin/ProductCategories/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+      
+        [HttpPost]
+        public ActionResult DeleteAll(string ids)
         {
-            if (_context.ProductCategory == null)
+            if (!string.IsNullOrEmpty(ids))
             {
-                return Problem("Entity set 'ApplicationDbContext.ProductCategory'  is null.");
+                var items = ids.Split(',');
+                if (items != null && items.Any())
+                {
+                    foreach (var item in items)
+                    {
+                        var obj = _context.ProductCategory.Find(Convert.ToInt32(item));
+                        if (obj != null)
+                        {
+                            // Check product in Product Category
+                            var productItem = _context.Product.Find(obj.ProductCategoryId);
+                            if (productItem == null)
+                            {
+                                _context.ProductCategory.Remove(obj);
+                                _context.SaveChanges();
+                               
+                            }                           
+                        }                                             
+                    }
+                }
+                return Json(new { success = true });
             }
-            var productCategory = await _context.ProductCategory.FindAsync(id);
-            if (productCategory != null)
-            {
-                _context.ProductCategory.Remove(productCategory);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return Json(new { success = false });
         }
 
         private bool ProductCategoryExists(int id)

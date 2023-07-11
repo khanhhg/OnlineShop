@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebBanHangOnline.Data;
 using WebBanHangOnline.Models.EF;
+using X.PagedList;
 
 namespace WebBanHangOnline.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Administrator")]
     public class CategoriesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -22,11 +26,23 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         }
 
         // GET: Admin/Categories
-        public async Task<IActionResult> Index()
+        public IActionResult Index(string Searchtext, int? page = 1)
         {
-              return _context.Category != null ? 
-                          View(await _context.Category.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Category'  is null.");
+            IEnumerable<Category> items = _context.Category.OrderByDescending(x => x.Position);
+            var pageSize = 10;
+            if (page == null)
+            {
+                page = 1;
+            }
+            if (!string.IsNullOrEmpty(Searchtext))
+            {
+                items = items.Where(x => x.Title.Contains(Searchtext));
+            }
+            var pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+            items = items.ToPagedList(pageIndex, pageSize);
+            ViewBag.PageSize = pageSize;
+            ViewBag.Page = page;
+            return View(items);
         }
 
         // GET: Admin/Categories/Details/5
@@ -128,44 +144,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             }
             return View(category);
         }
-
-        // GET: Admin/Categories/Delete/5
-        //public async Task<IActionResult> Delete(int? id)
-        //{
-        //    if (id == null || _context.Category == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var category = await _context.Category
-        //        .FirstOrDefaultAsync(m => m.CategoryId == id);
-        //    if (category == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(category);
-        //}
-
-        // POST: Admin/Categories/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> DeleteConfirmed(int id)
-        //{
-        //    if (_context.Category == null)
-        //    {
-        //        return Problem("Entity set 'ApplicationDbContext.Category'  is null.");
-        //    }
-        //    var category = await _context.Category.FindAsync(id);
-        //    if (category != null)
-        //    {
-        //        _context.Category.Remove(category);
-        //    }
-
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction(nameof(Index));
-        //}
-
+      
         [HttpPost]
         public ActionResult Delete(int id)
         {

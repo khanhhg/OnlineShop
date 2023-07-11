@@ -1,5 +1,6 @@
-﻿@model IEnumerable<WebBanHangOnline.Models.EF.Category>
-
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@model X.PagedList.PagedList<WebBanHangOnline.Models.EF.Category>
 @{
     ViewData["Title"] = "Category";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -49,6 +50,19 @@
             </div>
         </div>
         <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    @using (Html.BeginForm("index", "Categories", FormMethod.Get, new { }))
+                    {
+                        <div class="input-group input-group-sm">
+                            @Html.TextBox("Searchtext",null, new { @class = "form-control" })
+                            <span class="input-group-append">
+                                <button type="submit" class="btn btn-info btn-flat">Search</button>
+                            </span>
+                        </div>
+                    }
+                </div>
+            </div>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -92,7 +106,12 @@
                     }
                 </tbody>
             </table>
-
+            <div class="row">
+                <div class="col-6"></div>
+                <div class="col-6" style="text-align:right;">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                </div>
+            </div>
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
@@ -119,10 +138,10 @@
                         data: {id:CategoryId},
                         success: function (response) {
                             if (response.success) {
-                                //$('#trow_' + id).remove();
-                                alert("Xoa thanh cong");
+                                $('#trow_' + id).remove();
+                                alert("delete success");
                             }else{
-                                alert("Xoa that bai");
+                                alert("Delete error");
                             }
                         }
                     });

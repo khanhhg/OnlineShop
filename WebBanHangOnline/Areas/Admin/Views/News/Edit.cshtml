@@ -77,7 +77,7 @@
                         </div>
                         <div class="form-group">
                                 <label for="Detail">Detail</label>
-                            @Html.TextAreaFor(x => x.Detail, new { @class = "form-control", @id = "txtDetail" })
+                                @Html.TextAreaFor(x => x.Detail, new { @class = "form-control", @id = "txtDetail" })
                         </div>
                         <div class="form-group">
                                 <label for="IsActive">Active</label>
@@ -119,15 +119,21 @@
 </section>
 <!-- /.content -->
 
-@section  scripts{
+@section Scripts{
     <script>
-        $(document).ready(function () {
-            CKEDITOR.replace('txtDetail', {
-                customConfig: '/content/ckeditor/config.js',
-                extraAllowedContent: 'span',
+        tinymce.init({
+            selector: 'textarea#txtDetail',
+            height: 300,
+            plugins: [
+                'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview',
+                'anchor', 'pagebreak',
+                'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code',
+                'fullscreen', 'insertdatetime',
+                'media', 'table', 'emoticons', 'template', 'help'
+            ],
+            toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
+                'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
+                'forecolor backcolor emoticons | help',
             });
-        });
-        
-
     </script>
-}
+ }

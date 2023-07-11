@@ -19,9 +19,9 @@
                         <div class="blog_item">
                             <div class="blog_background" style="background-image:url(/images/news/@item.Image)"></div>
                             <div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
-                                <h4 class="blog_title">@item.Title</h4>
+                                <h5 class="blog_title">@item.Title</h5>
                                 <span class="blog_meta">by @item.CreatedBy | @item.CreatedDate?.ToString("MMM dd,yyyy")</span>
-                                <a class="blog_more" href="#">Read more</a>
+                                <a class="blog_more" href="/News/Detail/@item.NewsId">Read more</a>
                             </div>
                         </div>
                     </div>

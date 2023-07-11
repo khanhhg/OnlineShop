@@ -4,13 +4,9 @@
 @using X.PagedList;
 @using X.PagedList.Mvc.Core;
 @{
-    ViewData["Title"] = "Products";
+    ViewData["Title"] = "Product";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
-
-
-
 @section naviheader{
     <!-- Left navbar links -->
     <ul class="navbar-nav">
@@ -56,7 +52,20 @@
                 <a href="#" class="btn btn-danger" id="BtnDeleteAll">Delete</a>
             </div>
         </div>
-        <div class="card-body">          
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    @using (Html.BeginForm("index", "products", FormMethod.Get, new { }))
+                    {
+                        <div class="input-group input-group-sm">
+                            @Html.TextBox("Searchtext",null, new { @class = "form-control" })
+                            <span class="input-group-append">
+                                <button type="submit" class="btn btn-info btn-flat">Search</button>
+                            </span>
+                        </div>
+                    }
+                </div>
+            </div>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -145,33 +154,9 @@
 
 </section>
 <!-- /.content -->
-<div id="dialog">
-    <iframe id="myIframe" style="border: 0; width: 100%; height: 100%;"></iframe>
-</div>
 @section scripts{
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <script>
         $(document).ready(function () {
-            //hiển thị form upload ảnh
-            $("#dialog").dialog({
-                autoOpen: false,
-                show: "fade",
-                hide: "fade",
-                modal: true,
-                height: '600',
-                width: '700',
-                resizable: true,
-                title: 'Quản lý ảnh sản phẩm',
-                close: function () {
-                    window.location.reload();
-                }
-            });
-            $('body').on("click", ".imgproduct", function () {
-                var proid = $(this).attr("data-id");
-                $("#dialog #myIframe").attr("src", "/admin/ProductImage/Index?id=" + proid);
-                $('#dialog').dialog('open');
-                return false;
-            });
             $('body').on('click', '#BtnDeleteAll', function (e) {
                 e.preventDefault();
                 var str = "";
@@ -191,10 +176,10 @@
                     }
                 });
                 if (str.length > 0) {
-                    var conf = confirm('Bạn có muốn xóa các bản ghi này hay không?');
+                    var conf = confirm('Do you want to delete all this record?');
                     if (conf === true) {
                         $.ajax({
-                            url: '/admin/news/deleteAll',
+                            url: '/admin/Products/deleteAll',
                             type: 'POST',
                             data: { ids: str },
                             success: function (rs) {
@@ -221,7 +206,7 @@
             });
             $('body').on('click', '.btnDelete', function () {
                 var id = $(this).data("id");
-                var conf = confirm('Bạn có muốn xóa bản ghi này không?');
+                var conf = confirm('Do you want to delete this record?');
                 if (conf === true) {
                     $.ajax({
                         url: '/admin/Products/delete',
@@ -245,7 +230,7 @@
                     data: { id: id },
                     success: function (rs) {
                         if (rs.success) {
-                            if (rs.IsHome) {
+                            if (rs.isHome) {
                                 btn.html("<i class='fa fa-check text-success'></i>");
                                 //$(this).find("i").removeClass("fas fa-times text-danger")
                                 //$(this).find("i").addClass("fa fa-check text-success");
@@ -268,7 +253,7 @@
                     data: { id: id },
                     success: function (rs) {
                         if (rs.success) {
-                            if (rs.IsSale) {
+                            if (rs.isSale) {
                                 btn.html("<i class='fa fa-check text-success'></i>");
                                 //$(this).find("i").removeClass("fas fa-times text-danger")
                                 //$(this).find("i").addClass("fa fa-check text-success");

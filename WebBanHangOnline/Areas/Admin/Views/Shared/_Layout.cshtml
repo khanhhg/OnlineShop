@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hệ thống quản lý</title>
+    <title>Management system</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -160,7 +160,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="~/Content/clients/index3.html" class="brand-link">
+            <a href="~/home" class="brand-link">
                 <img src="~/Content/clients/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Online Shop</span>
             </a>
@@ -214,6 +214,8 @@
     <!-- AdminLTE App -->
     <script src="~/Content/clients/dist/js/adminlte.min.js"></script>
     <script src="~/js/autoNumeric-1.9.45.js"></script>
+    <script src="~/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+
     <!-- AdminLTE for demo purposes -->
     @*<script src="~/Content/clients/dist/js/demo.js"></script>*@
     <!-- Page specific script -->
@@ -277,8 +279,6 @@
         });
 
     </script>
-    <script src="~/Content/ckeditor/ckeditor.js"></script>
-    <script src="~/Content/ckfinder/ckfinder.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

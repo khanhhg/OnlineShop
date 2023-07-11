@@ -59,36 +59,37 @@
                     <!-- your steps content here -->
                 <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
                     <div class="form-group">
-                            <label for="Title">Title</label>
+                            <label>Title</label>
                             @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "Title" })
                         @Html.ValidationMessageFor(x => x.Title, null, new { @class = "text-danger" })
                     </div>
                         <div class="form-group">
-                            <label for="Image">Avatar</label>
+                            <label>Avatar</label>
                             <input type="file" name="fileAvatar" class="form-control" />
                         </div>
                     <div class="form-group">
-                            <label for="Description">Description</label>
-                        @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+                            <label>Description</label>
+                            @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+                           
                     </div>
                     <div class="form-group">
-                            <label for="Detail">Detail</label>
-                        @Html.TextAreaFor(x => x.Detail, new { @class = "form-control", @id = "txtDetail" })
+                            <label>Detail</label>
+                            @Html.TextAreaFor(x => x.Detail, new { @class = "form-control" , @id = "txtDetail"})
                     </div>
                     <div class="form-group">
-                            <label for="IsActive">Active</label>
+                            <label>Active</label>
                         @Html.CheckBoxFor(x => x.IsActive,new { @checked= "@checked" })
                     </div>
                     <div class="form-group">
-                            <label for="SeoTitle">Seo title</label>
+                            <label >Seo title</label>
                         @Html.TextAreaFor(x => x.SeoTitle, new { @class = "form-control" })
                     </div>
                     <div class="form-group">
-                            <label for="SeoDescription">SeoDescription</label>
+                            <label >SeoDescription</label>
                         @Html.TextAreaFor(x => x.SeoDescription, new { @class = "form-control" })
                     </div>
                     <div class="form-group">
-                            <label for="SeoKeywords">SeoKeywords</label>
+                            <label>SeoKeywords</label>
                         @Html.TextAreaFor(x => x.SeoKeywords, new { @class = "form-control" })
                     </div>
                     <div class="form-group">
@@ -112,22 +113,44 @@
 
 </section>
 <!-- /.content -->
+@section Scripts{
+   @* <script>
+        tinymce.init({
+            selector: 'textarea#txtDescription',                 
+            plugins: [
+                'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview',
+                'anchor', 'pagebreak',
+                'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code',
+                'fullscreen', 'insertdatetime',
+                'media', 'table', 'emoticons', 'template', 'help'
+            ],
+            toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
+                'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
+                'forecolor backcolor emoticons | help',
+            menu: {
+                favs: {
+                    title: 'My Favorites', items: 'code visualaid |
+               ' + 'searchreplace | emoticons' }
+            },
+                menubar: 'favs file edit view insert format tools table help',
+                content_css: 'css/content.css'
+            });
+    </script>*@
 
-@section  scripts{
-      <script>
-          $(document).ready(function () {
-              CKEDITOR.replace('txtDetail', {
-                  customConfig: '/content/ckeditor/config.js',
-                  extraAllowedContent: 'span',
-              });
-          });
-          function BrowseServer(field) {
-              var finder = new CKFinder();
-              finder.selectActionFunction = function (fileUrl) {
-                  document.getElementById(field).value = fileUrl;
-              };
-              finder.popup();
-          }
-
-      </script>
-    }
+    <script>
+        tinymce.init({
+            selector: 'textarea#txtDetail',
+            height: 300,
+            plugins: [
+                'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview',
+                'anchor', 'pagebreak',
+                'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code',
+                'fullscreen', 'insertdatetime',
+                'media', 'table', 'emoticons', 'template', 'help'
+            ],
+            toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
+                'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
+                'forecolor backcolor emoticons | help',
+            });
+    </script>
+}

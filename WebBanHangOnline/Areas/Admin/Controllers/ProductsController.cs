@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +15,7 @@ using X.PagedList;
 namespace WebBanHangOnline.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Administrator")]
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -23,7 +26,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         }
 
         // GET: Admin/Products
-        public  IActionResult Index(int? page = 1)
+        public  IActionResult Index(string Searchtext, int? page = 1)
         {
             
             IEnumerable<Product> items =  _context.Product.Include(x=>x.ProductCategory).Include(x=>x.ProductImages).OrderByDescending(x => x.ProductId);
@@ -31,6 +34,10 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             if (page == null)
             {
                 page = 1;
+            }
+            if (!string.IsNullOrEmpty(Searchtext))
+            {
+                items = items.Where(x => x.Title.Contains(Searchtext) || x.ProductCategory.Title.Contains(Searchtext));
             }
             var pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             items = items.ToPagedList(pageIndex, pageSize);
@@ -235,43 +242,101 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             ViewBag.ProductCategory = new SelectList(_context.ProductCategory.ToList(), "ProductCategoryId", "Title");
             return View(product);
         }
-
-        // GET: Admin/Products/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        [HttpPost]
+        public ActionResult Delete(int id)
         {
-            if (id == null || _context.Product == null)
+            var item = _context.Product.Find(id);
+            if (item != null)
             {
-                return NotFound();
+                var checkImg = item.ProductImages.Where(x => x.ProductId == item.ProductId);
+                if (checkImg != null)
+                {
+                    foreach (var img in checkImg)
+                    {
+                        _context.ProductImage.Remove(img);
+                        _context.SaveChanges();
+                    }
+                }
+                _context.Product.Remove(item);
+                _context.SaveChanges();
+                return Json(new { success = true });
             }
 
-            var product = await _context.Product
-                .Include(p => p.ProductCategory)
-                .FirstOrDefaultAsync(m => m.ProductId == id);
-            if (product == null)
+            return Json(new { success = false });
+        }
+        [HttpPost]
+        public ActionResult DeleteAll(string ids)
+        {
+            if (!string.IsNullOrEmpty(ids))
             {
-                return NotFound();
+                var items = ids.Split(',');
+                if (items != null && items.Any())
+                {
+                    foreach (var item in items)
+                    {
+                        var objProduct = _context.Product.Find(item);
+                        if (objProduct != null)
+                        {
+                            var checkImg = objProduct.ProductImages.Where(x => x.ProductId == objProduct.ProductId);
+                            if (checkImg != null)
+                            {
+                                foreach (var img in checkImg)
+                                {
+                                    _context.ProductImage.Remove(img);
+                                    _context.SaveChanges();
+                                }
+                            }
+                            _context.Product.Remove(objProduct);
+                            _context.SaveChanges();                         
+                        }
+                    }
+                }
+                return Json(new { success = true });
+            }
+            return Json(new { success = false });
+        }
+        [HttpPost]
+        public ActionResult IsActive(int id)
+        {
+            var item = _context.Product.Find(id);
+            if (item != null)
+            {
+                item.IsActive = !item.IsActive;
+                _context.Entry(item).State = EntityState.Modified;
+                _context.SaveChanges();
+                return Json(new { success = true, isAcive = item.IsActive });
             }
 
-            return View(product);
+            return Json(new { success = false });
+        }
+        [HttpPost]
+        public ActionResult IsHome(int id)
+        {
+            var item = _context.Product.Find(id);
+            if (item != null)
+            {
+                item.IsHome = !item.IsHome;
+                _context.Entry(item).State = EntityState.Modified;
+                 _context.SaveChanges();
+                return Json(new { success = true, IsHome = item.IsHome });
+            }
+
+            return Json(new { success = false });
         }
 
-        // POST: Admin/Products/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        [HttpPost]
+        public ActionResult IsSale(int id)
         {
-            if (_context.Product == null)
+            var item = _context.Product.Find(id);
+            if (item != null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Product'  is null.");
+                item.IsSale = !item.IsSale;
+                _context.Entry(item).State = EntityState.Modified;
+                _context.SaveChanges();
+                return Json(new { success = true, IsSale = item.IsSale });
             }
-            var product = await _context.Product.FindAsync(id);
-            if (product != null)
-            {
-                _context.Product.Remove(product);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            return Json(new { success = false });
         }
 
         private bool ProductExists(int id)

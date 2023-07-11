@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +15,7 @@ using X.PagedList;
 namespace WebBanHangOnline.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Administrator")]
     public class NewsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -182,41 +185,53 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             return View(news);
         }
 
-        // GET: Admin/News/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        [HttpPost]
+        public ActionResult Delete(int id)
         {
-            if (id == null || _context.News == null)
+            var item = _context.News.Find(id);
+            if (item != null)
             {
-                return NotFound();
+                _context.News.Remove(item);
+                _context.SaveChanges();
+                return Json(new { success = true });
             }
 
-            var news = await _context.News
-                .FirstOrDefaultAsync(m => m.NewsId == id);
-            if (news == null)
-            {
-                return NotFound();
-            }
-
-            return View(news);
+            return Json(new { success = false });
         }
 
-        // POST: Admin/News/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        [HttpPost]
+        public ActionResult IsActive(int id)
         {
-            if (_context.News == null)
+            var item = _context.News.Find(id);
+            if (item != null)
             {
-                return Problem("Entity set 'ApplicationDbContext.News'  is null.");
+                item.IsActive = !item.IsActive;
+                _context.Entry(item).State = EntityState.Modified;
+                _context.SaveChanges();
+                return Json(new { success = true, isAcive = item.IsActive });
             }
-            var news = await _context.News.FindAsync(id);
-            if (news != null)
+
+            return Json(new { success = false });
+        }
+
+        [HttpPost]
+        public ActionResult DeleteAll(string ids)
+        {
+            if (!string.IsNullOrEmpty(ids))
             {
-                _context.News.Remove(news);
+                var items = ids.Split(',');
+                if (items != null && items.Any())
+                {
+                    foreach (var item in items)
+                    {
+                        var obj = _context.News.Find(Convert.ToInt32(item));
+                        _context.News.Remove(obj);
+                        _context.SaveChanges();
+                    }
+                }
+                return Json(new { success = true });
             }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return Json(new { success = false });
         }
 
         private bool NewsExists(int id)
