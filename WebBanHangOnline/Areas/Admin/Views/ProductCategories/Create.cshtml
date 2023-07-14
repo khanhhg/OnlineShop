@@ -67,9 +67,19 @@
                         @Html.TextBoxFor(x => x.Alias, new { @class = "form-control", @placeholder = "Alias" })
                         @Html.ValidationMessageFor(x => x.Alias, null, new { @class = "text-danger" })
                     </div>
-                    <div class="form-group">
-                            <label for="Icon">Image</label>
-                            <input type="file" name="fileImage" class="form-control" />
+                        <div class="form-group">
+                            <label>Description</label>
+                            @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @placeholder = "Description" })
+                            @Html.ValidationMessageFor(x => x.Description, null, new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group" style="display:-webkit-box">
+                        <div class="col-sm-6">
+                                <label>Image</label>
+                                <input type="file" name="fileImage" class="form-control" id="ChooseImg"/>
+                        </div>
+                        <div class="col-sm-6">
+                                <img id="PrevImg" src="https://placehold.jp/150x150.png" style="width:150px;height:150px; border:1px solid red; border-radius:10px;padding:10px" />
+                        </div>                        
                     </div>
 
                     <div class="form-group">
@@ -87,7 +97,7 @@
                     <div class="form-group">
 
                         <button type="submit" class="btn btn-primary">Save</button>
-                        <a href="/admin/productcategories" class="btn btn-danger">Return</a>
+                        <a href="/admin/productcategories" class="btn btn-danger">Back</a>
                     </div>
                 </div>
 
@@ -107,5 +117,5 @@
 <!-- /.content -->
 
 @section  scripts{
-
+    <script src="~/js/jFile.js"></script>
 }

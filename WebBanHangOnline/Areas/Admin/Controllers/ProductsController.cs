@@ -11,6 +11,8 @@ using Microsoft.EntityFrameworkCore;
 using WebBanHangOnline.Data;
 using WebBanHangOnline.Models.EF;
 using X.PagedList;
+using WebBanHangOnline.Common;
+
 
 namespace WebBanHangOnline.Areas.Admin.Controllers
 {
@@ -19,7 +21,8 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
-
+       
+        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\products");
         public ProductsController(ApplicationDbContext context)
         {
             _context = context;
@@ -53,7 +56,6 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-
             var product = await _context.Product
                 .Include(p => p.ProductCategory)
                 .FirstOrDefaultAsync(m => m.ProductId == id);
@@ -89,7 +91,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                     if (fileImage.FileName != null)
                     {
                        
-                        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\products");
+                        //string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\products");
                         FileInfo fileInfo = new FileInfo(fileImage.FileName);
 
                         if (fileInfo.Extension == ".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")
@@ -99,7 +101,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                             {
                                 Directory.CreateDirectory(path);
                             }
-                            string filename = fileImage.FileName;
+                            string filename = Common.Common.RandomString(12) + fileInfo.Extension;
                             string fileNameWithPath = Path.Combine(path, filename);
                             using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
                             {
@@ -162,7 +164,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Product product, ICollection<IFormFile> files)
+        public async Task<IActionResult> Edit(int id, Product product)
         {
             if (id != product.ProductId)
             {
@@ -170,56 +172,53 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             }
             ModelState.ClearValidationState("ProductCategory");
             ModelState.MarkFieldValid("ProductCategory");
-            ModelState.ClearValidationState("files");
-            ModelState.MarkFieldValid("files");
             if (ModelState.IsValid)
             {
                 try
                 {
-                    int countImage = 0;
-                    foreach (var fileImage in files)
-                    {
-                        if (fileImage.FileName != null)
-                        {
+                    //int countImage = 0;
+                    //foreach (var fileImage in files)
+                    //{
+                    //    if (fileImage.FileName != null)
+                    //    {
+                          
+                    //        FileInfo fileInfo = new FileInfo(fileImage.FileName);
 
-                            string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\products");
-                            FileInfo fileInfo = new FileInfo(fileImage.FileName);
-
-                            if (fileInfo.Extension == ".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")
-                            {
-                                countImage++;
-                                if (!Directory.Exists(path))
-                                {
-                                    Directory.CreateDirectory(path);
-                                }
-                                string filename = fileImage.FileName;
-                                string fileNameWithPath = Path.Combine(path, filename);
-                                using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
-                                {
-                                    fileImage.CopyTo(stream);
-                                }
-                                if (countImage == 1)
-                                {
-                                    product.ProductImages.Add(new ProductImage
-                                    {
-                                        ProductId = product.ProductId,
-                                        Image = filename,
-                                        IsDefault = true
-                                    });
-                                    product.Image = filename;
-                                }
-                                else
-                                {
-                                    product.ProductImages.Add(new ProductImage
-                                    {
-                                        ProductId = product.ProductId,
-                                        Image = filename,
-                                        IsDefault = false
-                                    });
-                                }
-                            }
-                        }
-                    }
+                    //        if (fileInfo.Extension == ".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")
+                    //        {
+                    //            countImage++;
+                    //            if (!Directory.Exists(path))
+                    //            {
+                    //                Directory.CreateDirectory(path);
+                    //            }
+                    //            string filename = Common.Common.RandomString(12) + fileInfo.Extension;
+                    //            string fileNameWithPath = Path.Combine(path, filename);
+                    //            using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
+                    //            {
+                    //                fileImage.CopyTo(stream);
+                    //            }
+                    //            if (countImage == 1)
+                    //            {
+                    //                product.ProductImages.Add(new ProductImage
+                    //                {
+                    //                    ProductId = product.ProductId,
+                    //                    Image = filename,
+                    //                    IsDefault = true
+                    //                });
+                    //                product.Image = filename;
+                    //            }
+                    //            else
+                    //            {
+                    //                product.ProductImages.Add(new ProductImage
+                    //                {
+                    //                    ProductId = product.ProductId,
+                    //                    Image = filename,
+                    //                    IsDefault = false
+                    //                });
+                    //            }
+                    //        }
+                    //    }
+                    //}
                     product.Modifiedby = User.FindFirstValue(ClaimTypes.NameIdentifier);
                     product.ModifiedDate = DateTime.Now;
                     _context.Update(product);
@@ -253,6 +252,11 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 {
                     foreach (var img in checkImg)
                     {
+                        FileInfo file = new FileInfo(path + "\\" + img.Image);
+                        if (file.Exists)//check file exsit or not  
+                        {
+                            file.Delete();
+                        }
                         _context.ProductImage.Remove(img);
                         _context.SaveChanges();
                     }
@@ -282,6 +286,11 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                             {
                                 foreach (var img in checkImg)
                                 {
+                                    FileInfo file = new FileInfo(path + "\\" + img.Image);
+                                    if (file.Exists)//check file exsit or not  
+                                    {
+                                        file.Delete();
+                                    }
                                     _context.ProductImage.Remove(img);
                                     _context.SaveChanges();
                                 }
@@ -342,6 +351,166 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         private bool ProductExists(int id)
         {
           return (_context.Product?.Any(e => e.ProductId == id)).GetValueOrDefault();
+        }
+        public IActionResult listProductImage(int id)
+        {
+            ViewBag.ProductId = id;
+            var items = _context.ProductImage.Where(x => x.ProductId == id).ToList();
+            return View(items);
+        }
+
+        public IActionResult createImage(int? id)
+        {
+            ViewBag.ProductId = id;
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> createImage(int id, ICollection<IFormFile> fileImages)
+        {          
+            //if (id != product.ProductId)
+            //{
+            //    return NotFound();
+            //}
+
+            if (ModelState.IsValid)
+            {
+                foreach (var fileImage in fileImages)
+                {
+                    if (fileImage.FileName != null)
+                    {                       
+                        FileInfo fileInfo = new FileInfo(fileImage.FileName);
+
+                        if (fileInfo.Extension == ".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")
+                        {
+                            if (!Directory.Exists(path))
+                            {
+                                Directory.CreateDirectory(path);
+                            }
+                            string filename = Common.Common.RandomString(12) + fileInfo.Extension;
+                            string fileNameWithPath = Path.Combine(path, filename);
+                            using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
+                            {
+                                fileImage.CopyTo(stream);
+                            }
+
+                            ProductImage objImg = new ProductImage();
+
+                            objImg.ProductId = id;
+                            objImg.Image = filename;
+                            objImg.IsDefault = false;
+                            _context.ProductImage.Add(objImg);
+                            await _context.SaveChangesAsync();
+                        }
+                    }
+                }
+            }
+           return LocalRedirect("/admin/products/listProductImage/" + id);
+        }
+        public IActionResult editImage(int? id)
+        {
+          
+            var items = _context.ProductImage.Where(x => x.ProductImageId == id).FirstOrDefault();
+            return View(items);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> editImage(int id, IFormFile fileImage)
+        {
+            //if (id != product.ProductId)
+            //{
+            //    return NotFound();
+            //}
+            int _producID = 0;
+            if (ModelState.IsValid)
+            {
+                if (fileImage.FileName != null)
+                {
+                    FileInfo fileInfo = new FileInfo(fileImage.FileName);
+
+                    if (fileInfo.Extension == ".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")
+                    {
+                        if (!Directory.Exists(path))
+                        {
+                            Directory.CreateDirectory(path);
+                        }
+                        string filename = Common.Common.RandomString(12) + fileInfo.Extension;
+                        string fileNameWithPath = Path.Combine(path, filename);
+                        using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
+                        {
+                            fileImage.CopyTo(stream);
+                        }
+                        var objImage = _context.ProductImage.Where(x => x.ProductImageId == id).FirstOrDefault();
+                        objImage.Image = filename;
+                        _context.Update(objImage);                 
+                        await _context.SaveChangesAsync();
+                        _producID = objImage.ProductId;
+                    }
+                }
+            }
+            return LocalRedirect("/admin/products/listProductImage/" + _producID);
+        }
+        [HttpPost]
+        public ActionResult deleteImage(int id)
+        {
+                   
+            var item = _context.ProductImage.Find(id);
+            if (item != null)
+            {
+                FileInfo file = new FileInfo(path +"\\"+ item.Image);
+                if (file.Exists)//check file exsit or not  
+                {
+                    file.Delete();
+                }
+                _context.ProductImage.Remove(item);
+                _context.SaveChanges();
+                return Json(new { success = true });
+            }
+            else
+            {
+                return Json(new { success = false });
+            }        
+        }
+        [HttpPost]
+        public ActionResult deleteAllImage(string ids)
+        {
+            if (!string.IsNullOrEmpty(ids))
+            {
+                var items = ids.Split(',');
+                if (items != null && items.Any())
+                {
+                    foreach (var item in items)
+                    {
+                        var objImage = _context.ProductImage.Find(Convert.ToInt32(item));
+                        if (objImage != null)
+                        {
+                            FileInfo file = new FileInfo(path + "\\" + objImage.Image);
+                            if (file.Exists)//check file exsit or not  
+                            {
+                                file.Delete();
+                            }
+                            _context.ProductImage.Remove(objImage);
+                            _context.SaveChanges();
+                        }
+                    }
+                }
+                return Json(new { success = true });
+            }
+            return Json(new { success = false });
+        }
+        [HttpPost]
+        public ActionResult IsDefault(int id)
+        {
+            var item = _context.ProductImage.Find(id);
+            if (item != null)
+            {
+                item.IsDefault = !item.IsDefault;
+                _context.Entry(item).State = EntityState.Modified;
+                _context.SaveChanges();
+                return Json(new { success = true, IsDefault = item.IsDefault });
+            }
+
+            return Json(new { success = false });
         }
     }
 }

@@ -1,12 +1,4 @@
-﻿//using Microsoft.AspNetCore.Connections;
-//using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-//using Microsoft.EntityFrameworkCore;
-//using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
-//using System.Diagnostics;
-//using System.Linq.Expressions;
-//using WebBanHangOnline.Models.EF;
-
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using System.Linq.Expressions;
@@ -33,14 +25,14 @@ namespace WebBanHangOnline.Data
         public DbSet<Subscribe> Subscribe { get; set; }
         public DbSet<SystemSetting> SystemSetting { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder
-                    .UseLazyLoadingProxies()
-                    .UseSqlServer("Server=DESKTOP-I94G0UB\\SQLEXPRESS;Database=OnlineShop;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True");
-            }
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        optionsBuilder
+        //            .UseLazyLoadingProxies()
+        //            .UseSqlServer("Server=DESKTOP-I94G0UB\\SQLEXPRESS;Database=OnlineShop;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True");
+        //    }
+        //}
     }
 }

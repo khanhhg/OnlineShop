@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
     public class NewsController : Controller
     {
         private readonly ApplicationDbContext _context;
-
+        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\News");
         public NewsController(ApplicationDbContext context)
         {
             _context = context;
@@ -79,9 +80,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 if (fileAvatar.FileName != null)
-                {
-
-                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\News");
+                {                 
                     FileInfo fileInfo = new FileInfo(fileAvatar.FileName);
 
                     if (fileInfo.Extension == ".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")
@@ -90,7 +89,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                         {
                             Directory.CreateDirectory(path);
                         }
-                        string filename = fileAvatar.FileName;
+                        string filename = Common.Common.RandomString(12) + fileInfo.Extension;
                         string fileNameWithPath = Path.Combine(path, filename);
                         using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
                         {
@@ -117,7 +116,6 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-
             var news = await _context.News.FindAsync(id);
             if (news == null)
             {
@@ -143,10 +141,9 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             {
                 try
                 {
+                    var objNewUpdate = _context.News.Where(x => x.NewsId == id).FirstOrDefault();
                     if (fileAvatar != null)
-                    {
-
-                        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\News");
+                    {                  
                         FileInfo fileInfo = new FileInfo(fileAvatar.FileName);
 
                         if (fileInfo.Extension == ".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")
@@ -155,18 +152,26 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                             {
                                 Directory.CreateDirectory(path);
                             }
-                            string filename = fileAvatar.FileName;
+                            string filename = Common.Common.RandomString(12) + fileInfo.Extension;
                             string fileNameWithPath = Path.Combine(path, filename);
                             using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
                             {
                                 fileAvatar.CopyTo(stream);
                             }
-                            news.Image = filename;
+                            objNewUpdate.Image = filename;
                         }
                     }
-                    news.Modifiedby = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                    news.ModifiedDate = DateTime.Now;
-                    _context.Update(news);
+                    objNewUpdate.Modifiedby = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                    objNewUpdate.ModifiedDate = DateTime.Now;
+                    objNewUpdate.Title = news.Title;
+                    objNewUpdate.Description = news.Description;
+                    objNewUpdate.Detail = news.Detail;
+                    objNewUpdate.Alias =  news.Alias;
+                    objNewUpdate.SeoDescription = news.SeoDescription;  
+                    objNewUpdate.SeoKeywords = news.SeoKeywords;
+                    objNewUpdate.SeoTitle = news.SeoTitle;
+                    objNewUpdate.IsActive = news.IsActive;
+                    _context.Update(objNewUpdate);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -191,11 +196,15 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             var item = _context.News.Find(id);
             if (item != null)
             {
+                FileInfo file = new FileInfo(path + "\\" + item.Image);
+                if (file.Exists)//check file exsit or not  
+                {
+                    file.Delete();
+                }
                 _context.News.Remove(item);
                 _context.SaveChanges();
                 return Json(new { success = true });
             }
-
             return Json(new { success = false });
         }
 
@@ -223,8 +232,13 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 if (items != null && items.Any())
                 {
                     foreach (var item in items)
-                    {
+                    {                       
                         var obj = _context.News.Find(Convert.ToInt32(item));
+                        FileInfo file = new FileInfo(path + "\\" + obj.Image);
+                        if (file.Exists)//check file exsit or not  
+                        {
+                            file.Delete();
+                        }
                         _context.News.Remove(obj);
                         _context.SaveChanges();
                     }

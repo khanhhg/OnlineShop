@@ -1,7 +1,7 @@
 ﻿
 @model WebBanHangOnline.Models.EF.News
 @{
-    ViewBag.Title = "Edit News";
+    ViewBag.Title = "News";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -67,20 +67,30 @@
                                 @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "Title" })
                             @Html.ValidationMessageFor(x => x.Title, null, new { @class = "text-danger" })
                         </div>
-                            <div class="form-group">
+                           @* <div class="form-group">
                                 <label for="Image">Avatar</label>
                                 <input type="file" name="fileAvatar" class="form-control" />
+                            </div>*@
+                            <div class="form-group" style="display:-webkit-box">
+                                <div class="col-sm-6">
+                                    <label>Image</label>
+                                    <input type="file" name="fileAvatar" class="form-control" id="ChooseImg" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <img id="PrevImg" src="/images/news/@Model.Image" style="width:150px;height:150px; border:1px solid red; border-radius:10px;padding:10px" />
+                                </div>
                             </div>
+
                         <div class="form-group">
-                                <label for="Description">Description</label>
+                                <label>Description</label>
                             @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
                         </div>
                         <div class="form-group">
-                                <label for="Detail">Detail</label>
+                                <label>Detail</label>
                                 @Html.TextAreaFor(x => x.Detail, new { @class = "form-control", @id = "txtDetail" })
                         </div>
                         <div class="form-group">
-                                <label for="IsActive">Active</label>
+                                <label >Active</label>
                             @Html.CheckBoxFor(x => x.IsActive)
                         </div>
                         <div class="form-group">
@@ -98,7 +108,7 @@
 
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Save</button>
-                            <a href="/admin/news" class="btn btn-danger">Return</a>
+                            <a href="/admin/news" class="btn btn-danger">Back</a>
                         </div>
                     </div>
 
@@ -120,6 +130,7 @@
 <!-- /.content -->
 
 @section Scripts{
+    <script src="~/js/jFile.js"></script>
     <script>
         tinymce.init({
             selector: 'textarea#txtDetail',

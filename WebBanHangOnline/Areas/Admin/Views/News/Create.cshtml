@@ -1,7 +1,7 @@
 ﻿
 @model WebBanHangOnline.Models.EF.News
 @{
-    ViewBag.Title = "Thêm mới tin tức";
+    ViewBag.Title = "News";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -63,10 +63,20 @@
                             @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "Title" })
                         @Html.ValidationMessageFor(x => x.Title, null, new { @class = "text-danger" })
                     </div>
-                        <div class="form-group">
+                       @* <div class="form-group">
                             <label>Avatar</label>
                             <input type="file" name="fileAvatar" class="form-control" />
+                        </div>*@
+                        <div class="form-group" style="display:-webkit-box">
+                            <div class="col-sm-6">
+                                <label>Image</label>
+                                <input type="file" name="fileAvatar" class="form-control" id="ChooseImg" />
+                            </div>
+                            <div class="col-sm-6">
+                                <img id="PrevImg" src="https://placehold.jp/150x150.png" style="width:150px;height:150px; border:1px solid red; border-radius:10px;padding:10px" />
+                            </div>
                         </div>
+
                     <div class="form-group">
                             <label>Description</label>
                             @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
@@ -95,7 +105,7 @@
                     <div class="form-group">
 
                         <button type="submit" class="btn btn-primary">Save</button>
-                        <a href="/admin/news" class="btn btn-danger">Return</a>
+                        <a href="/admin/news" class="btn btn-danger">Back</a>
                     </div>
                 </div>
 
@@ -114,29 +124,7 @@
 </section>
 <!-- /.content -->
 @section Scripts{
-   @* <script>
-        tinymce.init({
-            selector: 'textarea#txtDescription',                 
-            plugins: [
-                'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview',
-                'anchor', 'pagebreak',
-                'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code',
-                'fullscreen', 'insertdatetime',
-                'media', 'table', 'emoticons', 'template', 'help'
-            ],
-            toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
-                'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
-                'forecolor backcolor emoticons | help',
-            menu: {
-                favs: {
-                    title: 'My Favorites', items: 'code visualaid |
-               ' + 'searchreplace | emoticons' }
-            },
-                menubar: 'favs file edit view insert format tools table help',
-                content_css: 'css/content.css'
-            });
-    </script>*@
-
+    <script src="~/js/jFile.js"></script>
     <script>
         tinymce.init({
             selector: 'textarea#txtDetail',

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
@@ -17,7 +18,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
     public class ProductCategoriesController : Controller
     {
         private readonly ApplicationDbContext _context;
-
+        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\ProductCategory");
         public ProductCategoriesController(ApplicationDbContext context)
         {
             _context = context;
@@ -80,8 +81,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             {
                 if (fileImage.FileName != null)
                 {
-                   
-                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\ProductCategory");
+                                   
                     FileInfo fileInfo = new FileInfo(fileImage.FileName);
                    
                     if(fileInfo.Extension ==".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")
@@ -90,7 +90,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                         {
                             Directory.CreateDirectory(path);
                         }
-                        string filename = fileImage.FileName;
+                        string filename = Common.Common.RandomString(12) + fileInfo.Extension;
                         string fileNameWithPath = Path.Combine(path, filename);
                         using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
                         {
@@ -144,14 +144,13 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             ModelState.MarkFieldValid("Products");
             ModelState.ClearValidationState("fileImage");
             ModelState.MarkFieldValid("fileImage");
+            var productCategory_Edit = _context.ProductCategory.Where(x => x.ProductCategoryId == id).FirstOrDefault();
             if (ModelState.IsValid)
             {
                 try
                 {
                     if (fileImage != null)
-                    {
-
-                        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\ProductCategory");
+                    {                  
                         FileInfo fileInfo = new FileInfo(fileImage.FileName);
 
                         if (fileInfo.Extension == ".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")
@@ -160,18 +159,24 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                             {
                                 Directory.CreateDirectory(path);
                             }
-                            string filename = fileImage.FileName;
+                            string filename = Common.Common.RandomString(12) + fileInfo.Extension;
                             string fileNameWithPath = Path.Combine(path, filename);
                             using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
                             {
                                 fileImage.CopyTo(stream);
                             }
-                            productCategory.Icon = filename;
+                            productCategory_Edit.Icon = filename;
                         }
                     }
-                    productCategory.Modifiedby = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                    productCategory.ModifiedDate = DateTime.Now;
-                    _context.Update(productCategory);
+                  
+                    productCategory_Edit.Modifiedby = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                    productCategory_Edit.ModifiedDate = DateTime.Now;
+                    productCategory_Edit.SeoTitle = productCategory.SeoTitle;
+                    productCategory_Edit.SeoKeywords = productCategory.SeoKeywords;
+                    productCategory_Edit.SeoDescription = productCategory.SeoDescription;
+                    productCategory_Edit.Title = productCategory.Title;
+                    productCategory_Edit.Description = productCategory.Description;
+                    _context.Update(productCategory_Edit);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -197,9 +202,14 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             if (item != null )
             {
                 // Check product in Product Category
-                var productItem = _context.Product.Find(item.ProductCategoryId);
-                if (productItem == null)
+                var productItem = _context.Product.Where(x=>x.ProductCategoryId ==id).ToList();
+                if (productItem.Count ==0)
                 {
+                    FileInfo file = new FileInfo(path + "\\" + item.Icon);
+                    if (file.Exists)//check file exsit or not  
+                    {
+                        file.Delete();
+                    }
                     _context.ProductCategory.Remove(item);
                     _context.SaveChanges();
                     return Json(new { success = true });
@@ -228,12 +238,16 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                         if (obj != null)
                         {
                             // Check product in Product Category
-                            var productItem = _context.Product.Find(obj.ProductCategoryId);
-                            if (productItem == null)
+                            var productItem = _context.Product.Where(x=>x.ProductCategoryId == obj.ProductCategoryId).ToList();
+                            if (productItem.Count == 0)
                             {
+                                FileInfo file = new FileInfo(path + "\\" + obj.Icon);
+                                if (file.Exists)//check file exsit or not  
+                                {
+                                    file.Delete();
+                                }
                                 _context.ProductCategory.Remove(obj);
-                                _context.SaveChanges();
-                               
+                                _context.SaveChanges();                           
                             }                           
                         }                                             
                     }
@@ -247,5 +261,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         {
           return (_context.ProductCategory?.Any(e => e.ProductCategoryId == id)).GetValueOrDefault();
         }
+
+       
     }
 }

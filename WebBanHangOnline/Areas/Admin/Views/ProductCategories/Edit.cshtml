@@ -70,9 +70,20 @@
                             @Html.ValidationMessageFor(x => x.Alias, null, new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
-                            <label for="Icon">Image</label>
-                            <input type="file" name="fileImage" class="form-control" />
+                            <label>Description</label>
+                            @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @placeholder = "Description" })
+                            @Html.ValidationMessageFor(x => x.Description, null, new { @class = "text-danger" })
                         </div>
+                        <div class="form-group" style="display:-webkit-box">
+                            <div class="col-sm-6">
+                                <label>Image</label>
+                                <input type="file" name="fileImage" class="form-control" id="ChooseImg" />
+                            </div>
+                            <div class="col-sm-6">
+                                <img id="PrevImg" src="/images/ProductCategory/@Model.Icon" style="width:150px;height:150px; border:1px solid red; border-radius:10px;padding:10px" />
+                            </div>
+                        </div>    
+                        
                         <div class="form-group">
                             <label for="SeoTitle">Seo title</label>
                             @Html.TextAreaFor(x => x.SeoTitle, new { @class = "form-control" })
@@ -88,7 +99,7 @@
                         <div class="form-group">
 
                             <button type="submit" class="btn btn-primary">Save</button>
-                            <a href="/admin/productcategories" class="btn btn-danger">Return</a>
+                            <a href="/admin/productcategories" class="btn btn-danger">Back</a>
                         </div>
                     </div>
 
@@ -106,4 +117,5 @@
 </section>
 <!-- /.content -->
 @section  scripts{
+    <script src="~/js/jFile.js"></script>
 }

@@ -81,7 +81,7 @@
                         <th>Sale</th>
                         <th>Display</th>
 
-                        <th style="width:150px;"></th>
+                        <th style="width:250px;"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -96,6 +96,7 @@
                             var strCheckSale = item.IsSale==true? "<i class='fa fa-check text-success'></i>" : "<i class='fas fa-times text-danger'></i>";
                             var strImg = "";
                             var CheckImage = item.ProductImages.Where(x => x.IsDefault == true).FirstOrDefault();
+  
                             if (CheckImage != null)
                             {
                                 strImg = CheckImage.Image;
@@ -119,6 +120,7 @@
                                     <a href='#' data-id="@item.ProductId" class="btnActive">@Html.Raw(strCheck)</a>
                         </td>
                         <td>
+                                    <a href="/admin/Products/listProductImage/@item.ProductId" class="btn btn-sm btn-success">Product Image</a>
                                     <a href="/admin/Products/edit/@item.ProductId" class="btn btn-sm btn-primary">Edit</a>
                                     <a href="#" data-id="@item.ProductId" class="btn btn-sm btn-danger btnDelete">Delete</a>
                         </td>
