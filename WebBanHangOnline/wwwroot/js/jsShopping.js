@@ -15,7 +15,13 @@
             success: function (rs) {
                 if (rs.success == true) {
                     $('#checkout_items').html(rs.count);
-                    alert(rs.msg);
+                    /* alert(rs.msg);*/
+                    $.toast({
+                        heading: 'Success',
+                        text:'Product added to cart successfully!',
+                        icon: 'success',
+                        position: 'bottom-right'
+                    });
                 }
             }
         });
@@ -89,6 +95,12 @@ function Update(id,quantity) {
         success: function (rs) {
             if (rs.success == true) {
                 LoadCart();
+                $.toast({
+                    heading: 'Success',
+                    text: 'Product update to cart successfully!',
+                    icon: 'success',
+                    position: 'bottom-right'
+                });
             }
         }
     });
@@ -99,7 +111,7 @@ function LoadCart() {
         url: '/shoppingcart/Partial_Item_Cart',
         type: 'GET',
         success: function (rs) {
-            $('#load_data').html(rs);
+            $('#load_data').html(rs);        
         }
     });
 }

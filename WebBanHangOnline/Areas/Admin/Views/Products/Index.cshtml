@@ -187,6 +187,12 @@
                             success: function (rs) {
                                 if (rs.success) {
                                     location.reload();
+                                    $.toast({
+                                        heading: 'Success',
+                                        text: 'Delete record success',
+                                        icon: 'success',
+                                        position: 'bottom-right'
+                                    });
                                 }
                             }
                         });
@@ -217,6 +223,12 @@
                         success: function (rs) {
                             if (rs.success) {
                                 $('#trow_' + id).remove();
+                                $.toast({
+                                    heading: 'Success',
+                                    text: 'Delete record success',
+                                    icon: 'success',
+                                    position: 'bottom-right'
+                                });
                             }
                         }
                     });
@@ -234,9 +246,8 @@
                         if (rs.success) {
                             if (rs.isHome) {
                                 btn.html("<i class='fa fa-check text-success'></i>");
-                                //$(this).find("i").removeClass("fas fa-times text-danger")
-                                //$(this).find("i").addClass("fa fa-check text-success");
-                            } else {
+                            } 
+                            else {
                                 btn.html("<i class='fas fa-times text-danger'></i>");
                             }
                         }
@@ -256,10 +267,9 @@
                     success: function (rs) {
                         if (rs.success) {
                             if (rs.isSale) {
-                                btn.html("<i class='fa fa-check text-success'></i>");
-                                //$(this).find("i").removeClass("fas fa-times text-danger")
-                                //$(this).find("i").addClass("fa fa-check text-success");
-                            } else {
+                                btn.html("<i class='fa fa-check text-success'></i>");                             
+                            } 
+                            else {
                                 btn.html("<i class='fas fa-times text-danger'></i>");
                             }
                         }
@@ -278,10 +288,9 @@
                     success: function (rs) {
                         if (rs.success) {
                             if (rs.isAcive) {
-                                btn.html("<i class='fa fa-check text-success'></i>");
-                                //$(this).find("i").removeClass("fas fa-times text-danger")
-                                //$(this).find("i").addClass("fa fa-check text-success");
-                            } else {
+                                btn.html("<i class='fa fa-check text-success'></i>");                              
+                            } 
+                            else {
                                 btn.html("<i class='fas fa-times text-danger'></i>");
                             }
                         }

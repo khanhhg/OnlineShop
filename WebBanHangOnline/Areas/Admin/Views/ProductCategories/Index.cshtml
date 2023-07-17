@@ -154,6 +154,12 @@
                             success: function (rs) {
                                 if (rs.success) {
                                     location.reload();
+                                    $.toast({
+                                        heading: 'Success',
+                                        text: 'Delete record success',
+                                        icon: 'success',
+                                        position: 'bottom-right'
+                                    });
                                 }
                             }
                         });
@@ -184,6 +190,12 @@
                         success: function (rs) {
                             if (rs.success) {
                                 $('#trow_' + id).remove();
+                                $.toast({
+                                    heading: 'Success',
+                                    text: 'Delete record success',
+                                    icon: 'success',
+                                    position: 'bottom-right'
+                                });
                             }
                         }
                     });

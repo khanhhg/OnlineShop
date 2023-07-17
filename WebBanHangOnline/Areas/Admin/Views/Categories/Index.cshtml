@@ -139,8 +139,15 @@
                         success: function (response) {
                             if (response.success) {
                                 $('#trow_' + id).remove();
-                                alert("delete success");
-                            }else{
+                                $.toast({
+                                    heading: 'Success',
+                                    text: 'Delete record success',
+                                    icon: 'success',
+                                    position: 'bottom-right'
+                                });
+                            }
+                            else
+                            {
                                 alert("Delete error");
                             }
                         }
