@@ -1,0 +1,109 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using WebBanHangOnline.Areas.Admin.Models;
+@model RoleEdit
+@{
+    ViewData["Title"] = "Role";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+@section naviheader{
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/role" class="nav-link">@ViewBag.Title</a>
+        </li>
+    </ul>
+}
+<!-- Main content -->
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Update Roles</h3>
+
+        </div>
+        <div class="card-body">
+            @*@using (Html.BeginForm("Create", "Role", FormMethod.Post))
+            {
+                @Html.ValidationSummary(false)
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <label>Role Name</label>
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            }*@       
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <form method="post">
+                <input type="hidden" name="roleName" value="@Model.Role.Name" />
+                <input type="hidden" name="roleId" value="@Model.Role.Id" />
+
+                <h5 class="bg-info p-1 text-white">Add To @Model.Role.Name</h5>
+                <table class="table table-bordered table-sm">
+                    @if (Model.NonMembers.Count() == 0)
+                    {
+                        <tr><td colspan="2">All Users Are Members</td></tr>
+                    }
+                    else
+                    {
+                        @foreach (IdentityUser user in Model.NonMembers)
+                        {
+                            <tr>
+                                <td>@user.UserName</td>
+                                <td>
+                                    <input type="checkbox" name="AddIds" value="@user.Id">
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+
+                <h5 class="bg-info p-1 text-white">Remove From @Model.Role.Name</h5>
+                <table class="table table-bordered table-sm">
+                    @if (Model.Members.Count() == 0)
+                    {
+                        <tr><td colspan="2">No Users Are Members</td></tr>
+                    }
+                    else
+                    {
+                        @foreach (IdentityUser user in Model.Members)
+                        {
+                            <tr>
+                                <td>@user.UserName</td>
+                                <td>
+                                    <input type="checkbox" name="DeleteIds" value="@user.Id">
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a asp-action="Index" class="btn btn-secondary">Back</a>
+            </form>
+
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
+
+</section>
+<!-- /.content -->
+
+
+
+
+

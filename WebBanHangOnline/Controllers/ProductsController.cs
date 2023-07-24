@@ -1,74 +1,73 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using WebBanHangOnline.Data;
-using WebBanHangOnline.Models.EF;
+using WebBanHangOnline.Data.IRepository;
+
 
 namespace WebBanHangOnline.Controllers
 {
+    // Top == 0 Get all product
+    // Top != 0  Take(Top) product
     public class ProductsController : Controller
     {
-        private readonly ApplicationDbContext _context;
-        private readonly INotyfService _toastNotification;
-        public ProductsController(ApplicationDbContext context, INotyfService toastNotification)
+        IProductsRepository _IProducts;
+        IProductCategoriesRepository _IProductCategories;
+     
+        public ProductsController(IProductsRepository productsRepository, IProductCategoriesRepository iProductCategories)
         {
-            _context = context;
-            _toastNotification = toastNotification;
+            _IProducts = productsRepository;
+            _IProductCategories = iProductCategories;
         }
-        public ActionResult Index(int id)
+        public async Task<ActionResult> Index(int id)
         {          
-            var items = _context.Product.Where(x=> (id == 0 || x.ProductCategoryId == id)).Include(x => x.ProductImages).OrderByDescending(x => x.ProductId).ToList();
-
-            return View(items);
-        }
-		public ActionResult Promotion(int id)
-		{
-			var items = _context.Product.Where(x => (id == 0 || x.ProductCategoryId == id) && x.IsSale ==true).Include(x => x.ProductImages).OrderByDescending(x => x.ProductId).ToList();
-
-			return View(items);
-		}
-
-		public ActionResult Detail(int id)
-        {
-            var item = _context.Product.Where(x=>x.ProductId ==id).Include(x=>x.ProductCategory).Include(x => x.ProductImages).FirstOrDefault();
-            if (item != null)
-            {
-                _context.Product.Attach(item);
-                item.ViewCount = item.ViewCount + 1;
-                _context.Entry(item).Property(x => x.ViewCount).IsModified = true;
-                _context.SaveChanges();
-            }
-
-            return View(item);
-        }
-        public ActionResult ProductCategory(int id)
-        {
-            var items = _context.Product.ToList();
+            var items = await _IProducts.GetProduts_By_Caterory(id,0);
+            ViewBag.CategoryId = id;
             if (id > 0)
             {
-                items = items.Where(x => x.ProductCategoryId == id).ToList();
+                var objCate = await _IProductCategories.Get(id);
+                if (objCate != null)
+                {
+                    ViewBag.CategoryName = objCate.Title;
+                }              
             }
-            var cate = _context.ProductCategory.Find(id);
-            if (cate != null)
+            else
             {
-                ViewBag.CateName = cate.Title;
+                ViewBag.CategoryName = "All";
             }
-
-            ViewBag.CateId = id;
+               
             return View(items);
         }
+		public async Task<ActionResult> Promotion(int id)
+		{
+            var items = await _IProducts.GetProduts_Promotion(id,0);
+            ViewBag.CategoryId = id;
+            if (id > 0)
+            {
+                var objCate = await _IProductCategories.Get(id);
+                if (objCate != null)
+                {
+                    ViewBag.CategoryName = objCate.Title;
+                }
+            }
+            else
+            {
+                ViewBag.CategoryName = "All";
+            }
+            return View(items);
+		}
 
-        public ActionResult Partial_ItemsByCateId()
+		public async Task<ActionResult> Detail(int id)
         {
-            var items = _context.Product.Include(x => x.ProductImages).Include(x => x.ProductCategory).Take(12).ToList();
-            return PartialView("_Partial_ItemsByCateId", items);
+            var item = await _IProducts.Get(id);
+            if (item != null)
+            {
+                await _IProducts.Update_ViewCount(item);
+            }          
+            return View(item);
         }
-
-        public async Task<IActionResult> Partial_ProductSales()
+        public async Task<ActionResult> ProductCategory(int id )
         {
-            //var items = _context.Product.Where(x => x.IsSale && x.IsActive).Take(12).ToList();
-			var items = await _context.Product.Where(x=>x.IsSale ==true).Include(x=>x.ProductImages).Include(x=>x.ProductCategory).Take(12).ToListAsync();
-            return PartialView("_Partial_ProductSales", items);
+            var items = await _IProducts.GetProduts_By_Caterory(id,0);
+            return View(items);
         }
     }
 }

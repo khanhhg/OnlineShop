@@ -34,6 +34,7 @@
 </head>
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
+      
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             @RenderSection("naviheader", required: false)
@@ -166,6 +167,8 @@
                 <img src="~/Content/clients/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Online Shop</span>
             </a>
+
+            <p name="_LogoutPartial" />
 
             @Html.Partial("_PartiaSideBar")
         </aside>

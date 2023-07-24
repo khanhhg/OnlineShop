@@ -1,4 +1,5 @@
-﻿  <!-- Sidebar -->
+﻿
+<!-- Sidebar -->
 <div class="sidebar">
     <!-- Sidebar user (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -90,15 +91,14 @@
                     </p>
                 </a>
             </li>
-           @* <li class="nav-item">
-                <a href="/admin/posts" class="nav-link">
+            <li class="nav-item">
+                <a href="/admin/contact" class="nav-link">
                     <i class="nav-icon fas fa-th"></i>
                     <p>
-                        Advertisement
-                      
+                        Contact                  
                     </p>
                 </a>
-            </li>*@
+            </li>
             <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -124,7 +124,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a href="/posts" class="nav-link">
+                <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-th"></i>
                     <p>
                         System configuration
@@ -133,25 +133,19 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="javascript:document.getElementById('logOffForm').submit()" class="nav-link">
-                    <i class="nav-icon fas fa-th"></i>
-                    <p>
-                        Logout
-                        @*<span class="right badge badge-danger">New</span>*@
-                    </p>
-                </a>
-            </li>
+                @using (Html.BeginForm("Logout", "User", FormMethod.Post, new {}))
+                 {
+                    <button type="submit" class="nav-link button-liink" value="Submit">
+                       <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Logout
+                        </p>
+                    </button>
+                 }                                           
+            </li>         
         </ul>
     </nav>
     <!-- /.sidebar-menu -->
 </div>
 <!-- /.sidebar -->
-@*@if (Request.IsAuthenticated)
-{
-    <div style="display:none">
-        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { @id = "logOffForm" }))
-        {
-            @Html.AntiForgeryToken()
-        }
-    </div>
-}*@
+

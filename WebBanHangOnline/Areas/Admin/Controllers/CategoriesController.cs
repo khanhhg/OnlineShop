@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using WebBanHangOnline.Data;
+using WebBanHangOnline.Data.IRepository;
 using WebBanHangOnline.Models.EF;
 using X.PagedList;
 
@@ -18,17 +13,17 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
     [Authorize(Roles = "Administrator")]
     public class CategoriesController : Controller
     {
-        private readonly ApplicationDbContext _context;
-
-        public CategoriesController(ApplicationDbContext context)
+        //private readonly ApplicationDbContext _context;
+        ICategoriesRepository _ICategories;
+        public CategoriesController(ICategoriesRepository iCategoriesRepository)
         {
-            _context = context;
+            _ICategories = iCategoriesRepository;
         }
 
         // GET: Admin/Categories
-        public IActionResult Index(string Searchtext, int? page = 1)
+        public async Task<IActionResult> Index(string Searchtext, int? page = 1)
         {
-            IEnumerable<Category> items = _context.Category.OrderByDescending(x => x.Position);
+            IEnumerable<Category> items = await _ICategories.GetAll();
             var pageSize = 10;
             if (page == null)
             {
@@ -36,31 +31,13 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             }
             if (!string.IsNullOrEmpty(Searchtext))
             {
-                items = items.Where(x => x.Title.Contains(Searchtext));
+                items = items.Where(x => x.Title.Contains(Searchtext)).OrderByDescending(x=>x.Position);
             }
             var pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             items = items.ToPagedList(pageIndex, pageSize);
             ViewBag.PageSize = pageSize;
             ViewBag.Page = page;
             return View(items);
-        }
-
-        // GET: Admin/Categories/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Category == null)
-            {
-                return NotFound();
-            }
-
-            var category = await _context.Category
-                .FirstOrDefaultAsync(m => m.CategoryId == id);
-            if (category == null)
-            {
-                return NotFound();
-            }
-
-            return View(category);
         }
 
         // GET: Admin/Categories/Create
@@ -81,9 +58,8 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 category.CreatedDate = DateTime.Now;
                 category.ModifiedDate = DateTime.Now;
                 category.CreatedBy = User.FindFirstValue(ClaimTypes.NameIdentifier); 
-                category.IsActive = true;              
-                _context.Category.Add(category);
-                await _context.SaveChangesAsync();
+                category.IsActive = true;
+               await _ICategories.Add(category);             
                 return RedirectToAction(nameof(Index));
             }
             else
@@ -95,12 +71,12 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         // GET: Admin/Categories/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Category == null)
+            if (id == null || await _ICategories.Get((int)id) == null)
             {
                 return NotFound();
             }
 
-            var category = await _context.Category.FindAsync(id);
+            var category =  await _ICategories.Get((int)id);
             if (category == null)
             {
                 return NotFound();
@@ -122,46 +98,28 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    category.Modifiedby = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                    category.ModifiedDate = DateTime.Now;
-                    _context.Update(category);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CategoryExists(category.CategoryId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                category.Modifiedby = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                category.ModifiedDate = DateTime.Now;
+               await _ICategories.Update(category);
                 return RedirectToAction(nameof(Index));
             }
             return View(category);
         }
       
         [HttpPost]
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
-            var item = _context.Category.Find(id);
+            var item = await _ICategories.Get(id);
             if (item != null)
             {
                 //var DeleteItem = db.Categories.Attach(item);
-                _context.Category.Remove(item);
-                _context.SaveChanges();
+                await _ICategories.Delete(item); 
                 return Json(new { success = true });
             }
-            return Json(new { success = false });
-        }
-
-        private bool CategoryExists(int id)
-        {
-          return (_context.Category?.Any(e => e.CategoryId == id)).GetValueOrDefault();
-        }
+            else
+            {
+                return Json(new { success = false });
+            }          
+        }   
     }
 }

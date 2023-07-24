@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
-using System.Data;
 using WebBanHangOnline.Areas.Admin.Models;
 
 namespace WebBanHangOnline.Areas.Admin.Controllers
@@ -44,12 +43,10 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 {
                     return RedirectToAction("Index");
                 }
-
                 else
                 {
                     Errors(result);
-                }
-                   
+                }                
             }
             return View(name);
         }

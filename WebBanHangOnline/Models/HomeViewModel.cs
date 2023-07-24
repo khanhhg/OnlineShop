@@ -4,8 +4,8 @@ namespace WebBanHangOnline.Models
 {
 	public class HomeViewModel
 	{
-		public List<Product> ProductSales { get; set; }
-		public List<Product> Product_ByCategory { get; set; }
-        public List<ProductCategory> CateroryArrivals { get; set; }
+		public IList<Product> ProductSales { get; set; }
+		public IList<Product> Product_ByCategory { get; set; }
+        public IList<ProductCategory> CateroryArrivals { get; set; }
     }
 }

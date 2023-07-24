@@ -16,9 +16,9 @@
 
                 <div class="breadcrumbs d-flex flex-row align-items-center">
                     <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/danh-muc-san-pham/@Model.ProductCategory.Alias-@Model.ProductCategoryId"><i class="fa fa-angle-right" aria-hidden="true"></i>@Model.ProductCategory.Title</a></li>
-                        <li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>@Model.Title</a></li>
+                        <li><a href="/home">Home</a></li>
+                        <li><a href="/products/index/@Model.ProductCategory.ProductCategoryId"><i class="fa fa-angle-right" aria-hidden="true"></i>@Model.ProductCategory.Title</a></li>
+                        <li class="active"><i class="fa fa-angle-right" aria-hidden="true"></i>@Model.Title</li>
                     </ul>
                 </div>
 
@@ -63,7 +63,7 @@
                     <div class="product_details_title">
                         <h2>@Model.Title</h2>
                         <p>@Model.Description</p>
-                        <p>Lượt xem: <b>@Model.ViewCount</b></p>
+                        <p>View: <b>@Model.ViewCount</b></p>
                     </div>
                     @if (Model.PriceSale > 0)
                     {

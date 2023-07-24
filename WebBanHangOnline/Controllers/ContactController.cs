@@ -1,19 +1,18 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
-using WebBanHangOnline.Data;
+using WebBanHangOnline.Data.IRepository;
 using WebBanHangOnline.Models.EF;
 
 namespace WebBanHangOnline.Controllers
 {
     public class ContactController : Controller
-    {
-		private readonly ApplicationDbContext _context;
+    {		
 		private readonly INotyfService _toastNotification;
-		public ContactController(ApplicationDbContext context, INotyfService toastNotification)
+		IContactRepository _IContact;
+		public ContactController(IContactRepository contactRepository, INotyfService toastNotification)
 		{
-			_context = context;
+            _IContact = contactRepository;
 			_toastNotification = toastNotification;
 		}
 		public IActionResult Index()
@@ -30,8 +29,7 @@ namespace WebBanHangOnline.Controllers
 				contact.ModifiedDate = DateTime.Now;
 				contact.CreatedBy = User.FindFirstValue(ClaimTypes.NameIdentifier);
 				contact.IsRead = false;
-				_context.Contact.Add(contact);
-				await _context.SaveChangesAsync();
+				await _IContact.Add(contact);
 				_toastNotification.Success("Send message success");
 
 				return RedirectToAction(nameof(Index));

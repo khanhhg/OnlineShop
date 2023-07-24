@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using WebBanHangOnline.Data;
 using WebBanHangOnline.Models.EF;
 using X.PagedList;
-using WebBanHangOnline.Common;
-
+using WebBanHangOnline.Data.IRepository;
 
 namespace WebBanHangOnline.Areas.Admin.Controllers
 {
@@ -20,19 +15,22 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
     [Authorize(Roles = "Administrator")]
     public class ProductsController : Controller
     {
-        private readonly ApplicationDbContext _context;
-       
+        //private readonly ApplicationDbContext _context;
+        IProductsRepository _IProducts;
+        IProductCategoriesRepository _IProductCategories;
+
         string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\products");
-        public ProductsController(ApplicationDbContext context)
+        public ProductsController(IProductsRepository productsRepository, IProductCategoriesRepository productCategoriesRepository)
         {
-            _context = context;
+            _IProducts = productsRepository;
+            _IProductCategories = productCategoriesRepository;
         }
 
         // GET: Admin/Products
-        public  IActionResult Index(string Searchtext, int? page = 1)
+        public async  Task<IActionResult> Index(string Searchtext, int? page = 1)
         {
             
-            IEnumerable<Product> items =  _context.Product.Include(x=>x.ProductCategory).Include(x=>x.ProductImages).OrderByDescending(x => x.ProductId);
+            IEnumerable<Product> items = await _IProducts.GetAll();
             var pageSize = 10;
             if (page == null)
             {
@@ -49,28 +47,10 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             return View(items);
         }
 
-		// GET: Admin/Products/Details/5
-		public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Product == null)
-            {
-                return NotFound();
-            }
-            var product = await _context.Product
-                .Include(p => p.ProductCategory)
-                .FirstOrDefaultAsync(m => m.ProductId == id);
-            if (product == null)
-            {
-                return NotFound();
-            }
-
-            return View(product);
-        }
-
         // GET: Admin/Products/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewBag.ProductCategory = new SelectList(_context.ProductCategory.ToList(), "ProductCategoryId", "Title");
+            ViewBag.ProductCategory = new SelectList(await _IProductCategories.GetAll(), "ProductCategoryId", "Title");
             return View();
         }
 
@@ -109,7 +89,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                             }
                             if (countImage == 1)
                             {
-                                product.ProductImages.Add(new ProductImage
+                               await _IProducts.AddImage(new ProductImage
                                 {
                                     ProductId = product.ProductId,
                                     Image = filename,
@@ -119,7 +99,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                             }
                             else
                             {
-                                product.ProductImages.Add(new ProductImage
+                                await _IProducts.AddImage(new ProductImage
                                 {
                                     ProductId = product.ProductId,
                                     Image = filename,
@@ -131,32 +111,31 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 }
                 product.CreatedDate = DateTime.Now;
                 product.ModifiedDate = DateTime.Now;
-                product.CreatedBy = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                product.ProductCategory = _context.ProductCategory.Where(x => x.ProductCategoryId == product.ProductCategoryId).FirstOrDefault();
-
-                _context.Product.Add(product);
-                await _context.SaveChangesAsync();
+                product.CreatedBy = User.FindFirstValue(ClaimTypes.NameIdentifier);         
+                await _IProducts.Add(product);              
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.ProductCategory = new SelectList(_context.ProductCategory.ToList(), "ProductCategoryId", "Title");
-            return View(product);
+            else
+            {
+                ViewBag.ProductCategory = new SelectList(await _IProductCategories.GetAll(), "ProductCategoryId", "Title");
+                return View(product);
+            }
+         
         }
 
         // GET: Admin/Products/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Product == null)
+            if (id == null || await _IProducts.Get((int)id) == null)
             {
                 return NotFound();
             }
-
-            var product = await _context.Product.FindAsync(id);
-            if (product == null)
+            else
             {
-                return NotFound();
-            }
-            ViewBag.ProductCategory = new SelectList(_context.ProductCategory.ToList(), "ProductCategoryId", "Title");
-            return View(product);
+                var product = await _IProducts.Get((int)id);
+                ViewBag.ProductCategory = new SelectList(await _IProductCategories.GetAll(), "ProductCategoryId", "Title");
+                return View(product);
+            }                  
         }
 
         // POST: Admin/Products/Edit/5
@@ -173,9 +152,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             ModelState.ClearValidationState("ProductCategory");
             ModelState.MarkFieldValid("ProductCategory");
             if (ModelState.IsValid)
-            {
-                try
-                {
+            {             
                     //int countImage = 0;
                     //foreach (var fileImage in files)
                     //{
@@ -221,30 +198,21 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                     //}
                     product.Modifiedby = User.FindFirstValue(ClaimTypes.NameIdentifier);
                     product.ModifiedDate = DateTime.Now;
-                    _context.Update(product);
-                    await _context.SaveChangesAsync();            
-                   
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ProductExists(product.ProductId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                   await _IProducts.Update(product);                        
+                             
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.ProductCategory = new SelectList(_context.ProductCategory.ToList(), "ProductCategoryId", "Title");
-            return View(product);
+            else
+            {
+                ViewBag.ProductCategory = new SelectList(await _IProductCategories.GetAll(), "ProductCategoryId", "Title");
+                return View(product);
+            }
+         
         }
         [HttpPost]
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
-            var item = _context.Product.Find(id);
+            var item = await _IProducts.Get(id);
             if (item != null)
             {
                 var checkImg = item.ProductImages.Where(x => x.ProductId == item.ProductId);
@@ -257,19 +225,20 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                         {
                             file.Delete();
                         }
-                        _context.ProductImage.Remove(img);
-                        _context.SaveChanges();
+                       await _IProducts.DeleteImage(img);
                     }
                 }
-                _context.Product.Remove(item);
-                _context.SaveChanges();
+                await _IProducts.Delete(item);
+               
                 return Json(new { success = true });
             }
-
-            return Json(new { success = false });
+            else
+            {
+                return Json(new { success = false });
+            }        
         }
         [HttpPost]
-        public ActionResult DeleteAll(string ids)
+        public async Task<ActionResult> DeleteAll(string ids)
         {
             if (!string.IsNullOrEmpty(ids))
             {
@@ -278,7 +247,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 {
                     foreach (var item in items)
                     {
-                        var objProduct = _context.Product.Find(item);
+                        var objProduct = await _IProducts.Get(Convert.ToInt32(item));
                         if (objProduct != null)
                         {
                             var checkImg = objProduct.ProductImages.Where(x => x.ProductId == objProduct.ProductId);
@@ -291,12 +260,11 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                                     {
                                         file.Delete();
                                     }
-                                    _context.ProductImage.Remove(img);
-                                    _context.SaveChanges();
+                                    await _IProducts.DeleteImage(img);
                                 }
                             }
-                            _context.Product.Remove(objProduct);
-                            _context.SaveChanges();                         
+                           await _IProducts.Delete(objProduct);
+                                                    
                         }
                     }
                 }
@@ -305,57 +273,52 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             return Json(new { success = false });
         }
         [HttpPost]
-        public ActionResult IsActive(int id)
+        public async Task<ActionResult> IsActive(int id)
         {
-            var item = _context.Product.Find(id);
+            var item = await _IProducts.Get(id);
             if (item != null)
             {
-                item.IsActive = !item.IsActive;
-                _context.Entry(item).State = EntityState.Modified;
-                _context.SaveChanges();
+                await _IProducts.IsActive(item);
                 return Json(new { success = true, isAcive = item.IsActive });
             }
-
-            return Json(new { success = false });
+            else
+            {
+                return Json(new { success = false });
+            }
         }
         [HttpPost]
-        public ActionResult IsHome(int id)
+        public async Task<ActionResult> IsHome(int id)
         {
-            var item = _context.Product.Find(id);
+            var item = await _IProducts.Get(id);
             if (item != null)
             {
-                item.IsHome = !item.IsHome;
-                _context.Entry(item).State = EntityState.Modified;
-                 _context.SaveChanges();
-                return Json(new { success = true, IsHome = item.IsHome });
+                await _IProducts.IsHome(item);
+                return Json(new { success = true, isAcive = item.IsActive });
             }
-
-            return Json(new { success = false });
+            else
+            {
+                return Json(new { success = false });
+            }
         }
 
         [HttpPost]
-        public ActionResult IsSale(int id)
+        public async Task<ActionResult> IsSale(int id)
         {
-            var item = _context.Product.Find(id);
+            var item = await _IProducts.Get(id);
             if (item != null)
             {
-                item.IsSale = !item.IsSale;
-                _context.Entry(item).State = EntityState.Modified;
-                _context.SaveChanges();
-                return Json(new { success = true, IsSale = item.IsSale });
+                await _IProducts.IsSale(item);
+                return Json(new { success = true, isAcive = item.IsActive });
             }
-
-            return Json(new { success = false });
-        }
-
-        private bool ProductExists(int id)
-        {
-          return (_context.Product?.Any(e => e.ProductId == id)).GetValueOrDefault();
-        }
-        public IActionResult listProductImage(int id)
+            else
+            {
+                return Json(new { success = false });
+            }        
+        }     
+        public async Task<IActionResult> listProductImage(int id)
         {
             ViewBag.ProductId = id;
-            var items = _context.ProductImage.Where(x => x.ProductId == id).ToList();
+            var items = await _IProducts.GetImageByProduct(id);
             return View(items);
         }
 
@@ -399,8 +362,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                             objImg.ProductId = id;
                             objImg.Image = filename;
                             objImg.IsDefault = false;
-                            _context.ProductImage.Add(objImg);
-                            await _context.SaveChangesAsync();
+                            await _IProducts.AddImage(objImg);
                         }
                     }
                 }
@@ -409,8 +371,8 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         }
         public IActionResult editImage(int? id)
         {
-          
-            var items = _context.ProductImage.Where(x => x.ProductImageId == id).FirstOrDefault();
+
+            var items = _IProducts.GetImage((int)id);
             return View(items);
         }
         [HttpPost]
@@ -440,10 +402,9 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                         {
                             fileImage.CopyTo(stream);
                         }
-                        var objImage = _context.ProductImage.Where(x => x.ProductImageId == id).FirstOrDefault();
+                        var objImage = await _IProducts.GetImage((int)id);
                         objImage.Image = filename;
-                        _context.Update(objImage);                 
-                        await _context.SaveChangesAsync();
+                       await _IProducts.UpdateImage(objImage);                     
                         _producID = objImage.ProductId;
                     }
                 }
@@ -451,10 +412,10 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             return LocalRedirect("/admin/products/listProductImage/" + _producID);
         }
         [HttpPost]
-        public ActionResult deleteImage(int id)
+        public async Task<ActionResult> deleteImage(int id)
         {
                    
-            var item = _context.ProductImage.Find(id);
+            var item = await _IProducts.GetImage(id);
             if (item != null)
             {
                 FileInfo file = new FileInfo(path +"\\"+ item.Image);
@@ -462,8 +423,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 {
                     file.Delete();
                 }
-                _context.ProductImage.Remove(item);
-                _context.SaveChanges();
+                await _IProducts.DeleteImage(item);
                 return Json(new { success = true });
             }
             else
@@ -472,7 +432,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             }        
         }
         [HttpPost]
-        public ActionResult deleteAllImage(string ids)
+        public async Task<ActionResult> deleteAllImage(string ids)
         {
             if (!string.IsNullOrEmpty(ids))
             {
@@ -481,7 +441,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 {
                     foreach (var item in items)
                     {
-                        var objImage = _context.ProductImage.Find(Convert.ToInt32(item));
+                        var objImage = await _IProducts.GetImage(Convert.ToInt32(item));
                         if (objImage != null)
                         {
                             FileInfo file = new FileInfo(path + "\\" + objImage.Image);
@@ -489,28 +449,30 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                             {
                                 file.Delete();
                             }
-                            _context.ProductImage.Remove(objImage);
-                            _context.SaveChanges();
+                            await _IProducts.DeleteImage(objImage);
                         }
                     }
                 }
                 return Json(new { success = true });
             }
-            return Json(new { success = false });
+            else
+            {
+                return Json(new { success = false });
+            }       
         }
         [HttpPost]
-        public ActionResult IsDefault(int id)
+        public async Task<ActionResult> IsDefault(int id)
         {
-            var item = _context.ProductImage.Find(id);
+            var item = await _IProducts.GetImage(id);
             if (item != null)
             {
-                item.IsDefault = !item.IsDefault;
-                _context.Entry(item).State = EntityState.Modified;
-                _context.SaveChanges();
+               await _IProducts.IsDefault(item);
                 return Json(new { success = true, IsDefault = item.IsDefault });
             }
-
-            return Json(new { success = false });
+            else
+            {
+                return Json(new { success = false });
+            }        
         }
     }
 }

@@ -164,3 +164,10 @@
   cursor: not-allowed;
   background-color: #ffffff;
 }
+.button-liink {
+    background: unset;
+    border: unset;
+    color: #c2c7d0 !important;
+    text-align: inherit;
+}
+

@@ -37,7 +37,12 @@ namespace WebBanHangOnline.Controllers
 			{
 				ViewBag.CateId = id;
 			}
+			else
+			{
+                ViewBag.CateId = 0;
+            }
 			var items = _context.ProductCategory.ToList();
+
 			return PartialView("_MenuLeft", items);
 		}
 

@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Data;
-using WebBanHangOnline.Models.EF;
 using X.PagedList;
 
 namespace WebBanHangOnline.Areas.Admin.Controllers
@@ -14,10 +12,12 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
     {
         private RoleManager<IdentityRole> roleManager;
         private UserManager<IdentityUser> userManager;
-        public UserController(RoleManager<IdentityRole> roleMgr, UserManager<IdentityUser> userMrg)
+        SignInManager<IdentityUser> _signInManager;
+        public UserController(RoleManager<IdentityRole> roleMgr, UserManager<IdentityUser> userMrg, SignInManager<IdentityUser> userSign)
         {
             roleManager = roleMgr;
             userManager = userMrg;
+            _signInManager = userSign;
         }
   
         public IActionResult Index(string Searchtext, int? page = 1)
@@ -37,6 +37,12 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             ViewBag.PageSize = pageSize;
             ViewBag.Page = page;
             return View(items);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

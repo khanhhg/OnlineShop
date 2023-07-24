@@ -4,6 +4,8 @@ using System.Web.Mvc;
 using WebBanHangOnline.Data;
 using AspNetCoreHero.ToastNotification;
 using AspNetCoreHero.ToastNotification.Extensions;
+using WebBanHangOnline.Data.IRepository;
+using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,12 +29,24 @@ builder.Services.AddNotyf(config =>
 });
 builder.Services.AddDistributedMemoryCache();
 
+// Config session
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(60);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+
+builder.Services.AddScoped<ICategoriesRepository,CategoriesRepository>();
+builder.Services.AddScoped<INewsRepository,NewsRepository>();
+builder.Services.AddScoped<IProductCategoriesRepository, ProductCategoriesRepository>();
+builder.Services.AddScoped<IProductsRepository, ProductsRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IContactRepository,ContactRepository>();
+
+// Config Hit counter
+builder.Services.Configure<ForwardedHeadersOptions>(options => options.ForwardedHeaders =
+  ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto);
 
 var app = builder.Build();
 

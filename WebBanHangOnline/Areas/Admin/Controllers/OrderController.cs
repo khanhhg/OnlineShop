@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Data;
-using System.Globalization;
-using WebBanHangOnline.Data;
+using WebBanHangOnline.Data.IRepository;
 using X.PagedList;
 
 namespace WebBanHangOnline.Areas.Admin.Controllers
@@ -12,16 +10,16 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
     [Authorize(Roles = "Administrator")]
     public class OrderController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        IOrderRepository _IOrder;
 
-        public OrderController(ApplicationDbContext context)
+        public OrderController(IOrderRepository orderRepository)
         {
-            _context = context;
+            _IOrder = orderRepository;
         }
         // GET: Admin/Order
-        public ActionResult Index(string Searchtext, int? page = 1)
+        public async Task<ActionResult> Index(string Searchtext, int? page = 1)
         {
-            var items = _context.Order.OrderByDescending(x => x.CreatedDate).ToList();
+            var items = await _IOrder.GetAll();
 
             if (page == null)
             {
@@ -38,31 +36,30 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             return View(items.ToPagedList(pageNumber, pageSize));
         }
 
-        public ActionResult ViewOrder (int id)
+        public async Task<ActionResult> ViewOrder (int id)
         {
-            var item = _context.Order.Where(x=>x.OrderId ==id).Include(x=>x.OrderDetails).FirstOrDefault();
+            var  item = await _IOrder.Get(id);
             return View(item);
         }
-
-        public ActionResult Partial_Products(int id)
+        public async Task<ActionResult> Partial_Products(int id)
         {
-            var items = _context.OrderDetail.Where(x => x.OrderId == id).Include(x=>x.Product).ToList();
+            var items = await _IOrder.GetOrderDetail(id);
             return PartialView("_Partial_Products", items);
         }
 
         [HttpPost]
-        public ActionResult UpdateTT(int id, int trangthai)
+        public async Task<ActionResult> UpdateTT(int id, int status)
         {
-            var item = _context.Order.Find(id);
+            var item = await _IOrder.Get(id);
             if (item != null)
             {
-                _context.Order.Attach(item);
-                item.TypePayment = trangthai;
-                _context.Entry(item).Property(x => x.TypePayment).IsModified = true;
-                _context.SaveChanges();
+                await _IOrder.ChangeStatus(item, status);
                 return Json(new { message = "Success", Success = true });
             }
-            return Json(new { message = "Unsuccess", Success = false });
+            else
+            {
+                return Json(new { message = "Unsuccess", Success = false });
+            }       
         }    
     }
 }

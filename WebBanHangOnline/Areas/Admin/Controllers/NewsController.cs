@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.IO;
-using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using WebBanHangOnline.Data;
+using WebBanHangOnline.Data.IRepository;
 using WebBanHangOnline.Models.EF;
 using X.PagedList;
 
@@ -19,17 +14,17 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
     [Authorize(Roles = "Administrator")]
     public class NewsController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        INewsRepository _INews;
         string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\News");
-        public NewsController(ApplicationDbContext context)
+        public NewsController(INewsRepository iNewsRepository)
         {
-            _context = context;
+            _INews = iNewsRepository;
         }
 
         // GET: Admin/News
-        public  IActionResult Index(string Searchtext, int? page = 1)
+        public async  Task<IActionResult> Index(string Searchtext, int? page = 1)
         {
-            IEnumerable<News> items = _context.News.OrderByDescending(x => x.NewsId);
+            IEnumerable<News> items = await _INews.GetAll();
             var pageSize = 10;
             if (page == null)
             {
@@ -37,31 +32,13 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             }
             if (!string.IsNullOrEmpty(Searchtext))
             {
-                items = items.Where(x =>  x.Title.Contains(Searchtext));
+                items = items.Where(x =>  x.Title.Contains(Searchtext)).OrderByDescending(x => x.NewsId);
             }
             var pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             items = items.ToPagedList(pageIndex, pageSize);
             ViewBag.PageSize = pageSize;
             ViewBag.Page = page;
             return View(items);
-        }
-
-        // GET: Admin/News/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.News == null)
-            {
-                return NotFound();
-            }
-
-            var news = await _context.News
-                .FirstOrDefaultAsync(m => m.NewsId == id);
-            if (news == null)
-            {
-                return NotFound();
-            }
-
-            return View(news);
         }
 
         // GET: Admin/News/Create
@@ -101,8 +78,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                     news.ModifiedDate = DateTime.Now;
                     news.CreatedBy = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-                    _context.News.Add(news);
-                    await _context.SaveChangesAsync();
+                    await _INews.Add(news);               
                     return RedirectToAction(nameof(Index));
                 }
             }
@@ -112,11 +88,11 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         // GET: Admin/News/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.News == null)
+            if (id == null ||await _INews.Get((int)id) == null)
             {
                 return NotFound();
             }
-            var news = await _context.News.FindAsync(id);
+            var news = await _INews.Get((int)id);
             if (news == null)
             {
                 return NotFound();
@@ -139,11 +115,10 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             ModelState.MarkFieldValid("fileAvatar");
             if (ModelState.IsValid)
             {
-                try
                 {
-                    var objNewUpdate = _context.News.Where(x => x.NewsId == id).FirstOrDefault();
+                    var objNewUpdate = await _INews.Get(id);
                     if (fileAvatar != null)
-                    {                  
+                    {
                         FileInfo fileInfo = new FileInfo(fileAvatar.FileName);
 
                         if (fileInfo.Extension == ".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")
@@ -166,34 +141,22 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                     objNewUpdate.Title = news.Title;
                     objNewUpdate.Description = news.Description;
                     objNewUpdate.Detail = news.Detail;
-                    objNewUpdate.Alias =  news.Alias;
-                    objNewUpdate.SeoDescription = news.SeoDescription;  
+                    objNewUpdate.Alias = news.Alias;
+                    objNewUpdate.SeoDescription = news.SeoDescription;
                     objNewUpdate.SeoKeywords = news.SeoKeywords;
                     objNewUpdate.SeoTitle = news.SeoTitle;
                     objNewUpdate.IsActive = news.IsActive;
-                    _context.Update(objNewUpdate);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!NewsExists(news.NewsId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                    await _INews.Update(objNewUpdate);
+
+                    return RedirectToAction(nameof(Index));
+                }            
             }
             return View(news);
         }
-
         [HttpPost]
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
-            var item = _context.News.Find(id);
+            var item =  await _INews.Get(id);
             if (item != null)
             {
                 FileInfo file = new FileInfo(path + "\\" + item.Image);
@@ -201,30 +164,32 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 {
                     file.Delete();
                 }
-                _context.News.Remove(item);
-                _context.SaveChanges();
+                await _INews.Delete(item);
                 return Json(new { success = true });
             }
-            return Json(new { success = false });
+            else
+            {
+                return Json(new { success = false });
+            }          
         }
 
         [HttpPost]
-        public ActionResult IsActive(int id)
+        public async Task<ActionResult> IsActive(int id)
         {
-            var item = _context.News.Find(id);
+            var item = await _INews.Get(id);
             if (item != null)
             {
-                item.IsActive = !item.IsActive;
-                _context.Entry(item).State = EntityState.Modified;
-                _context.SaveChanges();
+               await _INews.IsActive(item);
                 return Json(new { success = true, isAcive = item.IsActive });
             }
-
-            return Json(new { success = false });
+            else
+            {
+                return Json(new { success = false });
+            }         
         }
 
         [HttpPost]
-        public ActionResult DeleteAll(string ids)
+        public async Task<ActionResult> DeleteAll(string ids)
         {
             if (!string.IsNullOrEmpty(ids))
             {
@@ -232,25 +197,24 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 if (items != null && items.Any())
                 {
                     foreach (var item in items)
-                    {                       
-                        var obj = _context.News.Find(Convert.ToInt32(item));
+                    {
+                        //var obj = _context.News.Find(Convert.ToInt32(item));
+                        var obj = await _INews.Get(Convert.ToInt32(item));
                         FileInfo file = new FileInfo(path + "\\" + obj.Image);
                         if (file.Exists)//check file exsit or not  
                         {
                             file.Delete();
                         }
-                        _context.News.Remove(obj);
-                        _context.SaveChanges();
+                        await _INews.Delete(obj);
+                      
                     }
                 }
                 return Json(new { success = true });
             }
-            return Json(new { success = false });
-        }
-
-        private bool NewsExists(int id)
-        {
-          return (_context.News?.Any(e => e.NewsId == id)).GetValueOrDefault();
-        }
+            else
+            {
+                return Json(new { success = false });
+            }        
+        }       
     }
 }

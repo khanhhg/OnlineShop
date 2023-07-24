@@ -12,8 +12,8 @@
 
             <div class="breadcrumbs d-flex flex-row align-items-center">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active"><a href="/"><i class="fa fa-angle-right" aria-hidden="true"></i>Men's</a></li>
+                    <li><a href="/home">Home</a></li>
+                    <li class="active"><i class="fa fa-angle-right" aria-hidden="true"></i> @ViewBag.CategoryName</li>
                 </ul>
             </div>
 
@@ -221,6 +221,7 @@
 
 @section scripts{
     <script>
-        $('#_MenuLeft').load("/Menu/MenuLeft")
+        var _uri = "/Menu/MenuLeft/" + @ViewBag.CategoryId;
+        $('#_MenuLeft').load(_uri)
     </script>
 }

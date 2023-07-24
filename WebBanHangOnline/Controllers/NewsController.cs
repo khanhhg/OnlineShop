@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebBanHangOnline.Data;
+using WebBanHangOnline.Data.IRepository;
 using WebBanHangOnline.Models.EF;
 using X.PagedList;
 
@@ -9,35 +10,33 @@ namespace WebBanHangOnline.Controllers
 {
     public class NewsController : Controller
     {
-        private readonly ApplicationDbContext _context;
-        private readonly INotyfService _toastNotification;
-        public NewsController(ApplicationDbContext context, INotyfService toastNotification)
+        INewsRepository _INews;
+        public NewsController(INewsRepository iNewsRepository)
         {
-            _context = context;
-            _toastNotification = toastNotification;
+            _INews = iNewsRepository;
         }
-        public ActionResult Index(int? page)
+        public async Task<ActionResult> Index(int? page)
         {
             var pageSize = 10;
             if (page == null)
             {
                 page = 1;
             }
-            IEnumerable<News> items = _context.News.OrderByDescending(x => x.CreatedDate);
+            IEnumerable<News> items = await _INews.GetAll();
             var pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             items = items.ToPagedList(pageIndex, pageSize);
             ViewBag.PageSize = pageSize;
             ViewBag.Page = page;
             return View(items);
         }
-        public ActionResult Detail(int id)
+        public async Task<ActionResult> Detail(int id)
         {
-            var item = _context.News.Find(id);
+            var item = await _INews.Get(id);
             return View(item);
         }
-        public ActionResult Partial_News_Home()
+        public async Task<ActionResult> Partial_News_Home()
         {
-            var items = _context.News.OrderByDescending(x=>x.CreatedDate).Take(3).ToList();        
+            var items = await _INews.GetNewHome();        
 			return PartialView("_Partial_News_Home", items);
 		}
     }
