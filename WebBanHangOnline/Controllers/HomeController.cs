@@ -42,21 +42,5 @@ namespace WebBanHangOnline.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        public ActionResult PartialCounter()
-        {
-            var item = new CounterModel();
-
-            //ViewBag.Visitors_online = HttpContext.Request.PathBase["visitors_online"];
-            //var hn = HttpContext.Application["Today"];
-            //item.Today = HttpContext.Application["Today"].ToString();
-            //item.Yesterday = HttpContext.Application["Yesterday"].ToString();
-            //item.ThisWeek = HttpContext.Application["ThisWeek"].ToString();
-            //item.LastWeek = HttpContext.Application["LastWeek"].ToString();
-            //item.ThisMonth = HttpContext.Application["ThisMonth"].ToString();
-            //item.LastMonth = HttpContext.Application["LastMonth"].ToString();
-            //item.All = HttpContext.Application["All"].ToString();
-            return PartialView(item);
-        }
-
     }
 }

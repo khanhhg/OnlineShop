@@ -3,3 +3,6 @@
     padding-bottom: 80px;
     border-bottom: solid 1px #ebebeb;
 }
+.card-tools a {
+    float:right;
+}

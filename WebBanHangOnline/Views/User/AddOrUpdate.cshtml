@@ -1,0 +1,106 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model WebBanHangOnline.Models.EF.UserProfile
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/categories_styles.css">
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/categories_responsive.css">
+
+<div class="container product_section_container">
+    @if (!SignInManager.IsSignedIn(User))
+    {
+        <a href="#">
+            My Account
+            <i class="fa fa-angle-down"></i>
+        </a>
+        <ul class="account_selection">
+            <li><a asp-area="Identity" asp-page="/Account/Login"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
+            <li><a asp-area="Identity" asp-page="/Account/Register"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
+        </ul>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col product_section clearfix">
+
+                <!-- Breadcrumbs -->
+
+                <div class="breadcrumbs d-flex flex-row align-items-center">
+                    <ul>
+                        <li><a href="/home">Home</a></li>
+                        <li class="active"><i class="fa fa-angle-right" aria-hidden="true"></i>Update Customer information </li>
+                    </ul>
+                </div>
+
+                <!-- Sidebar -->
+                <!-- Main Content -->
+                <hr />
+
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-6">
+                        @* form *@
+                        @using (Html.BeginForm("AddOrUpdate", "User", FormMethod.Post, new { }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+                            @Html.HiddenFor(x => x.Id)
+                            <input type="hidden" name="UserID" id="UserID" value="@ViewBag.UserID" />
+                            <h3>Customer information</h3>
+                            <div class="form-group">
+
+                                <label>Customer Name</label>
+                                @Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control", @autocomplete="off"})
+                                @Html.ValidationMessageFor(x => x.CustomerName, null, new { @class = "text-danger" })
+
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control", @autocomplete="off"})
+                                @Html.ValidationMessageFor(x => x.PhoneNumber, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label>Address</label>
+                                @Html.TextBoxFor(x => x.Address, new { @class = "form-control", @autocomplete="off"})
+                                @Html.ValidationMessageFor(x => x.Address, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @autocomplete="off"})
+                                @Html.ValidationMessageFor(x => x.Email, null, new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-block btn-success">Sumbmit</button>
+                            </div>
+                        }
+                        @*    end*@
+
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+
+   
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

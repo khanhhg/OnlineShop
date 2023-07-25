@@ -43,10 +43,7 @@ builder.Services.AddScoped<IProductCategoriesRepository, ProductCategoriesReposi
 builder.Services.AddScoped<IProductsRepository, ProductsRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IContactRepository,ContactRepository>();
-
-// Config Hit counter
-builder.Services.Configure<ForwardedHeadersOptions>(options => options.ForwardedHeaders =
-  ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto);
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 

@@ -33,7 +33,6 @@ namespace WebBanHangOnline.Controllers
             {
                 ViewBag.CategoryName = "All";
             }
-               
             return View(items);
         }
 		public async Task<ActionResult> Promotion(int id)
