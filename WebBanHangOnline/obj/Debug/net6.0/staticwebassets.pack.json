@@ -5,6 +5,1266 @@
       "PackagePath": "staticwebassets\\WebBanHangOnline.bundle.scp.css"
     },
     {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\adminlte.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\adminlte.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\adminlte.css.map",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\adminlte.css.map"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\adminlte.min.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\adminlte.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\adminlte.min.css.map",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\adminlte.min.css.map"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.components.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.components.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.components.css.map",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.components.css.map"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.components.min.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.components.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.components.min.css.map",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.components.min.css.map"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.core.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.core.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.core.css.map",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.core.css.map"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.core.min.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.core.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.core.min.css.map",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.core.min.css.map"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.extra-components.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.extra-components.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.extra-components.css.map",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.extra-components.css.map"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.extra-components.min.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.extra-components.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.extra-components.min.css.map",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.extra-components.min.css.map"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.light.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.light.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.light.css.map",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.light.css.map"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.light.min.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.light.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.light.min.css.map",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.light.min.css.map"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.pages.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.pages.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.pages.css.map",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.pages.css.map"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.pages.min.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.pages.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.pages.min.css.map",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.pages.min.css.map"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.plugins.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.plugins.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.plugins.css.map",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.plugins.css.map"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.plugins.min.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.plugins.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\css\\alt\\adminlte.plugins.min.css.map",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\css\\alt\\adminlte.plugins.min.css.map"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\AdminLTELogo.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\AdminLTELogo.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\avatar.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\avatar.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\avatar2.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\avatar2.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\avatar3.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\avatar3.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\avatar4.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\avatar4.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\avatar5.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\avatar5.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\boxed-bg.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\boxed-bg.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\boxed-bg.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\boxed-bg.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\credit\\american-express.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\credit\\american-express.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\credit\\cirrus.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\credit\\cirrus.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\credit\\mastercard.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\credit\\mastercard.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\credit\\paypal.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\credit\\paypal.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\credit\\paypal2.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\credit\\paypal2.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\credit\\visa.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\credit\\visa.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\default-150x150.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\default-150x150.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\icons.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\icons.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\photo1.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\photo1.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\photo2.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\photo2.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\photo3.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\photo3.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\photo4.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\photo4.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\prod-1.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\prod-1.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\prod-2.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\prod-2.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\prod-3.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\prod-3.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\prod-4.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\prod-4.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\prod-5.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\prod-5.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\user1-128x128.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\user1-128x128.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\user2-160x160.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\user2-160x160.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\user3-128x128.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\user3-128x128.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\user4-128x128.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\user4-128x128.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\user5-128x128.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\user5-128x128.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\user6-128x128.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\user6-128x128.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\user7-128x128.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\user7-128x128.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\img\\user8-128x128.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\img\\user8-128x128.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\js\\.eslintrc.json",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\js\\.eslintrc.json"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\js\\adminlte.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\js\\adminlte.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\js\\adminlte.js.map",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\js\\adminlte.js.map"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\js\\adminlte.min.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\js\\adminlte.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\js\\adminlte.min.js.map",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\js\\adminlte.min.js.map"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\js\\demo.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\js\\demo.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\js\\pages\\dashboard.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\js\\pages\\dashboard.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\js\\pages\\dashboard2.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\js\\pages\\dashboard2.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\dist\\js\\pages\\dashboard3.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\dist\\js\\pages\\dashboard3.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\banner_1.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\banner_1.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\banner_2.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\banner_2.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\banner_3.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\banner_3.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\blog_1.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\blog_1.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\blog_2.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\blog_2.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\blog_3.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\blog_3.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\deal_ofthe_week.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\deal_ofthe_week.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\desc_1.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\desc_1.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\desc_2.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\desc_2.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\desc_3.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\desc_3.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\map_marker.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\map_marker.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\product_1.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\product_1.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\product_10.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\product_10.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\product_2.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\product_2.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\product_3.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\product_3.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\product_4.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\product_4.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\product_5.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\product_5.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\product_6.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\product_6.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\product_7.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\product_7.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\product_8.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\product_8.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\product_9.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\product_9.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\single_1.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\single_1.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\single_1_thumb.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\single_1_thumb.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\single_2.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\single_2.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\single_2_thumb.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\single_2_thumb.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\single_3.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\single_3.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\single_3_thumb.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\single_3_thumb.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\images\\slider_1.jpg",
+      "PackagePath": "staticwebassets\\Content\\assets\\images\\slider_1.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\js\\categories_custom.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\js\\categories_custom.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\js\\contact_custom.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\js\\contact_custom.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\js\\custom.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\js\\custom.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\js\\jquery-3.2.1.min.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\js\\jquery-3.2.1.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\js\\single_custom.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\js\\single_custom.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\Isotope\\isotope.pkgd.min.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\Isotope\\isotope.pkgd.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\OwlCarousel2-2.2.1\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\OwlCarousel2-2.2.1\\ajax-loader.gif"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\OwlCarousel2-2.2.1\\animate.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\OwlCarousel2-2.2.1\\animate.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\OwlCarousel2-2.2.1\\owl.carousel.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\OwlCarousel2-2.2.1\\owl.carousel.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\OwlCarousel2-2.2.1\\owl.carousel.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\OwlCarousel2-2.2.1\\owl.carousel.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\OwlCarousel2-2.2.1\\owl.theme.default.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\OwlCarousel2-2.2.1\\owl.theme.default.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\OwlCarousel2-2.2.1\\owl.video.play.png",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\OwlCarousel2-2.2.1\\owl.video.play.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\chart.js\\Chart.bundle.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\chart.js\\Chart.bundle.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\chart.js\\Chart.bundle.min.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\chart.js\\Chart.bundle.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\chart.js\\Chart.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\chart.js\\Chart.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\chart.js\\Chart.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\chart.js\\Chart.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\chart.js\\Chart.min.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\chart.js\\Chart.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\chart.js\\Chart.min.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\chart.js\\Chart.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\easing\\easing.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\easing\\easing.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\HELP-US-OUT.txt",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\HELP-US-OUT.txt"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\css\\font-awesome.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\css\\font-awesome.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\css\\font-awesome.min.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\css\\font-awesome.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\fonts\\FontAwesome.otf",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\fonts\\FontAwesome.otf"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.eot",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.eot"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.svg",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.svg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.ttf",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.ttf"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.woff",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.woff"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.woff2",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\fonts\\fontawesome-webfont.woff2"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\animated.less",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\animated.less"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\bordered-pulled.less",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\bordered-pulled.less"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\core.less",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\core.less"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\fixed-width.less",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\fixed-width.less"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\font-awesome.less",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\font-awesome.less"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\icons.less",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\icons.less"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\larger.less",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\larger.less"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\list.less",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\list.less"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\mixins.less",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\mixins.less"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\path.less",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\path.less"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\rotated-flipped.less",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\rotated-flipped.less"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\screen-reader.less",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\screen-reader.less"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\stacked.less",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\stacked.less"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\variables.less",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\less\\variables.less"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_animated.scss",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_animated.scss"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_bordered-pulled.scss",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_bordered-pulled.scss"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_core.scss",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_core.scss"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_fixed-width.scss",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_fixed-width.scss"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_icons.scss",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_icons.scss"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_larger.scss",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_larger.scss"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_list.scss",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_list.scss"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_mixins.scss",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_mixins.scss"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_path.scss",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_path.scss"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_rotated-flipped.scss",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_rotated-flipped.scss"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_screen-reader.scss",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_screen-reader.scss"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_stacked.scss",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_stacked.scss"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_variables.scss",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\_variables.scss"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\font-awesome.scss",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\font-awesome-4.7.0\\scss\\font-awesome.scss"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\jquery-ui-1.12.1.custom\\jquery-ui.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\jquery-ui-1.12.1.custom\\jquery-ui.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\jquery-ui-1.12.1.custom\\jquery-ui.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\jquery-ui-1.12.1.custom\\jquery-ui.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\af.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\af.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ar-dz.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ar-dz.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ar-kw.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ar-kw.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ar-ly.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ar-ly.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ar-ma.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ar-ma.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ar-sa.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ar-sa.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ar-tn.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ar-tn.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ar.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ar.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\az.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\az.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\be.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\be.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\bg.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\bg.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\bm.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\bm.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\bn-bd.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\bn-bd.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\bn.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\bn.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\bo.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\bo.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\br.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\br.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\bs.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\bs.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ca.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ca.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\cs.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\cs.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\cv.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\cv.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\cy.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\cy.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\da.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\da.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\de-at.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\de-at.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\de-ch.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\de-ch.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\de.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\de.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\dv.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\dv.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\el.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\el.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\en-SG.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\en-SG.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\en-au.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\en-au.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\en-ca.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\en-ca.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\en-gb.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\en-gb.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\en-ie.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\en-ie.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\en-il.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\en-il.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\en-in.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\en-in.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\en-nz.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\en-nz.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\eo.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\eo.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\es-do.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\es-do.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\es-mx.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\es-mx.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\es-us.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\es-us.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\es.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\es.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\et.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\et.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\eu.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\eu.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\fa.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\fa.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\fi.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\fi.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\fil.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\fil.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\fo.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\fo.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\fr-ca.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\fr-ca.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\fr-ch.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\fr-ch.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\fr.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\fr.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\fy.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\fy.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ga.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ga.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\gd.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\gd.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\gl.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\gl.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\gom-deva.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\gom-deva.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\gom-latn.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\gom-latn.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\gu.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\gu.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\he.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\he.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\hi.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\hi.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\hr.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\hr.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\hu.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\hu.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\hy-am.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\hy-am.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\id.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\id.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\is.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\is.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\it-ch.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\it-ch.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\it.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\it.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ja.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ja.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\jv.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\jv.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ka.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ka.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\kk.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\kk.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\km.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\km.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\kn.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\kn.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ko.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ko.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ku.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ku.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ky.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ky.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\lb.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\lb.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\lo.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\lo.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\lt.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\lt.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\lv.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\lv.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\me.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\me.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\mi.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\mi.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\mk.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\mk.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ml.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ml.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\mn.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\mn.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\mr.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\mr.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ms-my.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ms-my.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ms.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ms.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\mt.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\mt.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\my.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\my.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\nb.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\nb.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ne.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ne.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\nl-be.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\nl-be.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\nl.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\nl.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\nn.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\nn.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\oc-lnc.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\oc-lnc.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\pa-in.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\pa-in.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\pl.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\pl.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\pt-br.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\pt-br.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\pt.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\pt.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ro.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ro.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ru.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ru.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\sd.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\sd.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\se.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\se.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\si.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\si.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\sk.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\sk.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\sl.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\sl.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\sq.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\sq.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\sr-cyrl.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\sr-cyrl.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\sr.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\sr.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ss.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ss.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\sv.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\sv.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\sw.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\sw.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ta.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ta.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\te.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\te.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\tet.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\tet.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\tg.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\tg.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\th.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\th.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\tk.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\tk.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\tl-ph.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\tl-ph.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\tlh.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\tlh.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\tr.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\tr.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\tzl.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\tzl.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\tzm-latn.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\tzm-latn.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\tzm.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\tzm.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ug-cn.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ug-cn.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\uk.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\uk.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\ur.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\ur.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\uz-latn.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\uz-latn.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\uz.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\uz.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\vi.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\vi.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\x-pseudo.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\x-pseudo.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\yo.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\yo.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\zh-cn.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\zh-cn.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\zh-hk.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\zh-hk.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\zh-mo.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\zh-mo.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locale\\zh-tw.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locale\\zh-tw.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locales.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locales.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locales.min.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locales.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\locales.min.js.map",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\locales.min.js.map"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\moment-with-locales.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\moment-with-locales.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\moment-with-locales.min.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\moment-with-locales.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\moment-with-locales.min.js.map",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\moment-with-locales.min.js.map"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\moment.min.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\moment.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\moment\\moment.min.js.map",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\moment\\moment.min.js.map"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\themify-icons\\fonts\\themify.eot",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\themify-icons\\fonts\\themify.eot"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\themify-icons\\fonts\\themify.svg",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\themify-icons\\fonts\\themify.svg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\themify-icons\\fonts\\themify.ttf",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\themify-icons\\fonts\\themify.ttf"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\themify-icons\\fonts\\themify.woff",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\themify-icons\\fonts\\themify.woff"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\plugins\\themify-icons\\themify-icons.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\plugins\\themify-icons\\themify-icons.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\styles\\bootstrap4\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\styles\\bootstrap4\\bootstrap.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\styles\\bootstrap4\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\styles\\bootstrap4\\bootstrap.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\styles\\bootstrap4\\popper.js",
+      "PackagePath": "staticwebassets\\Content\\assets\\styles\\bootstrap4\\popper.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\styles\\categories_responsive.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\styles\\categories_responsive.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\styles\\categories_styles.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\styles\\categories_styles.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\styles\\contact_responsive.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\styles\\contact_responsive.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\styles\\contact_styles.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\styles\\contact_styles.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\styles\\main_styles.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\styles\\main_styles.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\styles\\responsive.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\styles\\responsive.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\styles\\single_responsive.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\styles\\single_responsive.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\assets\\styles\\single_styles.css",
+      "PackagePath": "staticwebassets\\Content\\assets\\styles\\single_styles.css"
+    },
+    {
       "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\clients\\dist\\css\\adminlte.css",
       "PackagePath": "staticwebassets\\Content\\clients\\dist\\css\\adminlte.css"
     },
@@ -7889,6 +9149,86 @@
       "PackagePath": "staticwebassets\\Content\\clients\\plugins\\uplot\\uPlot.min.css"
     },
     {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\templates\\send1.html",
+      "PackagePath": "staticwebassets\\Content\\templates\\send1.html"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Content\\templates\\send2.html",
+      "PackagePath": "staticwebassets\\Content\\templates\\send2.html"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Files\\346150422_1045914723052777_4776364427522638362_n.jpg.jpg",
+      "PackagePath": "staticwebassets\\Files\\346150422_1045914723052777_4776364427522638362_n.jpg.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Files\\News\\blog_1.jpg",
+      "PackagePath": "staticwebassets\\Files\\News\\blog_1.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Files\\News\\blog_2.jpg",
+      "PackagePath": "staticwebassets\\Files\\News\\blog_2.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Files\\News\\blog_3.jpg",
+      "PackagePath": "staticwebassets\\Files\\News\\blog_3.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Files\\banner_1.jpg",
+      "PackagePath": "staticwebassets\\Files\\banner_1.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Files\\banner_2.jpg",
+      "PackagePath": "staticwebassets\\Files\\banner_2.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Files\\banner_3.jpg",
+      "PackagePath": "staticwebassets\\Files\\banner_3.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Files\\product_1.png",
+      "PackagePath": "staticwebassets\\Files\\product_1.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Files\\product_3.png",
+      "PackagePath": "staticwebassets\\Files\\product_3.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Files\\product_7.png",
+      "PackagePath": "staticwebassets\\Files\\product_7.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Files\\product_9.png",
+      "PackagePath": "staticwebassets\\Files\\product_9.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Files\\single_3.jpg",
+      "PackagePath": "staticwebassets\\Files\\single_3.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Files\\single_3_thumb.jpg",
+      "PackagePath": "staticwebassets\\Files\\single_3_thumb.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Toast\\css\\jquery.toast.css",
+      "PackagePath": "staticwebassets\\Toast\\css\\jquery.toast.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\Toast\\js\\jquery.toast.js",
+      "PackagePath": "staticwebassets\\Toast\\js\\jquery.toast.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\css\\NewsStyle.css",
+      "PackagePath": "staticwebassets\\css\\NewsStyle.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\css\\PagedList.css",
+      "PackagePath": "staticwebassets\\css\\PagedList.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\css\\UserManager.css",
+      "PackagePath": "staticwebassets\\css\\UserManager.css"
+    },
+    {
       "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -7897,8 +9237,764 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\News\\1fe4f577832e4dfaa5d0d132f4f5896a.jpg",
+      "PackagePath": "staticwebassets\\images\\News\\1fe4f577832e4dfaa5d0d132f4f5896a.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\News\\blog_1.jpg",
+      "PackagePath": "staticwebassets\\images\\News\\blog_1.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\News\\blog_2.jpg",
+      "PackagePath": "staticwebassets\\images\\News\\blog_2.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\News\\blog_3.jpg",
+      "PackagePath": "staticwebassets\\images\\News\\blog_3.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\News\\desc_1.jpg",
+      "PackagePath": "staticwebassets\\images\\News\\desc_1.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\News\\featureimage-1.jpg",
+      "PackagePath": "staticwebassets\\images\\News\\featureimage-1.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\News\\img-2561-64a5a19ff20d4.jpeg",
+      "PackagePath": "staticwebassets\\images\\News\\img-2561-64a5a19ff20d4.jpeg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\News\\ngu-dan-jpeg-7430-1688706997.jpg",
+      "PackagePath": "staticwebassets\\images\\News\\ngu-dan-jpeg-7430-1688706997.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\ProductCategory\\banner_1.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductCategory\\banner_1.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\ProductCategory\\banner_2.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductCategory\\banner_2.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\ProductCategory\\banner_3.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductCategory\\banner_3.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\ProductCategory\\product_1.png",
+      "PackagePath": "staticwebassets\\images\\ProductCategory\\product_1.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\ProductCategory\\product_10.png",
+      "PackagePath": "staticwebassets\\images\\ProductCategory\\product_10.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\ProductCategory\\product_2.png",
+      "PackagePath": "staticwebassets\\images\\ProductCategory\\product_2.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\ProductCategory\\product_5.png",
+      "PackagePath": "staticwebassets\\images\\ProductCategory\\product_5.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\ProductCategory\\product_6.png",
+      "PackagePath": "staticwebassets\\images\\ProductCategory\\product_6.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\ProductCategory\\single_3_thumb.jpg",
+      "PackagePath": "staticwebassets\\images\\ProductCategory\\single_3_thumb.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\Products\\DL5OBL7JR9G5.png",
+      "PackagePath": "staticwebassets\\images\\Products\\DL5OBL7JR9G5.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\Products\\deal_ofthe_week.png",
+      "PackagePath": "staticwebassets\\images\\Products\\deal_ofthe_week.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\Products\\desc_1.jpg",
+      "PackagePath": "staticwebassets\\images\\Products\\desc_1.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\Products\\desc_2.jpg",
+      "PackagePath": "staticwebassets\\images\\Products\\desc_2.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\Products\\desc_3.jpg",
+      "PackagePath": "staticwebassets\\images\\Products\\desc_3.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\Products\\featureimage-1.jpg",
+      "PackagePath": "staticwebassets\\images\\Products\\featureimage-1.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\Products\\img-2561-64a5a19ff20d4.jpeg",
+      "PackagePath": "staticwebassets\\images\\Products\\img-2561-64a5a19ff20d4.jpeg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\Products\\map_marker.png",
+      "PackagePath": "staticwebassets\\images\\Products\\map_marker.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\Products\\product_1.png",
+      "PackagePath": "staticwebassets\\images\\Products\\product_1.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\Products\\product_10.png",
+      "PackagePath": "staticwebassets\\images\\Products\\product_10.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\Products\\product_2.png",
+      "PackagePath": "staticwebassets\\images\\Products\\product_2.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\Products\\product_3.png",
+      "PackagePath": "staticwebassets\\images\\Products\\product_3.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\Products\\product_4.png",
+      "PackagePath": "staticwebassets\\images\\Products\\product_4.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\Products\\product_5.png",
+      "PackagePath": "staticwebassets\\images\\Products\\product_5.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\Products\\product_6.png",
+      "PackagePath": "staticwebassets\\images\\Products\\product_6.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\Products\\product_7.png",
+      "PackagePath": "staticwebassets\\images\\Products\\product_7.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\Products\\product_8.png",
+      "PackagePath": "staticwebassets\\images\\Products\\product_8.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\Products\\product_9.png",
+      "PackagePath": "staticwebassets\\images\\Products\\product_9.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\Products\\single_1.jpg",
+      "PackagePath": "staticwebassets\\images\\Products\\single_1.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\Products\\single_1_thumb.jpg",
+      "PackagePath": "staticwebassets\\images\\Products\\single_1_thumb.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\banner_1.jpg",
+      "PackagePath": "staticwebassets\\images\\banner_1.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\banner_2.jpg",
+      "PackagePath": "staticwebassets\\images\\banner_2.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\banner_3.jpg",
+      "PackagePath": "staticwebassets\\images\\banner_3.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\blog_1.jpg",
+      "PackagePath": "staticwebassets\\images\\blog_1.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\blog_2.jpg",
+      "PackagePath": "staticwebassets\\images\\blog_2.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\blog_3.jpg",
+      "PackagePath": "staticwebassets\\images\\blog_3.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\deal_ofthe_week.png",
+      "PackagePath": "staticwebassets\\images\\deal_ofthe_week.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\desc_1.jpg",
+      "PackagePath": "staticwebassets\\images\\desc_1.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\desc_2.jpg",
+      "PackagePath": "staticwebassets\\images\\desc_2.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\desc_3.jpg",
+      "PackagePath": "staticwebassets\\images\\desc_3.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\map_marker.png",
+      "PackagePath": "staticwebassets\\images\\map_marker.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\product_1.png",
+      "PackagePath": "staticwebassets\\images\\product_1.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\product_10.png",
+      "PackagePath": "staticwebassets\\images\\product_10.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\product_2.png",
+      "PackagePath": "staticwebassets\\images\\product_2.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\product_3.png",
+      "PackagePath": "staticwebassets\\images\\product_3.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\product_4.png",
+      "PackagePath": "staticwebassets\\images\\product_4.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\product_5.png",
+      "PackagePath": "staticwebassets\\images\\product_5.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\product_6.png",
+      "PackagePath": "staticwebassets\\images\\product_6.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\product_7.png",
+      "PackagePath": "staticwebassets\\images\\product_7.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\product_8.png",
+      "PackagePath": "staticwebassets\\images\\product_8.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\product_9.png",
+      "PackagePath": "staticwebassets\\images\\product_9.png"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\single_1.jpg",
+      "PackagePath": "staticwebassets\\images\\single_1.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\single_1_thumb.jpg",
+      "PackagePath": "staticwebassets\\images\\single_1_thumb.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\single_2.jpg",
+      "PackagePath": "staticwebassets\\images\\single_2.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\single_2_thumb.jpg",
+      "PackagePath": "staticwebassets\\images\\single_2_thumb.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\single_3.jpg",
+      "PackagePath": "staticwebassets\\images\\single_3.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\single_3_thumb.jpg",
+      "PackagePath": "staticwebassets\\images\\single_3_thumb.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\images\\slider_1.jpg",
+      "PackagePath": "staticwebassets\\images\\slider_1.jpg"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\autoNumeric-1.9.45.js",
+      "PackagePath": "staticwebassets\\js\\autoNumeric-1.9.45.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\jFile.js",
+      "PackagePath": "staticwebassets\\js\\jFile.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\jquery-3.4.1.intellisense.js",
+      "PackagePath": "staticwebassets\\js\\jquery-3.4.1.intellisense.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\jquery-3.4.1.js",
+      "PackagePath": "staticwebassets\\js\\jquery-3.4.1.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\jquery-3.4.1.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery-3.4.1.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\jquery-3.4.1.min.map",
+      "PackagePath": "staticwebassets\\js\\jquery-3.4.1.min.map"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\jquery-3.4.1.slim.js",
+      "PackagePath": "staticwebassets\\js\\jquery-3.4.1.slim.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\jquery-3.4.1.slim.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery-3.4.1.slim.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\jquery-3.4.1.slim.min.map",
+      "PackagePath": "staticwebassets\\js\\jquery-3.4.1.slim.min.map"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\jquery.unobtrusive-ajax.js",
+      "PackagePath": "staticwebassets\\js\\jquery.unobtrusive-ajax.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\jquery.unobtrusive-ajax.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.unobtrusive-ajax.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\jquery.validate-vsdoc.js",
+      "PackagePath": "staticwebassets\\js\\jquery.validate-vsdoc.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\js\\jquery.validate.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.validate.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\js\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\jsConvert.js",
+      "PackagePath": "staticwebassets\\js\\jsConvert.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\jsLayout.js",
+      "PackagePath": "staticwebassets\\js\\jsLayout.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\jsShopping.js",
+      "PackagePath": "staticwebassets\\js\\jsShopping.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\modernizr-2.8.3.js",
+      "PackagePath": "staticwebassets\\js\\modernizr-2.8.3.js"
+    },
+    {
       "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\icons\\default\\icons.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\icons\\default\\icons.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\langs\\README.md",
+      "PackagePath": "staticwebassets\\js\\tinymce\\langs\\README.md"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\license.txt",
+      "PackagePath": "staticwebassets\\js\\tinymce\\license.txt"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\models\\dom\\model.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\models\\dom\\model.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\accordion\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\accordion\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\advlist\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\advlist\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\anchor\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\anchor\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\autolink\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\autolink\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\autoresize\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\autoresize\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\autosave\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\autosave\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\charmap\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\charmap\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\code\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\code\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\codesample\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\codesample\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\directionality\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\directionality\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\emoticons\\js\\emojiimages.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\emoticons\\js\\emojiimages.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\emoticons\\js\\emojiimages.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\emoticons\\js\\emojiimages.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\emoticons\\js\\emojis.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\emoticons\\js\\emojis.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\emoticons\\js\\emojis.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\emoticons\\js\\emojis.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\emoticons\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\emoticons\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\fullscreen\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\fullscreen\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ar.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ar.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\bg_BG.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\bg_BG.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ca.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ca.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\cs.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\cs.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\da.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\da.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\de.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\de.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\el.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\el.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\en.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\en.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\es.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\es.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\eu.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\eu.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\fa.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\fa.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\fi.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\fi.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\fr_FR.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\fr_FR.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\he_IL.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\he_IL.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\hi.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\hi.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\hr.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\hr.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\hu_HU.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\hu_HU.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\id.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\id.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\it.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\it.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ja.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ja.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\kk.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\kk.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ko_KR.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ko_KR.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ms.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ms.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\nb_NO.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\nb_NO.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\nl.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\nl.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\pl.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\pl.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\pt_BR.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\pt_BR.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\pt_PT.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\pt_PT.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ro.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ro.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ru.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ru.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\sk.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\sk.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\sl_SI.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\sl_SI.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\sv_SE.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\sv_SE.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\th_TH.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\th_TH.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\tr.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\tr.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\uk.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\uk.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\vi.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\vi.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\zh_CN.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\zh_CN.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\zh_TW.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\js\\i18n\\keynav\\zh_TW.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\help\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\help\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\image\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\image\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\importcss\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\importcss\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\insertdatetime\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\insertdatetime\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\link\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\link\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\lists\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\lists\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\media\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\media\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\nonbreaking\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\nonbreaking\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\pagebreak\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\pagebreak\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\preview\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\preview\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\quickbars\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\quickbars\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\save\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\save\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\searchreplace\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\searchreplace\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\table\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\table\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\template\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\template\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\visualblocks\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\visualblocks\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\visualchars\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\visualchars\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\plugins\\wordcount\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\plugins\\wordcount\\plugin.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\skins\\content\\dark\\content.min.css",
+      "PackagePath": "staticwebassets\\js\\tinymce\\skins\\content\\dark\\content.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\skins\\content\\default\\content.min.css",
+      "PackagePath": "staticwebassets\\js\\tinymce\\skins\\content\\default\\content.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\skins\\content\\document\\content.min.css",
+      "PackagePath": "staticwebassets\\js\\tinymce\\skins\\content\\document\\content.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\skins\\content\\tinymce-5-dark\\content.min.css",
+      "PackagePath": "staticwebassets\\js\\tinymce\\skins\\content\\tinymce-5-dark\\content.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\skins\\content\\tinymce-5\\content.min.css",
+      "PackagePath": "staticwebassets\\js\\tinymce\\skins\\content\\tinymce-5\\content.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\skins\\content\\writer\\content.min.css",
+      "PackagePath": "staticwebassets\\js\\tinymce\\skins\\content\\writer\\content.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\skins\\ui\\oxide-dark\\content.inline.min.css",
+      "PackagePath": "staticwebassets\\js\\tinymce\\skins\\ui\\oxide-dark\\content.inline.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\skins\\ui\\oxide-dark\\content.min.css",
+      "PackagePath": "staticwebassets\\js\\tinymce\\skins\\ui\\oxide-dark\\content.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\skins\\ui\\oxide-dark\\skin.min.css",
+      "PackagePath": "staticwebassets\\js\\tinymce\\skins\\ui\\oxide-dark\\skin.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\skins\\ui\\oxide-dark\\skin.shadowdom.min.css",
+      "PackagePath": "staticwebassets\\js\\tinymce\\skins\\ui\\oxide-dark\\skin.shadowdom.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\skins\\ui\\oxide\\content.inline.min.css",
+      "PackagePath": "staticwebassets\\js\\tinymce\\skins\\ui\\oxide\\content.inline.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\skins\\ui\\oxide\\content.min.css",
+      "PackagePath": "staticwebassets\\js\\tinymce\\skins\\ui\\oxide\\content.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\skins\\ui\\oxide\\skin.min.css",
+      "PackagePath": "staticwebassets\\js\\tinymce\\skins\\ui\\oxide\\skin.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\skins\\ui\\oxide\\skin.shadowdom.min.css",
+      "PackagePath": "staticwebassets\\js\\tinymce\\skins\\ui\\oxide\\skin.shadowdom.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\skins\\ui\\tinymce-5-dark\\content.inline.min.css",
+      "PackagePath": "staticwebassets\\js\\tinymce\\skins\\ui\\tinymce-5-dark\\content.inline.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\skins\\ui\\tinymce-5-dark\\content.min.css",
+      "PackagePath": "staticwebassets\\js\\tinymce\\skins\\ui\\tinymce-5-dark\\content.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\skins\\ui\\tinymce-5-dark\\skin.min.css",
+      "PackagePath": "staticwebassets\\js\\tinymce\\skins\\ui\\tinymce-5-dark\\skin.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\skins\\ui\\tinymce-5-dark\\skin.shadowdom.min.css",
+      "PackagePath": "staticwebassets\\js\\tinymce\\skins\\ui\\tinymce-5-dark\\skin.shadowdom.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\skins\\ui\\tinymce-5\\content.inline.min.css",
+      "PackagePath": "staticwebassets\\js\\tinymce\\skins\\ui\\tinymce-5\\content.inline.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\skins\\ui\\tinymce-5\\content.min.css",
+      "PackagePath": "staticwebassets\\js\\tinymce\\skins\\ui\\tinymce-5\\content.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\skins\\ui\\tinymce-5\\skin.min.css",
+      "PackagePath": "staticwebassets\\js\\tinymce\\skins\\ui\\tinymce-5\\skin.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\skins\\ui\\tinymce-5\\skin.shadowdom.min.css",
+      "PackagePath": "staticwebassets\\js\\tinymce\\skins\\ui\\tinymce-5\\skin.shadowdom.min.css"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\themes\\silver\\theme.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\themes\\silver\\theme.min.js"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\tinymce.d.ts",
+      "PackagePath": "staticwebassets\\js\\tinymce\\tinymce.d.ts"
+    },
+    {
+      "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\js\\tinymce\\tinymce.min.js",
+      "PackagePath": "staticwebassets\\js\\tinymce\\tinymce.min.js"
     },
     {
       "Id": "E:\\NET\\BanHangOnline\\WebBanHangOnline\\wwwroot\\lib\\bootstrap\\LICENSE",

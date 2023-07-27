@@ -55,6 +55,10 @@ namespace WebBanHangOnline.Data.IRepository
             var items = await _context.OrderDetail.Where(x => x.OrderId == orderID).Include(x => x.Product).ToListAsync();
             return items;
         }
+        public async Task<IList<Order>> GetOderByUser(string userID)
+        {
+            return await _context.Order.Where(x=>x.UserID == userID).OrderByDescending(x => x.CreatedDate).ToListAsync();
+        }
 
     }
 }

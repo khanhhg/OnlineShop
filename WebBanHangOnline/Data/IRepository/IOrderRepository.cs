@@ -11,6 +11,7 @@ namespace WebBanHangOnline.Data.IRepository
         Task Delete(Order order);
         Task<IList<OrderDetail>> GetOrderDetail(int OrderID);
         Task ChangeStatus(Order order,int status);
-      
+        Task<IList<Order>> GetOderByUser(string UserID);
+
     }
 }

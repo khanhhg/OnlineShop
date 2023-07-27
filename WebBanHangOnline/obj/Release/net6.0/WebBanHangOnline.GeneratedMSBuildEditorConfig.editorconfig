@@ -220,6 +220,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xfUGFydGlhbF9OZXdzX0hvbWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/NET/BanHangOnline/WebBanHangOnline/Views/Order/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NET/BanHangOnline/WebBanHangOnline/Views/Order/ViewOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcVmlld09yZGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NET/BanHangOnline/WebBanHangOnline/Views/Order/_Partial_Products.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcX1BhcnRpYWxfUHJvZHVjdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/NET/BanHangOnline/WebBanHangOnline/Views/Products/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

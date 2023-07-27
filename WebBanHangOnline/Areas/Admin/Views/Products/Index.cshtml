@@ -40,7 +40,7 @@
 </section>
 
 <!-- Main content -->
-<section class="content">
+<section class="content ">
 
     <!-- Default box -->
     <div class="card">
@@ -52,7 +52,7 @@
                 <a href="#" class="btn btn-danger" id="BtnDeleteAll">Delete</a>
             </div>
         </div>
-        <div class="card-body">
+        <div class="card-body ">
             <div class="row">
                 <div class="col-6">
                     @using (Html.BeginForm("index", "products", FormMethod.Get, new { }))
@@ -66,76 +66,79 @@
                     }
                 </div>
             </div>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th><input type="checkbox" id="SelectAll" /></th>
-                        <th>#</th>
-                        <th>Image</th>
-                        <th>Product Name</th>
-                        <th>Category</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>CreateDate</th>
-                        <th>Home</th>
-                        <th>Sale</th>
-                        <th>Display</th>
-
-                        <th style="width:250px;"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if (Model != null && Model.Any())
-                    {
-                         var i = ((ViewBag.Page - 1) * ViewBag.PageSize) + 1;
-                     
-                        foreach (var item in Model)
-                        {
-                            var strCheck = item.IsActive == true ? "<i class='fa fa-check text-success'></i>" : "<i class='fas fa-times text-danger'></i>";
-                            var strCheckHome = item.IsHome ==true? "<i class='fa fa-check text-success'></i>" : "<i class='fas fa-times text-danger'></i>";
-                            var strCheckSale = item.IsSale==true? "<i class='fa fa-check text-success'></i>" : "<i class='fas fa-times text-danger'></i>";
-                            var strImg = "";
-                            var CheckImage = item.ProductImages.Where(x => x.IsDefault == true).FirstOrDefault();
-  
-                            if (CheckImage != null)
-                            {
-                                strImg = CheckImage.Image;
-                            }
-                    <tr id="trow_@item.ProductId">
-                                <td><input type="checkbox" class="cbkItem" value="@item.ProductId" /></td>
-                        <td>@i</td>
-                                <td><img class="imgproduct" data-id="@item.ProductId" src="/images/products/@strImg" width="50" /></td>
-                        <td>@item.Title</td>
-                        <td>@item.ProductCategory.Title</td>                    
-                        <td>@item.Quantity</td>
-                        <td>@WebBanHangOnline.Common.Common.FormatNumber(item.Price, 0)</td>
-                        <td>@item.CreatedDate?.ToString("dd/MM/yyyy")</td>
-                        <td class="text-center">
-                                    <a href='#' data-id="@item.ProductId" class="btnHome">@Html.Raw(strCheckHome)</a>
-                        </td>
-                        <td class="text-center">
-                                    <a href='#' data-id="@item.ProductId" class="btnSale">@Html.Raw(strCheckSale)</a>
-                        </td>
-                        <td class="text-center">
-                                    <a href='#' data-id="@item.ProductId" class="btnActive">@Html.Raw(strCheck)</a>
-                        </td>
-                        <td>
-                                    <a href="/admin/Products/listProductImage/@item.ProductId" class="btn btn-sm btn-success">Product Image</a>
-                                    <a href="/admin/Products/edit/@item.ProductId" class="btn btn-sm btn-primary">Edit</a>
-                                    <a href="#" data-id="@item.ProductId" class="btn btn-sm btn-danger btnDelete">Delete</a>
-                        </td>
-                    </tr>
-                            i++;
-                        }
-                    }
-                    else
-                    {
+            <div class="responsive-table">
+                <table class="table table-hover">
+                    <thead>
                         <tr>
-                            <td colspan="4">There are no records yet!!!</td>
+                            <th><input type="checkbox" id="SelectAll" /></th>
+                            <th>#</th>
+                            <th>Image</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>CreateDate</th>
+                            <th>Home</th>
+                            <th>Sale</th>
+                            <th>Display</th>
+
+                            <th style="width:250px;"></th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.Any())
+                        {
+                            var i = ((ViewBag.Page - 1) * ViewBag.PageSize) + 1;
+
+                            foreach (var item in Model)
+                            {
+                                var strCheck = item.IsActive == true ? "<i class='fa fa-check text-success'></i>" : "<i class='fas fa-times text-danger'></i>";
+                                var strCheckHome = item.IsHome == true ? "<i class='fa fa-check text-success'></i>" : "<i class='fas fa-times text-danger'></i>";
+                                var strCheckSale = item.IsSale == true ? "<i class='fa fa-check text-success'></i>" : "<i class='fas fa-times text-danger'></i>";
+                                var strImg = "";
+                                var CheckImage = item.ProductImages.Where(x => x.IsDefault == true).FirstOrDefault();
+
+                                if (CheckImage != null)
+                                {
+                                    strImg = CheckImage.Image;
+                                }
+                                <tr id="trow_@item.ProductId">
+                                    <td><input type="checkbox" class="cbkItem" value="@item.ProductId" /></td>
+                                    <td>@i</td>
+                                    <td><img class="imgproduct" data-id="@item.ProductId" src="/images/products/@strImg" width="50" /></td>
+                                    <td>@item.Title</td>
+                                    <td>@item.ProductCategory.Title</td>
+                                    <td>@item.Quantity</td>
+                                    <td>@WebBanHangOnline.Common.Common.FormatNumber(item.Price, 0)</td>
+                                    <td>@item.CreatedDate?.ToString("dd/MM/yyyy")</td>
+                                    <td class="text-center">
+                                        <a href='#' data-id="@item.ProductId" class="btnHome">@Html.Raw(strCheckHome)</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href='#' data-id="@item.ProductId" class="btnSale">@Html.Raw(strCheckSale)</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href='#' data-id="@item.ProductId" class="btnActive">@Html.Raw(strCheck)</a>
+                                    </td>
+                                    <td>
+                                        <a href="/admin/Products/listProductImage/@item.ProductId" class="btn btn-sm btn-success">Product Image</a>
+                                        <a href="/admin/Products/edit/@item.ProductId" class="btn btn-sm btn-primary">Edit</a>
+                                        <a href="#" data-id="@item.ProductId" class="btn btn-sm btn-danger btnDelete">Delete</a>
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="4">There are no records yet!!!</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+          
 
             <div class="row">
                 <div class="col-6"></div>

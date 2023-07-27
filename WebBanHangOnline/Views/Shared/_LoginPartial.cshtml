@@ -44,6 +44,7 @@ else
     <ul class="account_selection">
         @*<li><a asp-area="Identity" asp-page="/Account/Manage/Index"><i class="fa fa-sign-in" aria-hidden="true"></i>Profile</a></li>*@
         <li><a href="/user"><i class="fa fa-sign-in" aria-hidden="true"></i>Profile</a></li>
+        <li><a href="/order"><i class="fa fa-history" aria-hidden="true"></i>Order history</a></li>
         <li><a asp-area="Identity" asp-page="/Account/Manage/ChangePassword"><i class="fa fa fa-key" aria-hidden="true"></i>ChangePassword</a></li>
         <li>
             <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">

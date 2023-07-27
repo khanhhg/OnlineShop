@@ -5,9 +5,12 @@ using WebBanHangOnline.Models;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using WebBanHangOnline.Common;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebBanHangOnline.Controllers
 {
+
     public class ShoppingCartController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -29,6 +32,7 @@ namespace WebBanHangOnline.Controllers
             }
             return View();
         }
+        [Authorize]
         public ActionResult CheckOut()
         {
             ShoppingCart cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart");
@@ -42,8 +46,9 @@ namespace WebBanHangOnline.Controllers
         {
             return View();
         }
-	
-		public ActionResult Partial_Item_CheckOut()
+
+        [Authorize]
+        public ActionResult Partial_Item_CheckOut()
         {
             ShoppingCart cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart");
             if (cart != null && cart.Items.Any())
@@ -78,12 +83,26 @@ namespace WebBanHangOnline.Controllers
 			//return Json(new { Count = 0 }, JsonRequestBehavior.AllowGet);
 
 		}
-
+        [Authorize]
         public ActionResult Partial_CheckOut()
         {
-            return PartialView("_Partial_CheckOut");
+            string vUserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var objUser = _context.UserProfile.Where(x => x.UserID == vUserID).FirstOrDefault();
+            if (objUser !=null)
+            {
+                OrderViewModel item = new OrderViewModel();
+                item.CustomerName = objUser.CustomerName;
+                item.Address = objUser.Address;
+                item.Phone = objUser.PhoneNumber;
+                item.Email = objUser.Email;
+                return PartialView("_Partial_CheckOut",item);
+            }
+            else
+            {
+                return PartialView("_Partial_CheckOut");
+            }          
         }
-
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CheckOut(OrderViewModel req)
@@ -114,7 +133,8 @@ namespace WebBanHangOnline.Controllers
                     order.TypePayment = req.TypePayment;
                     order.CreatedDate = DateTime.Now;
                     order.ModifiedDate = DateTime.Now;
-                    order.CreatedBy = req.Phone;
+                    order.CreatedBy = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                    order.UserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
                     Random rd = new Random();
                     order.Code = "DH" + rd.Next(0, 9) + rd.Next(0, 9) + rd.Next(0, 9) + rd.Next(0, 9);
                     //order.E = req.CustomerName;

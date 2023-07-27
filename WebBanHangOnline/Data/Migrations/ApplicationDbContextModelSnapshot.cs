@@ -492,6 +492,10 @@ namespace WebBanHangOnline.Data.Migrations
                     b.Property<int>("TypePayment")
                         .HasColumnType("int");
 
+                    b.Property<string>("UserID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("OrderId");
 
                     b.ToTable("tb_Order");
