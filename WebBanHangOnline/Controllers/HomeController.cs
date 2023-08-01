@@ -22,8 +22,8 @@ namespace WebBanHangOnline.Controllers
         public async Task<IActionResult> Index()
         {
             HomeViewModel objHomeView = new HomeViewModel();
-            var itemSales = await _IProducts.GetProduts_By_Caterory(0, 12) ;
-			var item_by_Category = await _IProducts.GetProduts_Promotion(0,12);
+            var item_by_Category  = await _IProducts.GetProduts_By_Caterory(0, 10) ;
+			var itemSales = await _IProducts.GetProduts_Promotion(0,10);
             var CateroryArrivals = await _IproductCategories.GetAll();
 
             objHomeView.CateroryArrivals = CateroryArrivals;

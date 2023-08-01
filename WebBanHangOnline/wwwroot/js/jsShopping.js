@@ -6,7 +6,7 @@
         var quantity = 1;
         var tQuantity = $('#quantity_value').text();
         if (tQuantity != '') {
-            quatity = parseInt(tQuantity);
+            quantity = parseInt(tQuantity);
         }       
         $.ajax({
             url: '/shoppingcart/addtocart',
