@@ -14,17 +14,17 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
     [Authorize(Roles = "Administrator")]
     public class NewsController : Controller
     {
-        INewsRepository _INews;
+        INewsRepository _newsRepository;
         string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\News");
-        public NewsController(INewsRepository iNewsRepository)
+        public NewsController(INewsRepository newsRepository)
         {
-            _INews = iNewsRepository;
+            _newsRepository = newsRepository;
         }
 
         // GET: Admin/News
         public async  Task<IActionResult> Index(string Searchtext, int? page = 1)
         {
-            IEnumerable<News> items = await _INews.GetAll();
+            IEnumerable<News> items = await _newsRepository.GetAll();
             var pageSize = 10;
             if (page == null)
             {
@@ -56,29 +56,15 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (fileAvatar.FileName != null)
-                {                 
-                    FileInfo fileInfo = new FileInfo(fileAvatar.FileName);
-
-                    if (fileInfo.Extension == ".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")
-                    {
-                        if (!Directory.Exists(path))
-                        {
-                            Directory.CreateDirectory(path);
-                        }
-                        string filename = Common.Common.RandomString(12) + fileInfo.Extension;
-                        string fileNameWithPath = Path.Combine(path, filename);
-                        using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
-                        {
-                            fileAvatar.CopyTo(stream);
-                        }
-                        news.Image = filename;
-                    }
+                if (fileAvatar != null)
+                {
+                    news.Image = Common.Common.SaveFile(path, fileAvatar);
                     news.CreatedDate = DateTime.Now;
                     news.ModifiedDate = DateTime.Now;
+                    news.Detail = news.Detail.Replace("../..", String.Empty);
                     news.CreatedBy = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-                    await _INews.Add(news);               
+                    await _newsRepository.Add(news);               
                     return RedirectToAction(nameof(Index));
                 }
             }
@@ -88,11 +74,11 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         // GET: Admin/News/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null ||await _INews.Get((int)id) == null)
+            if (id == null ||await _newsRepository.Get((int)id) == null)
             {
                 return NotFound();
             }
-            var news = await _INews.Get((int)id);
+            var news = await _newsRepository.Get((int)id);
             if (news == null)
             {
                 return NotFound();
@@ -116,37 +102,22 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 {
-                    var objNewUpdate = await _INews.Get(id);
+                    var objNewUpdate = await _newsRepository.Get(id);
                     if (fileAvatar != null)
                     {
-                        FileInfo fileInfo = new FileInfo(fileAvatar.FileName);
-
-                        if (fileInfo.Extension == ".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")
-                        {
-                            if (!Directory.Exists(path))
-                            {
-                                Directory.CreateDirectory(path);
-                            }
-                            string filename = Common.Common.RandomString(12) + fileInfo.Extension;
-                            string fileNameWithPath = Path.Combine(path, filename);
-                            using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
-                            {
-                                fileAvatar.CopyTo(stream);
-                            }
-                            objNewUpdate.Image = filename;
-                        }
+                        objNewUpdate.Image = Common.Common.SaveFile(path, fileAvatar);
                     }
                     objNewUpdate.Modifiedby = User.FindFirstValue(ClaimTypes.NameIdentifier);
                     objNewUpdate.ModifiedDate = DateTime.Now;
                     objNewUpdate.Title = news.Title;
                     objNewUpdate.Description = news.Description;
-                    objNewUpdate.Detail = news.Detail;
+                    objNewUpdate.Detail =  news.Detail.Replace("../..", String.Empty);
                     objNewUpdate.Alias = news.Alias;
                     objNewUpdate.SeoDescription = news.SeoDescription;
                     objNewUpdate.SeoKeywords = news.SeoKeywords;
                     objNewUpdate.SeoTitle = news.SeoTitle;
                     objNewUpdate.IsActive = news.IsActive;
-                    await _INews.Update(objNewUpdate);
+                    await _newsRepository.Update(objNewUpdate);
 
                     return RedirectToAction(nameof(Index));
                 }            
@@ -156,7 +127,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         [HttpPost]
         public async Task<ActionResult> Delete(int id)
         {
-            var item =  await _INews.Get(id);
+            var item =  await _newsRepository.Get(id);
             if (item != null)
             {
                 FileInfo file = new FileInfo(path + "\\" + item.Image);
@@ -164,7 +135,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 {
                     file.Delete();
                 }
-                await _INews.Delete(item);
+                await _newsRepository.Delete(item);
                 return Json(new { success = true });
             }
             else
@@ -176,10 +147,10 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         [HttpPost]
         public async Task<ActionResult> IsActive(int id)
         {
-            var item = await _INews.Get(id);
+            var item = await _newsRepository.Get(id);
             if (item != null)
             {
-               await _INews.IsActive(item);
+               await _newsRepository.IsActive(item);
                 return Json(new { success = true, isAcive = item.IsActive });
             }
             else
@@ -199,14 +170,13 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                     foreach (var item in items)
                     {
                         //var obj = _context.News.Find(Convert.ToInt32(item));
-                        var obj = await _INews.Get(Convert.ToInt32(item));
+                        var obj = await _newsRepository.Get(Convert.ToInt32(item));
                         FileInfo file = new FileInfo(path + "\\" + obj.Image);
                         if (file.Exists)//check file exsit or not  
                         {
                             file.Delete();
                         }
-                        await _INews.Delete(obj);
-                      
+                        await _newsRepository.Delete(obj);                   
                     }
                 }
                 return Json(new { success = true });
@@ -215,6 +185,22 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             {
                 return Json(new { success = false });
             }        
-        }       
+        }
+
+        [HttpPost]
+        public ActionResult TinyMceUpload(IFormFile file)
+        {
+            string targetFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\news\\details");
+            if (file != null)
+            {
+                var location = "/images/blog/details/" + Common.Common.SaveFile(targetFolder, file);
+                return Json(new { location });
+            }
+            else
+            {
+                var Error = "File not found !";
+                return Json(new { Error });
+            }
+        }
     }
 }

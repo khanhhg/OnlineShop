@@ -24,8 +24,9 @@
                     <div class="sidebar_title">
                         <h5>Product Category</h5>
                     </div>
-                    <div id="_MenuLeft"></div>
+                   @* <div id="_MenuLeft"></div>*@
                   @*  @Html.Action("MenuLeft", "Menu")*@
+                    @await  Component.InvokeAsync("CategorySidebar",new{id=@ViewBag.CategoryId})
                 </div>
 
                 <!-- Price Range Filtering -->
@@ -157,7 +158,7 @@
                                                 }
                                                 @* <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>*@
                                                 <div class="product_info">
-                                                    <h6 class="product_name"><a href="/products/detail/@(item.ProductId)">@item.Title</a></h6>
+                                                    <h6 class="product_name"><a href="/products/detail?id=@(item.ProductId)">@item.Title</a></h6>
                                                     @if (item.IsSale == true && item.PriceSale > 0)
                                                     {
                                                         <div class="product_price">@WebBanHangOnline.Common.Common.FormatNumber(item.PriceSale, 0)<span>@WebBanHangOnline.Common.Common.FormatNumber(item.Price, 0)</span></div>
@@ -218,9 +219,9 @@
     </div>
 </div>
 
-@section scripts{
+@*@section scripts{
     <script>
         var _uri = "/Menu/MenuLeft/" + @ViewBag.CategoryId;
         $('#_MenuLeft').load(_uri)
     </script>
-}
+}*@

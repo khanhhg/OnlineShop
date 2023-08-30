@@ -87,5 +87,25 @@ namespace WebBanHangOnline.Common
             return new string(Enumerable.Repeat(chars, length)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }
+        public static string SaveFile(string targetFolder, IFormFile fileImage)
+        {
+            string filename = "";
+            FileInfo fileInfo = new FileInfo(fileImage.FileName);
+
+            if (fileInfo.Extension == ".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")
+            {
+                if (!Directory.Exists(targetFolder))
+                {
+                    Directory.CreateDirectory(targetFolder);
+                }
+                filename = Common.RandomString(12) + fileInfo.Extension;
+                string fileNameWithPath = Path.Combine(targetFolder, filename);
+                using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
+                {
+                    fileImage.CopyTo(stream);
+                }
+            }
+            return filename;
+        }
     }
 }

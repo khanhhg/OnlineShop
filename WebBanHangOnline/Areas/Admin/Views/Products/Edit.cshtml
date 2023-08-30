@@ -123,30 +123,7 @@
                                             @Html.HiddenFor(x => x.OriginalPrice, new { @class = "form-control", @placeholder = "OriginalPrice" })
                                             @Html.ValidationMessageFor(x => x.OriginalPrice, null, new { @class = "text-danger" })
                                         </div>
-                                    </div>
-                                  @*  <div class="col-3">
-                                        <div class="form-group">
-                                            <label for="Price">Price</label>
-                                            @Html.TextBoxFor(x => x.Price, new { @class = "form-control auto", @placeholder = "Price" })
-                                            @Html.ValidationMessageFor(x => x.Price, null, new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                    <div class="col-3">
-                                        <div class="form-group">
-                                            <label for="PriceSale">PriceSale</label>
-
-                                            @Html.TextBoxFor(x => x.PriceSale, new { @class = "form-control auto", @placeholder = "PriceSale" })
-                                            @Html.ValidationMessageFor(x => x.PriceSale, null, new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                    <div class="col-3">
-                                        <div class="form-group">
-                                            <label for="OriginalPrice">OriginalPrice</label>
-
-                                            @Html.TextBoxFor(x => x.OriginalPrice, new { @class = "form-control auto", @placeholder = "OriginalPrice" })
-                                            @Html.ValidationMessageFor(x => x.OriginalPrice, null, new { @class = "text-danger" })
-                                        </div>
-                                    </div>*@
+                                    </div>                         
                                 </div>
                                 <div class="row">
                                     <div class="col-3">
@@ -240,6 +217,8 @@
         tinymce.init({
             selector: 'textarea#txtDetail',
             height: 300,
+            images_upload_url: '/admin/products/TinyMceUpload',
+            automatic_uploads: true,
             plugins: [
                 'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview',
                 'anchor', 'pagebreak',

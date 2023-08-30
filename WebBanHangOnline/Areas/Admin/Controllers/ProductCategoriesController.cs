@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.IO;
-using System.Linq;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using WebBanHangOnline.Data;
 using WebBanHangOnline.Data.IRepository;
 using WebBanHangOnline.Models.EF;
 using X.PagedList;
@@ -60,27 +55,12 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             ModelState.ClearValidationState("Products");
             ModelState.MarkFieldValid("Products");
             if (ModelState.IsValid)
-            {
-                if (fileImage.FileName != null)
+            {               
+                if (fileImage != null)
                 {
-                                   
-                    FileInfo fileInfo = new FileInfo(fileImage.FileName);
-                   
-                    if(fileInfo.Extension ==".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")
-                    {
-                        if (!Directory.Exists(path))
-                        {
-                            Directory.CreateDirectory(path);
-                        }
-                        string filename = Common.Common.RandomString(12) + fileInfo.Extension;
-                        string fileNameWithPath = Path.Combine(path, filename);
-                        using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
-                        {
-                            fileImage.CopyTo(stream);
-                        }
-                        productCategory.Icon = filename;
-                    }                   
+                    productCategory.Icon = Common.Common.SaveFile(path, fileImage);
                 }
+
                 productCategory.CreatedDate = DateTime.Now;
                 productCategory.ModifiedDate = DateTime.Now;
                 productCategory.CreatedBy = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -128,25 +108,10 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             var productCategory_Edit = await _IProductCategories.Get((int)id);
             if (ModelState.IsValid)
             {             
-                    if (fileImage != null)
-                    {                  
-                        FileInfo fileInfo = new FileInfo(fileImage.FileName);
-
-                        if (fileInfo.Extension == ".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")
-                        {
-                            if (!Directory.Exists(path))
-                            {
-                                Directory.CreateDirectory(path);
-                            }
-                            string filename = Common.Common.RandomString(12) + fileInfo.Extension;
-                            string fileNameWithPath = Path.Combine(path, filename);
-                            using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
-                            {
-                                fileImage.CopyTo(stream);
-                            }
-                            productCategory_Edit.Icon = filename;
-                        }
-                    }
+                if (fileImage != null)
+                 {
+                    productCategory_Edit.Icon = Common.Common.SaveFile(path, fileImage);                   
+                 }
                   
                     productCategory_Edit.Modifiedby = User.FindFirstValue(ClaimTypes.NameIdentifier);
                     productCategory_Edit.ModifiedDate = DateTime.Now;

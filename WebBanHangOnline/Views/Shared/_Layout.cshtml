@@ -31,7 +31,6 @@
     <script src="~/js/jquery.validate.min.js"></script>
     <script src="~/js/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/js/jquery.unobtrusive-ajax.min.js"></script>
-    <script src="~/js/jsLayout.js"></script>
     <script src="~/Content/assets/plugins/Isotope/isotope.pkgd.min.js"></script>
     <script src="~/Content/assets/js/custom.js"></script>
     <script src="~/Content/assets/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>  
@@ -42,17 +41,6 @@
     <script src="~/Toast/js/jquery.toast.js"></script>
 </head>
 
-
-@*<form method="post" asp-controller="Home" asp-action="Index">
-    <div class="text-center">
-        <button class="btn btn-success" name="submit" value="Success">Toast Success</button>
-        <button class="btn btn-primary" name="submit" value="Info">Toast Info</button>
-        <button class="btn btn-danger" name="submit" value="Error">Toast Error</button>
-        <button class="btn btn-warning" name="submit" value="Warning">Toast Warning</button>
-    </div>
-</form>
-
-*@
 
 <body>
     <div class="super_container">
@@ -122,11 +110,8 @@
                                 <a href="/">colo<span>shop</span></a>
                             </div>
                             <nav class="navbar">
-                             @*   @Html.Action("MenuTop", "Menu")*@
-
-                                <!-- Main Menu -->
-                               
-                                <div id="PartialMenuTop"></div>
+                                @await  Component.InvokeAsync("Navbar")
+                            @*    <div id="PartialMenuTop"></div>*@
                                                          
                                 <ul class="navbar_user">
                                     <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
@@ -198,14 +183,9 @@
             </div>
         </div>
         @RenderBody()
-
-        <!-- Newsletter -->
-      @*  @Html.Action("Partial_Subcrice", "Home")*@
-      @*  <partial name="_PartialSubscribe" />*@
-       @* <div id="PartialSubscribe"></div>*@
-       @* <div id="PartialHomeSubscribe"></div>*@
         <!-- Footer -->
-        <div id="PartialHomeSubscribe"></div>
+       @* <div id="PartialHomeSubscribe"></div>*@
+        @await  Component.InvokeAsync("Subscribe")
         <footer class="footer">
             <div class="container">
                 <div class="row">

@@ -1,7 +1,4 @@
-﻿using AspNetCoreHero.ToastNotification.Abstractions;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using WebBanHangOnline.Data;
+﻿using Microsoft.AspNetCore.Mvc;
 using WebBanHangOnline.Data.IRepository;
 using WebBanHangOnline.Models.EF;
 using X.PagedList;
@@ -10,10 +7,10 @@ namespace WebBanHangOnline.Controllers
 {
     public class NewsController : Controller
     {
-        INewsRepository _INews;
-        public NewsController(INewsRepository iNewsRepository)
+        INewsRepository _newsRepository;
+        public NewsController(INewsRepository newsRepository)
         {
-            _INews = iNewsRepository;
+            _newsRepository = newsRepository;
         }
         public async Task<ActionResult> Index(int? page)
         {
@@ -22,7 +19,7 @@ namespace WebBanHangOnline.Controllers
             {
                 page = 1;
             }
-            IEnumerable<News> items = await _INews.GetAll();
+            IEnumerable<News> items = await _newsRepository.GetAll();
             var pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             items = items.ToPagedList(pageIndex, pageSize);
             ViewBag.PageSize = pageSize;
@@ -31,13 +28,8 @@ namespace WebBanHangOnline.Controllers
         }
         public async Task<ActionResult> Detail(int id)
         {
-            var item = await _INews.Get(id);
+            var item = await _newsRepository.Get(id);
             return View(item);
-        }
-        public async Task<ActionResult> Partial_News_Home()
-        {
-            var items = await _INews.GetNewHome();        
-			return PartialView("_Partial_News_Home", items);
-		}
+        }      
     }
 }

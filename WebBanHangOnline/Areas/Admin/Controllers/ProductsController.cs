@@ -15,7 +15,6 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
     [Authorize(Roles = "Administrator")]
     public class ProductsController : Controller
     {
-        //private readonly ApplicationDbContext _context;
         IProductsRepository _IProducts;
         IProductCategoriesRepository _IProductCategories;
 
@@ -68,50 +67,34 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 int countImage = 0;
                 foreach (var fileImage in files)
                 {
-                    if (fileImage.FileName != null)
+                    if (fileImage != null)
                     {
-                       
-                        //string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\products");
-                        FileInfo fileInfo = new FileInfo(fileImage.FileName);
-
-                        if (fileInfo.Extension == ".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")
+                        string fileName = Common.Common.SaveFile(path, fileImage);
+                        if (countImage == 1)
                         {
-                            countImage++;
-                            if (!Directory.Exists(path))
+                            await _IProducts.AddImage(new ProductImage
                             {
-                                Directory.CreateDirectory(path);
-                            }
-                            string filename = Common.Common.RandomString(12) + fileInfo.Extension;
-                            string fileNameWithPath = Path.Combine(path, filename);
-                            using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
+                                ProductId = product.ProductId,
+                                Image = fileName,
+                                IsDefault = true
+                            });
+                            product.Image = fileName;
+                        }
+                        else
+                        {
+                            await _IProducts.AddImage(new ProductImage
                             {
-                                fileImage.CopyTo(stream);
-                            }
-                            if (countImage == 1)
-                            {
-                               await _IProducts.AddImage(new ProductImage
-                                {
-                                    ProductId = product.ProductId,
-                                    Image = filename,
-                                    IsDefault = true
-                                });
-                                product.Image = filename;
-                            }
-                            else
-                            {
-                                await _IProducts.AddImage(new ProductImage
-                                {
-                                    ProductId = product.ProductId,
-                                    Image = filename,
-                                    IsDefault = false
-                                });
-                            }                          
+                                ProductId = product.ProductId,
+                                Image = fileName,
+                                IsDefault = false
+                            });
                         }
                     }
                 }
                 product.CreatedDate = DateTime.Now;
                 product.ModifiedDate = DateTime.Now;
-                product.CreatedBy = User.FindFirstValue(ClaimTypes.NameIdentifier);         
+                product.CreatedBy = User.FindFirstValue(ClaimTypes.NameIdentifier);  
+                product.Detail = product.Detail.Replace("../..", String.Empty);
                 await _IProducts.Add(product);              
                 return RedirectToAction(nameof(Index));
             }
@@ -152,62 +135,18 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             ModelState.ClearValidationState("ProductCategory");
             ModelState.MarkFieldValid("ProductCategory");
             if (ModelState.IsValid)
-            {             
-                    //int countImage = 0;
-                    //foreach (var fileImage in files)
-                    //{
-                    //    if (fileImage.FileName != null)
-                    //    {
-                          
-                    //        FileInfo fileInfo = new FileInfo(fileImage.FileName);
-
-                    //        if (fileInfo.Extension == ".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")
-                    //        {
-                    //            countImage++;
-                    //            if (!Directory.Exists(path))
-                    //            {
-                    //                Directory.CreateDirectory(path);
-                    //            }
-                    //            string filename = Common.Common.RandomString(12) + fileInfo.Extension;
-                    //            string fileNameWithPath = Path.Combine(path, filename);
-                    //            using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
-                    //            {
-                    //                fileImage.CopyTo(stream);
-                    //            }
-                    //            if (countImage == 1)
-                    //            {
-                    //                product.ProductImages.Add(new ProductImage
-                    //                {
-                    //                    ProductId = product.ProductId,
-                    //                    Image = filename,
-                    //                    IsDefault = true
-                    //                });
-                    //                product.Image = filename;
-                    //            }
-                    //            else
-                    //            {
-                    //                product.ProductImages.Add(new ProductImage
-                    //                {
-                    //                    ProductId = product.ProductId,
-                    //                    Image = filename,
-                    //                    IsDefault = false
-                    //                });
-                    //            }
-                    //        }
-                    //    }
-                    //}
-                    product.Modifiedby = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                    product.ModifiedDate = DateTime.Now;
-                   await _IProducts.Update(product);                        
-                             
+            {                              
+                 product.Modifiedby = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                 product.ModifiedDate = DateTime.Now;
+                 product.Detail = product.Detail.Replace("../..", String.Empty);
+                await _IProducts.Update(product);                                                   
                 return RedirectToAction(nameof(Index));
             }
             else
             {
                 ViewBag.ProductCategory = new SelectList(await _IProductCategories.GetAll(), "ProductCategoryId", "Title");
                 return View(product);
-            }
-         
+            }         
         }
         [HttpPost]
         public async Task<ActionResult> Delete(int id)
@@ -330,40 +269,19 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> createImage(int id, ICollection<IFormFile> fileImages)
-        {          
-            //if (id != product.ProductId)
-            //{
-            //    return NotFound();
-            //}
-
+        {                   
             if (ModelState.IsValid)
             {
                 foreach (var fileImage in fileImages)
                 {
-                    if (fileImage.FileName != null)
-                    {                       
-                        FileInfo fileInfo = new FileInfo(fileImage.FileName);
-
-                        if (fileInfo.Extension == ".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")
-                        {
-                            if (!Directory.Exists(path))
-                            {
-                                Directory.CreateDirectory(path);
-                            }
-                            string filename = Common.Common.RandomString(12) + fileInfo.Extension;
-                            string fileNameWithPath = Path.Combine(path, filename);
-                            using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
-                            {
-                                fileImage.CopyTo(stream);
-                            }
-
-                            ProductImage objImg = new ProductImage();
-
-                            objImg.ProductId = id;
-                            objImg.Image = filename;
-                            objImg.IsDefault = false;
-                            await _IProducts.AddImage(objImg);
-                        }
+                    if (fileImage != null)
+                    {
+                        string fileName = Common.Common.SaveFile(path, fileImage);
+                        ProductImage objImg = new ProductImage();
+                        objImg.ProductId = id;
+                        objImg.Image = fileName;
+                        objImg.IsDefault = false;
+                        await _IProducts.AddImage(objImg);
                     }
                 }
             }
@@ -371,7 +289,6 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         }
         public IActionResult editImage(int? id)
         {
-
             var items = _IProducts.GetImage((int)id);
             return View(items);
         }
@@ -386,35 +303,20 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             int _producID = 0;
             if (ModelState.IsValid)
             {
-                if (fileImage.FileName != null)
+                if (fileImage != null)
                 {
-                    FileInfo fileInfo = new FileInfo(fileImage.FileName);
-
-                    if (fileInfo.Extension == ".jpg" || fileInfo.Extension == ".png" || fileInfo.Extension == ".jpeg")
-                    {
-                        if (!Directory.Exists(path))
-                        {
-                            Directory.CreateDirectory(path);
-                        }
-                        string filename = Common.Common.RandomString(12) + fileInfo.Extension;
-                        string fileNameWithPath = Path.Combine(path, filename);
-                        using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
-                        {
-                            fileImage.CopyTo(stream);
-                        }
-                        var objImage = await _IProducts.GetImage((int)id);
-                        objImage.Image = filename;
-                       await _IProducts.UpdateImage(objImage);                     
-                        _producID = objImage.ProductId;
-                    }
+                    string fileName = Common.Common.SaveFile(path, fileImage);
+                    var objImage = await _IProducts.GetImage((int)id);
+                    objImage.Image = fileName;
+                    await _IProducts.UpdateImage(objImage);
+                    _producID = objImage.ProductId;
                 }
             }
             return LocalRedirect("/admin/products/listProductImage/" + _producID);
         }
         [HttpPost]
         public async Task<ActionResult> deleteImage(int id)
-        {
-                   
+        {                 
             var item = await _IProducts.GetImage(id);
             if (item != null)
             {
@@ -473,6 +375,21 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             {
                 return Json(new { success = false });
             }        
+        }
+        [HttpPost]
+        public ActionResult TinyMceUpload(IFormFile file)
+        {
+            string targetFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\products\\details");
+            if (file != null)
+            {
+                var location = "/images/products/details/" + Common.Common.SaveFile(targetFolder, file);
+                return Json(new { location });
+            }
+            else
+            {
+                var Error = "File not found !";
+                return Json(new { Error });
+            }
         }
     }
 }

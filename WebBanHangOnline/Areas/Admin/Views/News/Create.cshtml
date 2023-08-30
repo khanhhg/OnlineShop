@@ -128,7 +128,9 @@
     <script>
         tinymce.init({
             selector: 'textarea#txtDetail',
-            height: 300,
+            height: 500,
+            images_upload_url: '/admin/news/TinyMceUpload',
+            automatic_uploads: true,
             plugins: [
                 'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview',
                 'anchor', 'pagebreak',

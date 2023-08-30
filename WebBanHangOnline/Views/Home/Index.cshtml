@@ -21,14 +21,7 @@
 </div>
 
 <!-- Banner -->
-
-
-
-<div id="PartialProductCategory">
-
-</div>
-
-
+< @await  Component.InvokeAsync("ProductCategory")
 <!-- New Arrivals -->
 <div class="new_arrivals">
 	<div class="container">
@@ -273,11 +266,5 @@
 </div>
 
 <!-- Blogs -->
+< @await  Component.InvokeAsync("News")
 
-<div id="new_content"></div>
-@section Scripts{
-	<script>		
-		$('#PartialProductCategory').load("/Menu/MenuProductCategory")		
-		$('#new_content').load("/News/Partial_News_Home")			
-	</script>
-}

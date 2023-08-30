@@ -9,10 +9,10 @@ namespace WebBanHangOnline.Controllers
     public class ContactController : Controller
     {		
 		private readonly INotyfService _toastNotification;
-		IContactRepository _IContact;
+		IContactRepository _contactRepository;
 		public ContactController(IContactRepository contactRepository, INotyfService toastNotification)
 		{
-            _IContact = contactRepository;
+            _contactRepository = contactRepository;
 			_toastNotification = toastNotification;
 		}
 		public IActionResult Index()
@@ -29,7 +29,7 @@ namespace WebBanHangOnline.Controllers
 				contact.ModifiedDate = DateTime.Now;
 				contact.CreatedBy = User.FindFirstValue(ClaimTypes.NameIdentifier);
 				contact.IsRead = false;
-				await _IContact.Add(contact);
+				await _contactRepository.Add(contact);
 				_toastNotification.Success("Send message success");
 
 				return RedirectToAction(nameof(Index));
