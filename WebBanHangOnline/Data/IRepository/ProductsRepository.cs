@@ -135,5 +135,15 @@ namespace WebBanHangOnline.Data.IRepository
             await _context.SaveChangesAsync();
             return productChanges;
         }
+        public async Task<double> avgRate(int Id)
+        {
+            double avg = 0;
+            var obj = await _context.Comments.Where(x => x.ProductId == Id).ToListAsync();
+            if (obj.Count > 0)
+            {
+                avg = (double)obj.Select(x => x.Rate).Average();
+            }         
+            return avg;
+        }
     }
 }

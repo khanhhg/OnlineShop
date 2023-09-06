@@ -59,7 +59,9 @@ namespace WebBanHangOnline.Controllers
             if (item != null)
             {
                 await _productsRepository.Update_ViewCount(item);
-            }          
+            }
+            ViewBag.ProductID = item.ProductId;
+            ViewBag.avgRate = await _productsRepository.avgRate(item.ProductId);
             return View(item);
         }
         public async Task<ActionResult> ProductCategory(int id )

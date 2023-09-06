@@ -8,10 +8,7 @@ namespace WebBanHangOnline.Models.EF
     [Table("tb_Category")]
     public class Category : CommonAbstract
     {
-        public Category()
-        {
-            
-        }
+     
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int CategoryId { get; set; }

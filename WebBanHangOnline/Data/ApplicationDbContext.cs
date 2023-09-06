@@ -25,6 +25,7 @@ namespace WebBanHangOnline.Data
         public DbSet<Subscribe> Subscribe { get; set; }
         public DbSet<SystemSetting> SystemSetting { get; set; }
         public DbSet<UserProfile> UserProfile { get; set; }
+        public DbSet<Comments> Comments { get; set; }
 
     }
 }

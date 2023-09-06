@@ -13,7 +13,7 @@
 				<div class="main_slider_content">
 					<h6>Spring / Summer Collection 2017</h6>
 					<h1>Get up to 30% Off New Arrivals</h1>
-					<div class="red_button shop_now_button"><a href="/products/index">shop now</a></div>
+					<div class="red_button shop_now_button"><a href="@WebBanHangOnline.Common.ClassParamater.PathProduct">shop now</a></div>
 				</div>
 			</div>
 		</div>
@@ -70,7 +70,7 @@
 							<div class="product-item @cateFilter">
 								<div class="product discount product_filter">
 									<div class="product_image">
-										<img src="/images/products/@strImge" alt="@item.Title">
+										<img src="@WebBanHangOnline.Common.ClassParamater.PathProductImage/@strImge" alt="@item.Title">
 									</div>
 									<div class="favorite favorite_left"></div>
 									@if (item.IsSale == true)
@@ -79,7 +79,7 @@
 									}
 									@* <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>*@
 									<div class="product_info">
-										<h6 class="product_name"><a href="/products/detail/@(item.ProductId)">@item.Title</a></h6>
+										<h6 class="product_name"><a href="@WebBanHangOnline.Common.ClassParamater.PathProductDetail/?id=@(item.ProductId)">@item.Title</a></h6>
 										@if (item.IsSale == true && item.PriceSale > 0)
 										{
 											<div class="product_price">@WebBanHangOnline.Common.Common.FormatNumber(item.PriceSale, 0)<span>@WebBanHangOnline.Common.Common.FormatNumber(item.Price, 0)</span></div>
@@ -135,7 +135,7 @@
 							<div class="timer_unit">Sec</div>
 						</li>
 					</ul>
-					<div class="red_button deal_ofthe_week_button"><a href="#">shop now</a></div>
+					<div class="red_button deal_ofthe_week_button"><a href="@WebBanHangOnline.Common.ClassParamater.PathProduct">shop now</a></div>
 				</div>
 			</div>
 		</div>
@@ -177,7 +177,7 @@
 									<div class="product-item">
 										<div class="product discount">
 											<div class="product_image">
-												<img src="/images/products/@strImge" alt="@item.Title">
+												<img src="@WebBanHangOnline.Common.ClassParamater.PathProductImage/@strImge" alt="@item.Title">
 											</div>
 											<div class="favorite favorite_left"></div>
 											@if (item.PriceSale > 0)
@@ -186,11 +186,10 @@
 											}
 
 											<div class="product_info">
-												<h6 class="product_name"><a href="/products/detail/@(item.ProductId)">@item.Title</a></h6>
+												<h6 class="product_name"><a href="@WebBanHangOnline.Common.ClassParamater.PathProductDetail/?id=@(item.ProductId)">@item.Title</a></h6>
 												@if (item.PriceSale > 0)
 												{
 													<div class="product_price">@WebBanHangOnline.Common.Common.FormatNumber(item.PriceSale, 0)<span>@WebBanHangOnline.Common.Common.FormatNumber(item.Price, 0)</span></div>
-
 												}
 												else
 												{

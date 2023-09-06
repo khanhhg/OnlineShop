@@ -23,9 +23,9 @@
             _totalPrice += item.TotalPrice;
             <tr class="text-center" id="trow_@item.ProductId">
                 <td>@(i + 1)</td>
-                <td><img src="/images/products/@item.ProductImg" width="60" /></td>
+                <td><img src="@WebBanHangOnline.Common.ClassParamater.PathProductImage/@item.ProductImg" width="60" /></td>
                 <td>
-                    <a href="/products/detail/@(item.ProductId)">
+                    <a href="@WebBanHangOnline.Common.ClassParamater.PathProductDetail/@(item.ProductId)">
                         @item.ProductName
                     </a>
                 </td>

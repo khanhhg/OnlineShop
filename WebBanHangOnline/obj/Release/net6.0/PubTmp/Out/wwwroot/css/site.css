@@ -16,3 +16,19 @@ html {
 body {
   margin-bottom: 60px;
 }
+.search-input {
+    height: calc(1.8125rem + 2px);
+}
+
+.search-button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    height: calc(1.8125rem + 2px);
+    font-size:12px;
+}
+.input-group{
+    padding-bottom:10px;
+}
+.responsive-table{
+    overflow-x:auto;
+}

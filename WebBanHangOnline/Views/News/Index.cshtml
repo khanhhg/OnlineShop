@@ -1,9 +1,6 @@
 ﻿@model X.PagedList.PagedList<WebBanHangOnline.Models.EF.News>
 @using X.PagedList;
 @using X.PagedList.Mvc.Core;
-@*@{
-    ViewBag.Title = "News";
-}*@
 <link rel="stylesheet" type="text/css" href="~/Content/assets/styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="~/css/NewsStyle.css">
 <!-- Slider -->
@@ -20,12 +17,12 @@
             <div class="row row-item-new">
                 <div class="col-md-3">
                     <div class="img-box">
-                        <a href="" title="@item.Title"><img src="/images/news/@item.Image" alt="@item.Title" /></a>
+                        <a href="" title="@item.Title"><img src="@WebBanHangOnline.Common.ClassParamater.PathNewsImage/@item.Image" alt="@item.Title" /></a>
                     </div>
                 </div>
                 <div class="col-md-9">
                     <div class="content-box">
-                        <h4><a href="/news/detail?id=@(item.NewsId)" title="@item.Title">@item.Title</a></h4>
+                        <h4><a href="@WebBanHangOnline.Common.ClassParamater.PathNewsDetail?id=@(item.NewsId)" title="@item.Title">@item.Title</a></h4>
                         <div class="description-box">
                             @item.Description
                         </div>
@@ -42,10 +39,3 @@
     }
 
 </div>
-@*@section Scripts{
-    <script>
-        $('#PartialMenuTop').load("/Menu/MenuTop")
-        $('#PartialHomeSubscribe').load("/Menu/HomeSubscribe")
-       
-    </script>
-}*@

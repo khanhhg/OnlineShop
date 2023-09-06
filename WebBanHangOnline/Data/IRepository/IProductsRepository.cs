@@ -26,6 +26,6 @@ namespace WebBanHangOnline.Data.IRepository
         Task<IList<Product>> GetProduts_By_Caterory(int Id,int Top);
         Task<IList<Product>> GetProduts_Promotion(int Id,int Top);
         Task<Product> Update_ViewCount(Product product);
-      
+        Task<double> avgRate(int Id);
     }
 }

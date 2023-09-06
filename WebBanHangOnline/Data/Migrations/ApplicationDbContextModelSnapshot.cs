@@ -326,6 +326,45 @@ namespace WebBanHangOnline.Data.Migrations
                     b.ToTable("tb_Category");
                 });
 
+            modelBuilder.Entity("WebBanHangOnline.Models.EF.Comments", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Rate")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Comments");
+                });
+
             modelBuilder.Entity("WebBanHangOnline.Models.EF.Contact", b =>
                 {
                     b.Property<int>("ContactId")
@@ -487,7 +526,7 @@ namespace WebBanHangOnline.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("TotalAmount")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18,4)");
 
                     b.Property<int>("TypePayment")
                         .HasColumnType("int");
@@ -513,7 +552,7 @@ namespace WebBanHangOnline.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18,4)");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
@@ -579,14 +618,14 @@ namespace WebBanHangOnline.Data.Migrations
                     b.Property<string>("Modifiedby")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal?>("OriginalPrice")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<decimal>("OriginalPrice")
+                        .HasColumnType("decimal(18,4)");
 
-                    b.Property<decimal?>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,4)");
 
-                    b.Property<decimal?>("PriceSale")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<decimal>("PriceSale")
+                        .HasColumnType("decimal(18,4)");
 
                     b.Property<int>("ProductCategoryId")
                         .HasColumnType("int");
@@ -829,6 +868,17 @@ namespace WebBanHangOnline.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("WebBanHangOnline.Models.EF.Comments", b =>
+                {
+                    b.HasOne("WebBanHangOnline.Models.EF.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("WebBanHangOnline.Models.EF.OrderDetail", b =>

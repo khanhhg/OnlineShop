@@ -44,7 +44,7 @@ builder.Services.AddScoped<IProductsRepository, ProductsRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IContactRepository,ContactRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-
+builder.Services.AddScoped<ICommentsRepository, CommentsRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -188,36 +188,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/NET/BanHangOnline/WebBanHangOnline/Views/Menu/_HomeSubscribe.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxfSG9tZVN1YnNjcmliZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/NET/BanHangOnline/WebBanHangOnline/Views/Menu/_MenuArrivals.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxfTWVudUFycml2YWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/NET/BanHangOnline/WebBanHangOnline/Views/Menu/_MenuLeft.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxfTWVudUxlZnQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/NET/BanHangOnline/WebBanHangOnline/Views/Menu/_MenuProductCategory.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxfTWVudVByb2R1Y3RDYXRlZ29yeS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/NET/BanHangOnline/WebBanHangOnline/Views/Menu/_MenuTop.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxfTWVudVRvcC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [E:/NET/BanHangOnline/WebBanHangOnline/Views/News/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/NET/BanHangOnline/WebBanHangOnline/Views/News/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/NET/BanHangOnline/WebBanHangOnline/Views/News/_Partial_News_Home.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xfUGFydGlhbF9OZXdzX0hvbWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/NET/BanHangOnline/WebBanHangOnline/Views/Order/Index.cshtml]
@@ -246,6 +222,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/NET/BanHangOnline/WebBanHangOnline/Views/Products/Promotion.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcUHJvbW90aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NET/BanHangOnline/WebBanHangOnline/Views/Shared/Components/CategorySidebar/default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2F0ZWdvcnlTaWRlYmFyXGRlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NET/BanHangOnline/WebBanHangOnline/Views/Shared/Components/Navbar/default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmF2YmFyXGRlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NET/BanHangOnline/WebBanHangOnline/Views/Shared/Components/News/default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmV3c1xkZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NET/BanHangOnline/WebBanHangOnline/Views/Shared/Components/ProductCategory/default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUHJvZHVjdENhdGVnb3J5XGRlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NET/BanHangOnline/WebBanHangOnline/Views/Shared/Components/Subscribe/default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU3Vic2NyaWJlXGRlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/NET/BanHangOnline/WebBanHangOnline/Views/Shared/Error.cshtml]

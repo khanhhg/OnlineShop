@@ -44,43 +44,7 @@
                     @* @Html.Action("Refresh", "Home")*@
                 </div>
 
-                <!-- Sizes -->
-                @*<div class="sidebar_section">
-                <div class="sidebar_title">
-                <h5>Sizes</h5>
-                </div>
-                <ul class="checkboxes">
-                <li><i class="fa fa-square-o" aria-hidden="true"></i><span>S</span></li>
-                <li class="active"><i class="fa fa-square" aria-hidden="true"></i><span>M</span></li>
-                <li><i class="fa fa-square-o" aria-hidden="true"></i><span>L</span></li>
-                <li><i class="fa fa-square-o" aria-hidden="true"></i><span>XL</span></li>
-                <li><i class="fa fa-square-o" aria-hidden="true"></i><span>XXL</span></li>
-                </ul>
-                </div>*@
-
-                <!-- Color -->
-                @*<div class="sidebar_section">
-                <div class="sidebar_title">
-                <h5>Color</h5>
-                </div>
-                <ul class="checkboxes">
-                <li><i class="fa fa-square-o" aria-hidden="true"></i><span>Black</span></li>
-                <li class="active"><i class="fa fa-square" aria-hidden="true"></i><span>Pink</span></li>
-                <li><i class="fa fa-square-o" aria-hidden="true"></i><span>White</span></li>
-                <li><i class="fa fa-square-o" aria-hidden="true"></i><span>Blue</span></li>
-                <li><i class="fa fa-square-o" aria-hidden="true"></i><span>Orange</span></li>
-                <li><i class="fa fa-square-o" aria-hidden="true"></i><span>White</span></li>
-                <li><i class="fa fa-square-o" aria-hidden="true"></i><span>Blue</span></li>
-                <li><i class="fa fa-square-o" aria-hidden="true"></i><span>Orange</span></li>
-                <li><i class="fa fa-square-o" aria-hidden="true"></i><span>White</span></li>
-                <li><i class="fa fa-square-o" aria-hidden="true"></i><span>Blue</span></li>
-                <li><i class="fa fa-square-o" aria-hidden="true"></i><span>Orange</span></li>
-                </ul>
-                <div class="show_more">
-                <span><span>+</span>Show More</span>
-                </div>
-                </div>*@
-
+            
             </div>
 
             <!-- Main Content -->
@@ -150,16 +114,15 @@
                                         <div class="product-item">
                                             <div class="product discount product_filter">
                                                 <div class="product_image">
-                                                    <img src="/images/products/@strImge" alt="@item.Title">
+                                                    <img src="@WebBanHangOnline.Common.ClassParamater.PathProductImage/@strImge" alt="@item.Title">
                                                 </div>
                                                 <div class="favorite favorite_left"></div>
                                                 @if (item.PriceSale > 0)
                                                 {
                                                     <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>sale</span></div>
-                                                }
-                                                @* <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>*@
+                                                }    
                                                 <div class="product_info">
-                                                    <h6 class="product_name"><a href="/products/detail?id=@(item.ProductId)">@item.Title</a></h6>
+                                                    <h6 class="product_name"><a href="@WebBanHangOnline.Common.ClassParamater.PathProductDetail?id=@(item.ProductId)">@item.Title</a></h6>
                                                     @if (item.PriceSale > 0)
                                                     {
                                                         <div class="product_price">@WebBanHangOnline.Common.Common.FormatNumber(item.PriceSale, 0)<span>@WebBanHangOnline.Common.Common.FormatNumber(item.Price, 0)</span></div>
@@ -196,19 +159,7 @@
                                         </ul>
                                     </li>
                                 </ul>
-                                @*<span class="showing_results">Showing 1–3 of 12 results</span>*@
-                                @*<div class="pages d-flex flex-row align-items-center">
-                                <div class="page_current">
-                                <span>1</span>
-                                <ul class="page_selection">
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                </ul>
-                                </div>
-                                <div class="page_total"><span>of</span> 3</div>
-                                <div id="next_page_1" class="page_next"><a href="#"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></div>
-                                </div>*@
+                             
 
                             </div>
 
@@ -219,10 +170,3 @@
         </div>
     </div>
 </div>
-@*
-@section scripts{
-    <script>
-        var _uri = "/Menu/MenuLeft/" + @ViewBag.CategoryId;
-        $('#_MenuLeft').load(_uri)
-    </script>
-}*@

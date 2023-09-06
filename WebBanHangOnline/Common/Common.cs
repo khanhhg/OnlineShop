@@ -46,7 +46,7 @@ namespace WebBanHangOnline.Common
             }
             return rs;
         }
-        public static string FormatNumber(object value, int SoSauDauPhay = 2)
+        public static string FormatNumber(object value, int num = 2)
         {
             bool isNumber = IsNumeric(value);
             decimal GT = 0;
@@ -56,7 +56,7 @@ namespace WebBanHangOnline.Common
             }
             string str = "";
             string thapPhan = "";
-            for (int i = 0; i < SoSauDauPhay; i++)
+            for (int i = 0; i < num; i++)
             {
                 thapPhan += "#";
             }

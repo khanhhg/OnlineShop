@@ -61,32 +61,32 @@
                         </div><!-- /.card-header -->
                         <div class="card-body">                                                  
                                     <div class="form-group">
-                                            <label for="Title">Product Name</label>
+                                            <label>Product Name</label>
                                             @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "Product Name" })
                                         @Html.ValidationMessageFor(x => x.Title, null, new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
-                                            <label for="Alias">Alias</label>
+                                            <label>Alias</label>
                                         @Html.TextBoxFor(x => x.Alias, new { @class = "form-control", @placeholder = "Alias" })
                                         @Html.ValidationMessageFor(x => x.Alias, null, new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
-                                            <label for="ProductCode">ProductCode</label>
+                                            <label>ProductCode</label>
                                             @Html.TextBoxFor(x => x.ProductCode, new { @class = "form-control", @placeholder = "ProductCode" })
                                         @Html.ValidationMessageFor(x => x.ProductCode, null, new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
-                                    <label for="ProductCategoryId">Product Category</label>
+                                    <label>Product Category</label>
                                     @Html.DropDownListFor(x => x.ProductCategoryId, ViewBag.ProductCategory as SelectList, "-Select Product Category-", new { @class = "form-control", @placeholder = "ProductCategory" })
                                     @Html.ValidationMessageFor(x => x.ProductCategoryId, null, new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
-                                            <label for="Description">Description</label>
+                                            <label >Description</label>
                                             @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @placeholder = "Description" })
                                         @Html.ValidationMessageFor(x => x.Description, null, new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
-                                            <label for="Detail">Product Detail</label>
+                                            <label>Product Detail</label>
                                         @Html.TextAreaFor(x => x.Detail, new { @class = "form-control" , @id = "txtDetail"})
                                         @Html.ValidationMessageFor(x => x.Detail, null, new { @class = "text-danger" })
                                     </div>
@@ -133,8 +133,6 @@
                                                         @Html.CheckBoxFor(x => x.IsActive, new { @class = "custom-control-input", @id = "IsActive", @checked = "checked" })
                                                         <label for="IsActive" class="custom-control-label">Hiển thị</label>
                                                 </div>
-
-
                                             </div>
                                         </div>
                                         <div class="col-3">
@@ -165,25 +163,19 @@
                              
 
                                 <div class="form-group">
-                                    <label for="SeoTitle" class="col-sm-2 col-form-label">SEO Title</label>
-                                    <div class="col-sm-10">
-                                        @Html.TextBoxFor(x => x.SeoTitle, new { @class = "form-control", @placeholder = "SeoTitle" })
-                                        @Html.ValidationMessageFor(x => x.SeoTitle, null, new { @class = "text-danger" })
-                                    </div>
+                                    <label>SEO Title</label>                                  
+                                      @Html.TextBoxFor(x => x.SeoTitle, new { @class = "form-control", @placeholder = "SeoTitle" })
                                 </div>
                                 <div class="form-group">
-                                    <label for="SeoKeywords" class="col-sm-2 col-form-label">SeoKeywords</label>
-                                    <div class="col-sm-10">
+                                    <label>SEO Keywords</label>
+                                  
                                         @Html.TextBoxFor(x => x.SeoKeywords, new { @class = "form-control", @placeholder = "SeoKeywords" })
-                                        @Html.ValidationMessageFor(x => x.SeoKeywords, null, new { @class = "text-danger" })
-                                    </div>
+                                      
+                                  
                                 </div>
                                 <div class="form-group">
-                                    <label for="SeoDescription" class="col-sm-2 col-form-label">SeoDescription</label>
-                                    <div class="col-sm-10">
-                                        @Html.TextBoxFor(x => x.SeoDescription, new { @class = "form-control", @placeholder = "SeoDescription" })
-                                        @Html.ValidationMessageFor(x => x.SeoDescription, null, new { @class = "text-danger" })
-                                    </div>
+                                    <label>SEO Description</label>                                  
+                                        @Html.TextBoxFor(x => x.SeoDescription, new { @class = "form-control", @placeholder = "SeoDescription" })                                                                    
                                 </div>
 
                                 <div class="form-group">
