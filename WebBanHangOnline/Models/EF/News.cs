@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using WebBanHangOnline.Models.Common;
-using System.Web.Mvc;
 
 namespace WebBanHangOnline.Models.EF
 {
@@ -16,7 +15,7 @@ namespace WebBanHangOnline.Models.EF
         public string Title { get; set; }
         public string? Alias { get; set; }
         public string? Description { get; set; }
-        [AllowHtml]
+        [DisplayFormat(HtmlEncode = true)]
         public string? Detail { get; set; }
         public string? Image { get; set; }
         public string? SeoTitle { get; set; }

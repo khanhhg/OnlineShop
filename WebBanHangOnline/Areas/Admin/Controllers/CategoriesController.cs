@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Security.Claims;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebBanHangOnline.Data.IRepository;
@@ -15,9 +16,11 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
     {
         //private readonly ApplicationDbContext _context;
         ICategoriesRepository _ICategories;
-        public CategoriesController(ICategoriesRepository iCategoriesRepository)
+        private readonly INotyfService _toastNotification;
+        public CategoriesController(ICategoriesRepository iCategoriesRepository,INotyfService toastNotification)
         {
             _ICategories = iCategoriesRepository;
+            _toastNotification = toastNotification;
         }
 
         // GET: Admin/Categories
@@ -39,16 +42,10 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             ViewBag.Page = page;
             return View(items);
         }
-
-        // GET: Admin/Categories/Create
         public IActionResult Create()
         {
             return View();
         }
-
-        // POST: Admin/Categories/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create( Category category)
@@ -59,16 +56,17 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 category.ModifiedDate = DateTime.Now;
                 category.CreatedBy = User.FindFirstValue(ClaimTypes.NameIdentifier); 
                 category.IsActive = true;
-               await _ICategories.Add(category);             
+                await _ICategories.Add(category);
+                _toastNotification.Success("Create Category Success");
                 return RedirectToAction(nameof(Index));
             }
             else
             {
+                _toastNotification.Error("Create Category Failed");
                 return View(category);
             }      
         }
 
-        // GET: Admin/Categories/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || await _ICategories.Get((int)id) == null)
@@ -84,9 +82,6 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             return View(category);
         }
 
-        // POST: Admin/Categories/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Category category)
@@ -95,15 +90,19 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-
             if (ModelState.IsValid)
             {
                 category.Modifiedby = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 category.ModifiedDate = DateTime.Now;
                await _ICategories.Update(category);
+                _toastNotification.Success("Update Category Success");
                 return RedirectToAction(nameof(Index));
             }
-            return View(category);
+            else
+            {
+                _toastNotification.Error("Update Category Failed");
+                return View(category);
+            }         
         }
       
         [HttpPost]

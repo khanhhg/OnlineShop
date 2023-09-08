@@ -36,8 +36,8 @@ namespace WebBanHangOnline.Data.IRepository
 
         public async Task<Category> Update(Category categoryChanges)
         {
-            var product = _context.Category.Attach(categoryChanges);
-            product.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            var categor = _context.Category.Attach(categoryChanges);
+            categor.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             await _context.SaveChangesAsync();
             return categoryChanges;
         }

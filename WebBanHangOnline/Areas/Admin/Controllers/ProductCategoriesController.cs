@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Security.Claims;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebBanHangOnline.Data.IRepository;
@@ -14,13 +15,14 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
     public class ProductCategoriesController : Controller
     {
         IProductCategoriesRepository _IProductCategories;
+        private readonly INotyfService _toastNotification;
         string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\ProductCategory");
-        public ProductCategoriesController(IProductCategoriesRepository productCategoriesRepository)
+        public ProductCategoriesController(IProductCategoriesRepository productCategoriesRepository, INotyfService toastNotification)
         {
             _IProductCategories = productCategoriesRepository;
+            _toastNotification = toastNotification;
         }
-
-        // GET: Admin/ProductCategories
+     
         public async Task<IActionResult> Index(string Searchtext, int? page = 1)
         {
             IEnumerable<ProductCategory> items  = await _IProductCategories.GetAll() ;
@@ -38,16 +40,11 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             ViewBag.PageSize = pageSize;
             ViewBag.Page = page;
             return View(items);
-        }
-        // GET: Admin/ProductCategories/Create
+        }      
         public IActionResult Create()
         {
             return View();
-        }
-
-        // POST: Admin/ProductCategories/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        }     
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create( ProductCategory productCategory,IFormFile fileImage)
@@ -65,11 +62,13 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 productCategory.ModifiedDate = DateTime.Now;
                 productCategory.CreatedBy = User.FindFirstValue(ClaimTypes.NameIdentifier);
               
-                await _IProductCategories.Add(productCategory);         
+                await _IProductCategories.Add(productCategory);
+                _toastNotification.Success("Create Product Category Success");
                 return RedirectToAction(nameof(Index));
             }
             else
             {
+                _toastNotification.Error("Create Product Category Failed");
                 return View(productCategory);
             }
         }
@@ -89,10 +88,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             }
             return View(productCategory);
         }
-
-        // POST: Admin/ProductCategories/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+     
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, ProductCategory productCategory, IFormFile fileImage)
@@ -120,11 +116,13 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                     productCategory_Edit.SeoDescription = productCategory.SeoDescription;
                     productCategory_Edit.Title = productCategory.Title;
                     productCategory_Edit.Description = productCategory.Description;
-                   await _IProductCategories.Update(productCategory_Edit);                         
+                   await _IProductCategories.Update(productCategory_Edit);
+                _toastNotification.Success("Update Product Category Success");
                 return RedirectToAction(nameof(Index));
             }
             else
             {
+                _toastNotification.Error("Update Product Category Failed");
                 return View(productCategory);
             }        
         }

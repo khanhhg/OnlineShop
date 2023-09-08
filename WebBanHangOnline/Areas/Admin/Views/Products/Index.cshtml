@@ -247,10 +247,12 @@
                     data: { id: id },
                     success: function (rs) {
                         if (rs.success) {
-                            if (rs.isHome) {
+                            if (rs.isHome) 
+                            {
                                 btn.html("<i class='fa fa-check text-success'></i>");
                             } 
-                            else {
+                            else
+                            {
                                 btn.html("<i class='fas fa-times text-danger'></i>");
                             }
                         }

@@ -5,8 +5,10 @@ using WebBanHangOnline.Data.IRepository;
 
 namespace WebBanHangOnline.Controllers
 {
-    // Top == 0 Get all product
-    // Top != 0  Take(Top) product
+    // ID = 0 => Get all product : Id =! 0 =>  where ProductCatgoryID = Id
+    // Top = 0 => Get all product : Top > 0 =>  Take Top
+    // IsHome = false => Get All : IsHome = True => where Ishome= True
+    // IsHome = false => Get All : IsSale = True => where IsSale= True
     public class ProductsController : Controller
     {
         IProductsRepository _productsRepository;
@@ -19,7 +21,7 @@ namespace WebBanHangOnline.Controllers
         }
         public async Task<ActionResult> Index(int id)
         {          
-            var items = await _productsRepository.GetProduts_By_Caterory(id,0);
+            var items = await _productsRepository.GetViewProducts(id,0,false,false);
             ViewBag.CategoryId = id;
             if (id > 0)
             {
@@ -37,7 +39,7 @@ namespace WebBanHangOnline.Controllers
         }
 		public async Task<ActionResult> Promotion(int id)
 		{
-            var items = await _productsRepository.GetProduts_Promotion(id,0);
+            var items = await _productsRepository.GetViewProducts(id,0,false,true);
             ViewBag.CategoryId = id;
             if (id > 0)
             {
@@ -66,7 +68,7 @@ namespace WebBanHangOnline.Controllers
         }
         public async Task<ActionResult> ProductCategory(int id )
         {
-            var items = await _productsRepository.GetProduts_By_Caterory(id,0);
+            var items = await _productsRepository.GetViewProducts(id,0,false,false);
             return View(items);
         }
     }

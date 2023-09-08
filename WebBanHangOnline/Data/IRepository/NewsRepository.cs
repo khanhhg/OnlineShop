@@ -40,8 +40,8 @@ namespace WebBanHangOnline.Data.IRepository
 
         public async Task<News> Update(News newsChanges)
         {
-            var product = _context.News.Attach(newsChanges);
-            product.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            var news = _context.News.Attach(newsChanges);
+            news.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             await _context.SaveChangesAsync();
             return newsChanges;
         }

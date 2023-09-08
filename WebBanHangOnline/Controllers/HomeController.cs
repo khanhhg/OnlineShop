@@ -1,8 +1,6 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
-using WebBanHangOnline.Data;
 using WebBanHangOnline.Data.IRepository;
 using WebBanHangOnline.Models;
 
@@ -21,9 +19,14 @@ namespace WebBanHangOnline.Controllers
          }
         public async Task<IActionResult> Index()
         {
+            // ID = 0 => Get all product : Id =! 0 =>  where ProductCatgoryID = Id
+            // Top = 0 => Get all product : Top > 0 =>  Take Top
+            // IsHome = false => Get All : IsHome = True => where Ishome= True
+            // IsHome = false => Get All : IsSale = True => where IsSale= True
+
             HomeViewModel objHomeView = new HomeViewModel();
-            var item_by_Category  = await _IProducts.GetProduts_By_Caterory(0, 10);
-			var itemSales = await _IProducts.GetProduts_Promotion(0,10);
+            var item_by_Category  = await _IProducts.GetViewProducts(0,10,true,false);
+			var itemSales = await _IProducts.GetViewProducts(0, 10, true, false);
             var CateroryArrivals = await _IproductCategories.GetAll();
 
             objHomeView.CateroryArrivals = CateroryArrivals;

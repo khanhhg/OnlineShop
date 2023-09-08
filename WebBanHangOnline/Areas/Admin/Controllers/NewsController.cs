@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Security.Claims;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -15,13 +16,14 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
     public class NewsController : Controller
     {
         INewsRepository _newsRepository;
+        private readonly INotyfService _toastNotification;
         string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\News");
-        public NewsController(INewsRepository newsRepository)
+        public NewsController(INewsRepository newsRepository, INotyfService toastNotification)
         {
             _newsRepository = newsRepository;
+            _toastNotification = toastNotification;
         }
-
-        // GET: Admin/News
+      
         public async  Task<IActionResult> Index(string Searchtext, int? page = 1)
         {
             IEnumerable<News> items = await _newsRepository.GetAll();
@@ -40,16 +42,11 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             ViewBag.Page = page;
             return View(items);
         }
-
-        // GET: Admin/News/Create
+      
         public IActionResult Create()
         {
             return View();
         }
-
-        // POST: Admin/News/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(News news, IFormFile fileAvatar)
@@ -63,15 +60,18 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                     news.ModifiedDate = DateTime.Now;
                     news.Detail = news.Detail.Replace("../..", String.Empty);
                     news.CreatedBy = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-                    await _newsRepository.Add(news);               
-                    return RedirectToAction(nameof(Index));
+                    await _newsRepository.Add(news);
+                    _toastNotification.Success("Create News Success");               
                 }
+                return RedirectToAction(nameof(Index));
             }
-            return View(news);
+            else
+            {
+                _toastNotification.Error("Create News Failed");
+                return View(news);
+            }         
         }
-
-        // GET: Admin/News/Edit/5
+     
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null ||await _newsRepository.Get((int)id) == null)
@@ -85,10 +85,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             }
             return View(news);
         }
-
-        // POST: Admin/News/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+     
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, News news, IFormFile fileAvatar)
@@ -118,11 +115,16 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                     objNewUpdate.SeoTitle = news.SeoTitle;
                     objNewUpdate.IsActive = news.IsActive;
                     await _newsRepository.Update(objNewUpdate);
-
+                    _toastNotification.Success("Update News Success");
                     return RedirectToAction(nameof(Index));
-                }            
+                }
             }
-            return View(news);
+            else
+            {
+                _toastNotification.Error("Update News Failed");
+                return View(news);
+            }
+           
         }
         [HttpPost]
         public async Task<ActionResult> Delete(int id)

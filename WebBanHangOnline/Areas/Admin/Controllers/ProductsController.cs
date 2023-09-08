@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using WebBanHangOnline.Models.EF;
 using X.PagedList;
 using WebBanHangOnline.Data.IRepository;
+using AspNetCoreHero.ToastNotification.Abstractions;
 
 namespace WebBanHangOnline.Areas.Admin.Controllers
 {
@@ -15,21 +16,20 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
     [Authorize(Roles = "Administrator")]
     public class ProductsController : Controller
     {
-        IProductsRepository _IProducts;
-        IProductCategoriesRepository _IProductCategories;
+        IProductsRepository _productsRepository;
+        private readonly INotyfService _toastNotification;
 
         string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\products");
-        public ProductsController(IProductsRepository productsRepository, IProductCategoriesRepository productCategoriesRepository)
+        public ProductsController(IProductsRepository productsRepository, INotyfService toastNotification)
         {
-            _IProducts = productsRepository;
-            _IProductCategories = productCategoriesRepository;
+            _productsRepository = productsRepository;     
+            _toastNotification = toastNotification;
         }
 
-        // GET: Admin/Products
         public async  Task<IActionResult> Index(string Searchtext, int? page = 1)
         {
             
-            IEnumerable<Product> items = await _IProducts.GetAll();
+            IEnumerable<Product> items = await _productsRepository.GetAll();
             var pageSize = 10;
             if (page == null)
             {
@@ -45,17 +45,11 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             ViewBag.Page = page;
             return View(items);
         }
-
-        // GET: Admin/Products/Create
         public async Task<IActionResult> Create()
         {
-            ViewBag.ProductCategory = new SelectList(await _IProductCategories.GetAll(), "ProductCategoryId", "Title");
+            ViewBag.ProductCategory = new SelectList(await _productsRepository.GetAllProductCategory(), "ProductCategoryId", "Title");
             return View();
         }
-
-        // POST: Admin/Products/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Product product, ICollection<IFormFile> files)
@@ -72,7 +66,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                         string fileName = Common.Common.SaveFile(path, fileImage);
                         if (countImage == 1)
                         {
-                            await _IProducts.AddImage(new ProductImage
+                            await _productsRepository.AddImage(new ProductImage
                             {
                                 ProductId = product.ProductId,
                                 Image = fileName,
@@ -82,7 +76,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                         }
                         else
                         {
-                            await _IProducts.AddImage(new ProductImage
+                            await _productsRepository.AddImage(new ProductImage
                             {
                                 ProductId = product.ProductId,
                                 Image = fileName,
@@ -95,35 +89,33 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 product.ModifiedDate = DateTime.Now;
                 product.CreatedBy = User.FindFirstValue(ClaimTypes.NameIdentifier);  
                 product.Detail = product.Detail.Replace("../..", String.Empty);
-                await _IProducts.Add(product);              
+                await _productsRepository.Add(product);
+                _toastNotification.Success("Create Product Success");
                 return RedirectToAction(nameof(Index));
             }
             else
             {
-                ViewBag.ProductCategory = new SelectList(await _IProductCategories.GetAll(), "ProductCategoryId", "Title");
+                _toastNotification.Error("Create Product Failed");
+                ViewBag.ProductCategory = new SelectList(await _productsRepository.GetAllProductCategory(), "ProductCategoryId", "Title");
                 return View(product);
             }
          
         }
-
-        // GET: Admin/Products/Edit/5
+     
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || await _IProducts.Get((int)id) == null)
+            if (id == null || await _productsRepository.Get((int)id) == null)
             {
                 return NotFound();
             }
             else
             {
-                var product = await _IProducts.Get((int)id);
-                ViewBag.ProductCategory = new SelectList(await _IProductCategories.GetAll(), "ProductCategoryId", "Title");
+                var product = await _productsRepository.Get((int)id);
+                ViewBag.ProductCategory = new SelectList(await _productsRepository.GetAllProductCategory(), "ProductCategoryId", "Title");
                 return View(product);
             }                  
         }
-
-        // POST: Admin/Products/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+     
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Product product)
@@ -139,19 +131,21 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                  product.Modifiedby = User.FindFirstValue(ClaimTypes.NameIdentifier);
                  product.ModifiedDate = DateTime.Now;
                  product.Detail = product.Detail.Replace("../..", String.Empty);
-                await _IProducts.Update(product);                                                   
+                await _productsRepository.Update(product);
+                _toastNotification.Success("Update Product Success");
                 return RedirectToAction(nameof(Index));
             }
             else
             {
-                ViewBag.ProductCategory = new SelectList(await _IProductCategories.GetAll(), "ProductCategoryId", "Title");
+                _toastNotification.Error("Update Product Failed");
+                ViewBag.ProductCategory = new SelectList(await _productsRepository.GetAllProductCategory(), "ProductCategoryId", "Title");
                 return View(product);
             }         
         }
         [HttpPost]
         public async Task<ActionResult> Delete(int id)
         {
-            var item = await _IProducts.Get(id);
+            var item = await _productsRepository.Get(id);
             if (item != null)
             {
                 var checkImg = item.ProductImages.Where(x => x.ProductId == item.ProductId);
@@ -164,10 +158,10 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                         {
                             file.Delete();
                         }
-                       await _IProducts.DeleteImage(img);
+                       await _productsRepository.DeleteImage(img);
                     }
                 }
-                await _IProducts.Delete(item);
+                await _productsRepository.Delete(item);
                
                 return Json(new { success = true });
             }
@@ -186,7 +180,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 {
                     foreach (var item in items)
                     {
-                        var objProduct = await _IProducts.Get(Convert.ToInt32(item));
+                        var objProduct = await _productsRepository.Get(Convert.ToInt32(item));
                         if (objProduct != null)
                         {
                             var checkImg = objProduct.ProductImages.Where(x => x.ProductId == objProduct.ProductId);
@@ -199,10 +193,10 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                                     {
                                         file.Delete();
                                     }
-                                    await _IProducts.DeleteImage(img);
+                                    await _productsRepository.DeleteImage(img);
                                 }
                             }
-                           await _IProducts.Delete(objProduct);
+                           await _productsRepository.Delete(objProduct);
                                                     
                         }
                     }
@@ -214,10 +208,10 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         [HttpPost]
         public async Task<ActionResult> IsActive(int id)
         {
-            var item = await _IProducts.Get(id);
+            var item = await _productsRepository.Get(id);
             if (item != null)
             {
-                await _IProducts.IsActive(item);
+                await _productsRepository.IsActive(item);
                 return Json(new { success = true, isAcive = item.IsActive });
             }
             else
@@ -228,11 +222,11 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         [HttpPost]
         public async Task<ActionResult> IsHome(int id)
         {
-            var item = await _IProducts.Get(id);
+            var item = await _productsRepository.Get(id);
             if (item != null)
             {
-                await _IProducts.IsHome(item);
-                return Json(new { success = true, isAcive = item.IsActive });
+                await _productsRepository.IsHome(item);
+                return Json(new { success = true, isHome = item.IsHome });
             }
             else
             {
@@ -243,11 +237,11 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         [HttpPost]
         public async Task<ActionResult> IsSale(int id)
         {
-            var item = await _IProducts.Get(id);
+            var item = await _productsRepository.Get(id);
             if (item != null)
             {
-                await _IProducts.IsSale(item);
-                return Json(new { success = true, isAcive = item.IsActive });
+                await _productsRepository.IsSale(item);
+                return Json(new { success = true, isSale = item.IsSale });
             }
             else
             {
@@ -257,7 +251,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         public async Task<IActionResult> listProductImage(int id)
         {
             ViewBag.ProductId = id;
-            var items = await _IProducts.GetImageByProduct(id);
+            var items = await _productsRepository.GetImageByProduct(id);
             return View(items);
         }
 
@@ -281,7 +275,8 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                         objImg.ProductId = id;
                         objImg.Image = fileName;
                         objImg.IsDefault = false;
-                        await _IProducts.AddImage(objImg);
+                        await _productsRepository.AddImage(objImg);
+                        _toastNotification.Success("Add Image Product Success");
                     }
                 }
             }
@@ -289,7 +284,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         }
         public IActionResult editImage(int? id)
         {
-            var items = _IProducts.GetImage((int)id);
+            var items = _productsRepository.GetImage((int)id);
             return View(items);
         }
         [HttpPost]
@@ -306,10 +301,11 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 if (fileImage != null)
                 {
                     string fileName = Common.Common.SaveFile(path, fileImage);
-                    var objImage = await _IProducts.GetImage((int)id);
+                    var objImage = await _productsRepository.GetImage((int)id);
                     objImage.Image = fileName;
-                    await _IProducts.UpdateImage(objImage);
+                    await _productsRepository.UpdateImage(objImage);
                     _producID = objImage.ProductId;
+                    _toastNotification.Success("Update Image Product Success");
                 }
             }
             return LocalRedirect("/admin/products/listProductImage/" + _producID);
@@ -317,7 +313,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         [HttpPost]
         public async Task<ActionResult> deleteImage(int id)
         {                 
-            var item = await _IProducts.GetImage(id);
+            var item = await _productsRepository.GetImage(id);
             if (item != null)
             {
                 FileInfo file = new FileInfo(path +"\\"+ item.Image);
@@ -325,7 +321,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 {
                     file.Delete();
                 }
-                await _IProducts.DeleteImage(item);
+                await _productsRepository.DeleteImage(item);
                 return Json(new { success = true });
             }
             else
@@ -343,7 +339,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 {
                     foreach (var item in items)
                     {
-                        var objImage = await _IProducts.GetImage(Convert.ToInt32(item));
+                        var objImage = await _productsRepository.GetImage(Convert.ToInt32(item));
                         if (objImage != null)
                         {
                             FileInfo file = new FileInfo(path + "\\" + objImage.Image);
@@ -351,7 +347,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                             {
                                 file.Delete();
                             }
-                            await _IProducts.DeleteImage(objImage);
+                            await _productsRepository.DeleteImage(objImage);
                         }
                     }
                 }
@@ -365,10 +361,10 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         [HttpPost]
         public async Task<ActionResult> IsDefault(int id)
         {
-            var item = await _IProducts.GetImage(id);
+            var item = await _productsRepository.GetImage(id);
             if (item != null)
             {
-               await _IProducts.IsDefault(item);
+               await _productsRepository.IsDefault(item);
                 return Json(new { success = true, IsDefault = item.IsDefault });
             }
             else

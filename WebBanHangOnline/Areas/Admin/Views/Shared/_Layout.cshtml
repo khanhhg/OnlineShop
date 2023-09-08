@@ -286,6 +286,7 @@
 
     </script>
     @RenderSection("scripts", required: false)
+    @await Component.InvokeAsync("Notyf")
 </body>
 </html>
 

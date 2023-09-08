@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
 using WebBanHangOnline.Models.Common;
 
 namespace WebBanHangOnline.Models.EF
@@ -26,8 +25,7 @@ namespace WebBanHangOnline.Models.EF
         [StringLength(50)]
         public string? ProductCode { get; set; }
         public string? Description { get; set; }
-
-        [AllowHtml]
+        [DisplayFormat(HtmlEncode = true)]
         public string? Detail { get; set; }
 
         [StringLength(250)]

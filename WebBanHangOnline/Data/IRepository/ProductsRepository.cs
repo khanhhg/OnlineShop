@@ -91,35 +91,6 @@ namespace WebBanHangOnline.Data.IRepository
             await _context.SaveChangesAsync();
         }
 
-        // Customer interface
-        public async Task<IList<Product>> GetProduts_By_Caterory(int Id, int Top)
-        {
-            IList<Product> items;
-            // Get all
-            if(Top == 0)
-            {
-                items = await _context.Product.Where(x => (Id == 0 || x.ProductCategoryId == Id)).Include(x => x.ProductCategory).Include(x => x.ProductImages).OrderByDescending(x => x.ProductId).ToListAsync();
-            }
-            else   // Get Take Top
-            {
-                items = await _context.Product.Where(x => (Id == 0 || x.ProductCategoryId == Id)).Include(x => x.ProductCategory).Include(x => x.ProductImages).OrderByDescending(x => x.ProductId).Take(Top).ToListAsync();
-            }         
-            return items;
-        }
-        public async Task<IList<Product>> GetProduts_Promotion(int Id, int Top)
-        {
-            IList<Product> items;
-            // Get all
-            if (Top == 0)
-            {
-                items = await _context.Product.Where(x => (Id == 0 || x.ProductCategoryId == Id) && x.IsSale == true).Include(x => x.ProductCategory).Include(x => x.ProductImages).OrderByDescending(x => x.ProductId).ToListAsync();
-            }
-            else   // Get Take Top
-            {
-                items = await _context.Product.Where(x => (Id == 0 || x.ProductCategoryId == Id) && x.IsSale == true).Include(x => x.ProductCategory).Include(x => x.ProductImages).OrderByDescending(x => x.ProductId).Take(Top).ToListAsync();
-            }
-            return items;
-        }
         public async Task<Product> Update_ViewCount(Product productChanges)
         {
             var product = _context.Product.Attach(productChanges);
@@ -144,6 +115,34 @@ namespace WebBanHangOnline.Data.IRepository
                 avg = (double)obj.Select(x => x.Rate).Average();
             }         
             return avg;
+        }
+        public async Task<IList<ProductCategory>> GetAllProductCategory()
+        {
+            return await _context.ProductCategory.ToListAsync();
+        }
+        public async Task<IList<Product>> GetViewProducts(int Id, int Top, bool IsHome, bool IsSale)
+        {
+            IList<Product> items;          
+
+            if (Top > 0) // Get Top
+            {
+                items = await _context.Product.Where(x => (Id == 0 || x.ProductCategoryId == Id)
+                                           && (IsHome == false || x.IsHome == IsHome)
+                                           && (IsSale == false || x.IsSale == IsSale)
+                                           && (x.IsActive == true)
+                                           && (x.Quantity > 0)
+                                      ).Include(x => x.ProductCategory).Include(x => x.ProductImages).OrderByDescending(x => x.ProductId).Take(Top).ToListAsync();
+            }
+            else // Get All
+            {
+                items = await _context.Product.Where(x => (Id == 0 || x.ProductCategoryId == Id)
+                                          && (IsHome == false || x.IsHome == IsHome)
+                                          && (IsSale == false || x.IsSale == IsSale)
+                                          && (x.IsActive == true)
+                                          && (x.Quantity > 0)
+                                     ).Include(x => x.ProductCategory).Include(x => x.ProductImages).OrderByDescending(x => x.ProductId).ToListAsync();
+            }
+            return items;
         }
     }
 }

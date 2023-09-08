@@ -23,9 +23,10 @@ namespace WebBanHangOnline.Data.IRepository
         Task IsDefault(ProductImage productImage);
 
         // Customer interface
-        Task<IList<Product>> GetProduts_By_Caterory(int Id,int Top);
-        Task<IList<Product>> GetProduts_Promotion(int Id,int Top);
+
         Task<Product> Update_ViewCount(Product product);
         Task<double> avgRate(int Id);
+        Task<IList<ProductCategory>> GetAllProductCategory();
+        Task<IList<Product>> GetViewProducts(int Id, int Top, bool IsHome, bool IsSale);
     }
 }

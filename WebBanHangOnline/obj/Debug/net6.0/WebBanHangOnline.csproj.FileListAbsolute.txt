@@ -296,12 +296,6 @@ E:\NET\BanHangOnline\WebBanHangOnline\bin\Debug\net6.0\WebBanHangOnline.pdb
 E:\NET\BanHangOnline\WebBanHangOnline\bin\Debug\net6.0\Humanizer.dll
 E:\NET\BanHangOnline\WebBanHangOnline\bin\Debug\net6.0\MessagePack.dll
 E:\NET\BanHangOnline\WebBanHangOnline\bin\Debug\net6.0\MessagePack.Annotations.dll
-E:\NET\BanHangOnline\WebBanHangOnline\bin\Debug\net6.0\System.Web.Mvc.dll
-E:\NET\BanHangOnline\WebBanHangOnline\bin\Debug\net6.0\System.Web.Razor.dll
-E:\NET\BanHangOnline\WebBanHangOnline\bin\Debug\net6.0\System.Web.Helpers.dll
-E:\NET\BanHangOnline\WebBanHangOnline\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
-E:\NET\BanHangOnline\WebBanHangOnline\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
-E:\NET\BanHangOnline\WebBanHangOnline\bin\Debug\net6.0\System.Web.WebPages.dll
 E:\NET\BanHangOnline\WebBanHangOnline\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 E:\NET\BanHangOnline\WebBanHangOnline\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 E:\NET\BanHangOnline\WebBanHangOnline\bin\Debug\net6.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
@@ -348,7 +342,6 @@ E:\NET\BanHangOnline\WebBanHangOnline\bin\Debug\net6.0\Microsoft.VisualStudio.We
 E:\NET\BanHangOnline\WebBanHangOnline\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
 E:\NET\BanHangOnline\WebBanHangOnline\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 E:\NET\BanHangOnline\WebBanHangOnline\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-E:\NET\BanHangOnline\WebBanHangOnline\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll
 E:\NET\BanHangOnline\WebBanHangOnline\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 E:\NET\BanHangOnline\WebBanHangOnline\bin\Debug\net6.0\Newtonsoft.Json.dll
 E:\NET\BanHangOnline\WebBanHangOnline\bin\Debug\net6.0\NuGet.Common.dll

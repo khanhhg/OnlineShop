@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
@@ -12,10 +13,12 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
     {
         private RoleManager<IdentityRole> roleManager;
         private UserManager<IdentityUser> userManager;
-        public RoleController(RoleManager<IdentityRole> roleMgr, UserManager<IdentityUser> userMrg)
+        private readonly INotyfService _toastNotification;
+        public RoleController(RoleManager<IdentityRole> roleMgr, UserManager<IdentityUser> userMrg, INotyfService toastNotification)
         {
             roleManager = roleMgr;
             userManager = userMrg;
+            _toastNotification = toastNotification;
         }
         public ActionResult Index()
         {
@@ -41,10 +44,12 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 IdentityResult result = await roleManager.CreateAsync(new IdentityRole(name));
                 if (result.Succeeded)
                 {
+                    _toastNotification.Success("Create Role Success");
                     return RedirectToAction("Index");
                 }
                 else
                 {
+                    _toastNotification.Error("Create Role Failed");
                     Errors(result);
                 }                
             }
