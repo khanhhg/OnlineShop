@@ -189,39 +189,62 @@ namespace WebBanHangOnline.Controllers
         [HttpPost]
 		public ActionResult AddToCart(int id,int quantity)
         {
-            var code = new { Success = false, msg = "", code = -1, count = 0 };
+            bool QuantityCheck = true;
+            var code = new { Success = false, msg = "",heading="", code = -1, count = 0 };
            
-            var checkProduct = _context.Product.Include(x=>x.ProductCategory).Include(x=>x.ProductImages).FirstOrDefault(x => x.ProductId == id);
+            var checkProduct = _context.Product.Include(x=>x.ProductCategory).Where(x=>x.UnitsInStock > x.UnitsOnOrder).Include(x=>x.ProductImages).FirstOrDefault(x => x.ProductId == id);
             if (checkProduct != null)
             {
+                int Units = UnitsInStock(id);
                 ShoppingCart cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart");
                 if (cart == null)
                 {
                     cart = new ShoppingCart();
                 }
-                ShoppingCartItem item = new ShoppingCartItem
+                else
                 {
-                    ProductId = checkProduct.ProductId,
-                    ProductName = checkProduct.Title,
-                    CategoryName = checkProduct.ProductCategory.Title,
-                    Alias = checkProduct.Alias,
-                    Quantity = quantity
-				};
-                if (checkProduct.ProductImages.Where(x=>x.IsDefault ==true).FirstOrDefault() != null)
-                {
-                    item.ProductImg = checkProduct.ProductImages.Where(x => x.IsDefault == true).FirstOrDefault().Image;
+                  var CartItems =  cart.Items.FirstOrDefault(x => x.ProductId == id);
+                    if (CartItems !=null)
+                    {
+                        if (Units <= CartItems.Quantity)
+                        {
+                            QuantityCheck = false;
+                        }
+                    }
+                  
                 }
-                item.Price = (decimal)checkProduct.Price;
-                if (checkProduct.PriceSale > 0)
+                // Check Product In Stock
+                if (QuantityCheck ==true)
                 {
-                    item.Price = (decimal)checkProduct.PriceSale;
+                    ShoppingCartItem item = new ShoppingCartItem
+                    {
+                        ProductId = checkProduct.ProductId,
+                        ProductName = checkProduct.Title,
+                        CategoryName = checkProduct.ProductCategory.Title,
+                        Alias = checkProduct.Alias,
+                        Quantity = quantity
+                    };
+                    if (checkProduct.ProductImages.Where(x => x.IsDefault == true).FirstOrDefault() != null)
+                    {
+                        item.ProductImg = checkProduct.ProductImages.Where(x => x.IsDefault == true).FirstOrDefault().Image;
+                    }
+                    item.Price = (decimal)checkProduct.Price;
+                    if (checkProduct.PriceSale > 0)
+                    {
+                        item.Price = (decimal)checkProduct.PriceSale;
+                    }
+                    item.TotalPrice = item.Quantity * item.Price;
+                    cart.AddToCart(item, quantity);
+                    HttpContext.Session.SetObjectAsJson("Cart", cart);
+                    _toastNotification.Success("Product added to cart successfully");
+                    //Session["Cart"] = cart;
+                    code = new { Success = true, msg = "Product added to cart successfully!",heading="success", code = 1, count = cart.Items.Count };
                 }
-                item.TotalPrice = item.Quantity * item.Price;
-                cart.AddToCart(item, quantity);
-                HttpContext.Session.SetObjectAsJson("Cart", cart);
-				_toastNotification.Success("Product added to cart successfully");
-                //Session["Cart"] = cart;
-                code = new { Success = true, msg = "Product added to cart successfully!", code = 1, count = cart.Items.Count };
+                else
+                {
+                    code = new { Success = true, msg = "Product is out of stock!", heading = "warning", code = 1, count = cart.Items.Count };
+                }
+               
             }
           
 			return Json(code);
@@ -230,14 +253,30 @@ namespace WebBanHangOnline.Controllers
         [HttpPost]
         public ActionResult Update(int id, int quantity)
         {
-			ShoppingCart cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart");
+            var code = new { Success = false, msg = "", heading = "", code = -1, count = 0 };
+            ShoppingCart cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart");
 			if (cart != null)
             {
+                int Units = UnitsInStock(id);
+                if (Units < quantity)
+                {                  
+                    quantity = Units;
+                    code = new { Success = true, msg = "Product is out of stock!", heading = "warning", code = 1, count = quantity };
+                }
+                else
+                {
+                    code = new { Success = true, msg = "Product update to cart successfully!", heading = "success", code = 1, count = quantity };
+                }
+              
                 cart.UpdateQuantity(id, quantity);
 				HttpContext.Session.SetObjectAsJson("Cart", cart);
-				return Json(new { Success = true });
+				return Json(code);
             }
-            return Json(new { Success = false });
+            else
+            {
+                return Json(new { Success = false });
+            }
+         
         }
         [HttpPost]
         public ActionResult Delete(int id)
@@ -252,8 +291,12 @@ namespace WebBanHangOnline.Controllers
                 {
                     cart.Remove(id);
 					HttpContext.Session.SetObjectAsJson("Cart", cart);
-					code = new { Success = true, msg = "", code = 1, count = cart.Items.Count };
+					code = new { Success = true, msg = "Product update to cart successfully!", code = 1, count = cart.Items.Count };
                 }
+            }
+            else
+            {
+                code = new { Success = true, msg = "Product is out of stock!", code = 1, count = cart.Items.Count };
             }
             return Json(code);
         }
@@ -271,6 +314,17 @@ namespace WebBanHangOnline.Controllers
 				return Json(new { Success = true });
             }
             return Json(new { Success = false });
+        }
+
+        public int UnitsInStock(int Id)
+        {
+            int Units = 0;
+            var objProduct = _context.Product.Where(x => x.ProductId == Id).FirstOrDefault();
+            if (objProduct !=null)
+            {
+                 Units = objProduct.UnitsInStock - objProduct.UnitsOnOrder;
+            }
+            return Units;
         }
     }
 }

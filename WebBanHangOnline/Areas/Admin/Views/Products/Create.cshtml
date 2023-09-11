@@ -56,6 +56,7 @@
                     {
                         @Html.AntiForgeryToken()
                         @Html.ValidationSummary(true)
+                        <input type="hidden" name="UnitsOnOrder" id="UnitsOnOrder" value="0" />
                     <div class="card">
                         <div class="card-header p-2">                       
                         </div><!-- /.card-header -->
@@ -94,8 +95,8 @@
                                         <div class="col-3">
                                             <div class="form-group">
                                                     <label for="Quantity">Quantity</label>
-                                            @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control", @Value = "1" })
-                                                @Html.ValidationMessageFor(x => x.Quantity, null, new { @class = "text-danger" })
+                                            @Html.TextBoxFor(x => x.UnitsInStock, new { @class = "form-control", @Value = "1" })
+                                            @Html.ValidationMessageFor(x => x.UnitsInStock, null, new { @class = "text-danger" })
                                             </div>
                                         </div>
 

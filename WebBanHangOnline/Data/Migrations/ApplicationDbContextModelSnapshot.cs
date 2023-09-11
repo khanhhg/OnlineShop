@@ -634,9 +634,6 @@ namespace WebBanHangOnline.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("Quantity")
-                        .HasColumnType("int");
-
                     b.Property<string>("SeoDescription")
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
@@ -653,6 +650,12 @@ namespace WebBanHangOnline.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
+
+                    b.Property<int>("UnitsInStock")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UnitsOnOrder")
+                        .HasColumnType("int");
 
                     b.Property<int?>("ViewCount")
                         .HasColumnType("int");

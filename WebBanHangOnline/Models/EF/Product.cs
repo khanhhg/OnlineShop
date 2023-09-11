@@ -36,7 +36,8 @@ namespace WebBanHangOnline.Models.EF
         public decimal Price { get; set; }
         [Column(TypeName = "decimal(18,4)")]
         public decimal PriceSale { get; set; }
-        public int? Quantity { get; set; }
+        public int UnitsInStock { get; set; }
+        public int UnitsOnOrder { get; set; }
         public int? ViewCount { get; set; }
         public bool IsHome { get; set; } = false;
         public bool IsSale { get; set; } = false;

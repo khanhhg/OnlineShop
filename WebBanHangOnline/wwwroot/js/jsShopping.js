@@ -14,12 +14,11 @@
             data: { id: id, quantity: quantity },
             success: function (rs) {
                 if (rs.success == true) {
-                    $('#checkout_items').html(rs.count);
-                    /* alert(rs.msg);*/
+                    $('#checkout_items').html(rs.count);                
                     $.toast({
-                        heading: 'Success',
-                        text:'Product added to cart successfully!',
-                        icon: 'success',
+                        heading: rs.heading,
+                        text: rs.msg,
+                        icon: rs.heading,
                         position: 'bottom-right'
                     });
                 }
@@ -96,9 +95,9 @@ function Update(id,quantity) {
             if (rs.success == true) {
                 LoadCart();
                 $.toast({
-                    heading: 'Success',
-                    text: 'Product update to cart successfully!',
-                    icon: 'success',
+                    heading: rs.heading,
+                    text: rs.msg,
+                    icon: rs.heading,
                     position: 'bottom-right'
                 });
             }

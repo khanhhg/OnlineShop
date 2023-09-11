@@ -130,7 +130,7 @@ namespace WebBanHangOnline.Data.IRepository
                                            && (IsHome == false || x.IsHome == IsHome)
                                            && (IsSale == false || x.IsSale == IsSale)
                                            && (x.IsActive == true)
-                                           && (x.Quantity > 0)
+                                           && (x.UnitsInStock > x.UnitsOnOrder)
                                       ).Include(x => x.ProductCategory).Include(x => x.ProductImages).OrderByDescending(x => x.ProductId).Take(Top).ToListAsync();
             }
             else // Get All
@@ -139,7 +139,7 @@ namespace WebBanHangOnline.Data.IRepository
                                           && (IsHome == false || x.IsHome == IsHome)
                                           && (IsSale == false || x.IsSale == IsSale)
                                           && (x.IsActive == true)
-                                          && (x.Quantity > 0)
+                                          && (x.UnitsInStock > x.UnitsOnOrder)
                                      ).Include(x => x.ProductCategory).Include(x => x.ProductImages).OrderByDescending(x => x.ProductId).ToListAsync();
             }
             return items;
