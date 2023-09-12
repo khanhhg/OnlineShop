@@ -45,8 +45,7 @@ namespace WebBanHangOnline.Data.IRepository
         {
             _context.Order.Attach(order);
             order.TypePayment = status;
-            _context.Entry(order).Property(x => x.TypePayment).IsModified = true;
-            _context.SaveChanges();
+            _context.Entry(order).Property(x => x.TypePayment).IsModified = true;     
             await _context.SaveChangesAsync();
         }
 

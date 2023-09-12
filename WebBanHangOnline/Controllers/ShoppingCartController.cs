@@ -2,7 +2,6 @@
 using WebBanHangOnline.Data;
 using WebBanHangOnline.Models.EF;
 using WebBanHangOnline.Models;
-using AspNetCoreHero.ToastNotification.Abstractions;
 using WebBanHangOnline.Common;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
@@ -15,12 +14,10 @@ namespace WebBanHangOnline.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ApplicationDbContext _context;
-        private readonly INotyfService _toastNotification;
-        public ShoppingCartController(ILogger<HomeController> logger, ApplicationDbContext context, INotyfService toastNotification)
+        public ShoppingCartController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _logger = logger;
-            _context = context;
-            _toastNotification = toastNotification;
+            _context = context;    
         }
 
         public ActionResult Index()
@@ -80,9 +77,9 @@ namespace WebBanHangOnline.Controllers
 				return Json(new { count = cart.Items.Count });
             }
 			return Json(new { count = 0 });
-			//return Json(new { Count = 0 }, JsonRequestBehavior.AllowGet);
-
+            //return Json(new { Count = 0 }, JsonRequestBehavior.AllowGet);
 		}
+
         [Authorize]
         public ActionResult Partial_CheckOut()
         {
@@ -102,6 +99,7 @@ namespace WebBanHangOnline.Controllers
                 return PartialView("_Partial_CheckOut");
             }          
         }
+
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -112,10 +110,7 @@ namespace WebBanHangOnline.Controllers
 			var code = new { Success = false, Code = -1 };
             if (ModelState.IsValid)
             {
-                ShoppingCart cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart");
-              
-
-
+                ShoppingCart cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart");              
 				if (cart != null)
                 {
                     Order order = new Order();
@@ -140,7 +135,21 @@ namespace WebBanHangOnline.Controllers
                     //order.E = req.CustomerName;
                     _context.Order.Add(order);
                     _context.SaveChanges();
-                    //send mail cho khachs hang
+
+                    // Update UnitsOnOrder for Product
+                    foreach (var it in order.OrderDetails)
+                    {
+                        var objProduct = _context.Product.Where(x => x.ProductId == it.ProductId).FirstOrDefault();
+                        if (objProduct != null)
+                        {
+                            _context.Product.Attach(objProduct);
+                            objProduct.UnitsOnOrder = objProduct.UnitsOnOrder + it.Quantity;
+                            _context.Entry(objProduct).Property(x => x.UnitsOnOrder).IsModified = true;                        
+                            _context.SaveChanges(true);
+                        }
+                    }
+
+                    //send mail to customer
                     var strSanPham = "";
                     var thanhtien = decimal.Zero;
                     var TongTien = decimal.Zero;
@@ -235,8 +244,7 @@ namespace WebBanHangOnline.Controllers
                     }
                     item.TotalPrice = item.Quantity * item.Price;
                     cart.AddToCart(item, quantity);
-                    HttpContext.Session.SetObjectAsJson("Cart", cart);
-                    _toastNotification.Success("Product added to cart successfully");
+                    HttpContext.Session.SetObjectAsJson("Cart", cart);      
                     //Session["Cart"] = cart;
                     code = new { Success = true, msg = "Product added to cart successfully!",heading="success", code = 1, count = cart.Items.Count };
                 }
@@ -275,9 +283,9 @@ namespace WebBanHangOnline.Controllers
             else
             {
                 return Json(new { Success = false });
-            }
-         
+            }         
         }
+
         [HttpPost]
         public ActionResult Delete(int id)
         {
@@ -300,8 +308,6 @@ namespace WebBanHangOnline.Controllers
             }
             return Json(code);
         }
-
-
 
         [HttpPost]
         public ActionResult DeleteAll()
