@@ -3,7 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using WebBanHangOnline.Data;
 using AspNetCoreHero.ToastNotification;
 using AspNetCoreHero.ToastNotification.Extensions;
-using WebBanHangOnline.Data.IRepository;
+using WebBanHangOnline.Services.Repository;
+using WebBanHangOnline.Services.IRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,6 +44,9 @@ builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IContactRepository,ContactRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ICommentsRepository, CommentsRepository>();
+
+builder.Services.AddAutoMapper(typeof(Program));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

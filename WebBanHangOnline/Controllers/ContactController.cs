@@ -1,8 +1,8 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using WebBanHangOnline.Data.IRepository;
-using WebBanHangOnline.Models.EF;
+using WebBanHangOnline.Data.Models.EF;
+using WebBanHangOnline.Services.IRepository;
 
 namespace WebBanHangOnline.Controllers
 {

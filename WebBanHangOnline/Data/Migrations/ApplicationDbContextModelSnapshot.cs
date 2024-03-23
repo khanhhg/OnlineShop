@@ -224,7 +224,7 @@ namespace WebBanHangOnline.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.Adv", b =>
+            modelBuilder.Entity("WebBanHangOnline.Data.Models.EF.Adv", b =>
                 {
                     b.Property<int>("AdvId")
                         .ValueGeneratedOnAdd()
@@ -269,7 +269,7 @@ namespace WebBanHangOnline.Data.Migrations
                     b.ToTable("tb_Adv");
                 });
 
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.Category", b =>
+            modelBuilder.Entity("WebBanHangOnline.Data.Models.EF.Category", b =>
                 {
                     b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
@@ -304,18 +304,6 @@ namespace WebBanHangOnline.Data.Migrations
                     b.Property<int?>("Position")
                         .HasColumnType("int");
 
-                    b.Property<string>("SeoDescription")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<string>("SeoKeywords")
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.Property<string>("SeoTitle")
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(150)
@@ -326,7 +314,7 @@ namespace WebBanHangOnline.Data.Migrations
                     b.ToTable("tb_Category");
                 });
 
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.Comments", b =>
+            modelBuilder.Entity("WebBanHangOnline.Data.Models.EF.Comments", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -365,7 +353,7 @@ namespace WebBanHangOnline.Data.Migrations
                     b.ToTable("Comments");
                 });
 
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.Contact", b =>
+            modelBuilder.Entity("WebBanHangOnline.Data.Models.EF.Contact", b =>
                 {
                     b.Property<int>("ContactId")
                         .ValueGeneratedOnAdd()
@@ -410,7 +398,7 @@ namespace WebBanHangOnline.Data.Migrations
                     b.ToTable("tb_Contact");
                 });
 
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.Counter", b =>
+            modelBuilder.Entity("WebBanHangOnline.Data.Models.EF.Counter", b =>
                 {
                     b.Property<int>("CounterId")
                         .ValueGeneratedOnAdd()
@@ -429,7 +417,7 @@ namespace WebBanHangOnline.Data.Migrations
                     b.ToTable("Counters");
                 });
 
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.News", b =>
+            modelBuilder.Entity("WebBanHangOnline.Data.Models.EF.News", b =>
                 {
                     b.Property<int>("NewsId")
                         .ValueGeneratedOnAdd()
@@ -464,15 +452,6 @@ namespace WebBanHangOnline.Data.Migrations
                     b.Property<string>("Modifiedby")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SeoDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SeoKeywords")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SeoTitle")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(150)
@@ -483,7 +462,7 @@ namespace WebBanHangOnline.Data.Migrations
                     b.ToTable("tb_News");
                 });
 
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.Order", b =>
+            modelBuilder.Entity("WebBanHangOnline.Data.Models.EF.Order", b =>
                 {
                     b.Property<int>("OrderId")
                         .ValueGeneratedOnAdd()
@@ -540,36 +519,28 @@ namespace WebBanHangOnline.Data.Migrations
                     b.ToTable("tb_Order");
                 });
 
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.OrderDetail", b =>
+            modelBuilder.Entity("WebBanHangOnline.Data.Models.EF.OrderDetail", b =>
                 {
-                    b.Property<int>("OrderDetailId")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("OrderId")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderDetailId"), 1L, 1);
-
-                    b.Property<int>("OrderId")
+                    b.Property<int>("ProductId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,4)");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.HasKey("OrderDetailId");
-
-                    b.HasIndex("OrderId");
+                    b.HasKey("OrderId", "ProductId");
 
                     b.HasIndex("ProductId");
 
                     b.ToTable("tb_OrderDetail");
                 });
 
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.Product", b =>
+            modelBuilder.Entity("WebBanHangOnline.Data.Models.EF.Product", b =>
                 {
                     b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
@@ -634,18 +605,6 @@ namespace WebBanHangOnline.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("SeoDescription")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<string>("SeoKeywords")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<string>("SeoTitle")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(250)
@@ -667,7 +626,7 @@ namespace WebBanHangOnline.Data.Migrations
                     b.ToTable("tb_Product");
                 });
 
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.ProductCategory", b =>
+            modelBuilder.Entity("WebBanHangOnline.Data.Models.EF.ProductCategory", b =>
                 {
                     b.Property<int>("ProductCategoryId")
                         .ValueGeneratedOnAdd()
@@ -699,18 +658,6 @@ namespace WebBanHangOnline.Data.Migrations
                     b.Property<string>("Modifiedby")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SeoDescription")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<string>("SeoKeywords")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<string>("SeoTitle")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(150)
@@ -721,7 +668,7 @@ namespace WebBanHangOnline.Data.Migrations
                     b.ToTable("tb_ProductCategory");
                 });
 
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.ProductImage", b =>
+            modelBuilder.Entity("WebBanHangOnline.Data.Models.EF.ProductImage", b =>
                 {
                     b.Property<int>("ProductImageId")
                         .ValueGeneratedOnAdd()
@@ -745,7 +692,7 @@ namespace WebBanHangOnline.Data.Migrations
                     b.ToTable("tb_ProductImage");
                 });
 
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.Subscribe", b =>
+            modelBuilder.Entity("WebBanHangOnline.Data.Models.EF.Subscribe", b =>
                 {
                     b.Property<int>("SubscribeId")
                         .ValueGeneratedOnAdd()
@@ -765,7 +712,7 @@ namespace WebBanHangOnline.Data.Migrations
                     b.ToTable("tb_Subscribe");
                 });
 
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.SystemSetting", b =>
+            modelBuilder.Entity("WebBanHangOnline.Data.Models.EF.SystemSetting", b =>
                 {
                     b.Property<string>("SettingKey")
                         .HasMaxLength(50)
@@ -785,7 +732,7 @@ namespace WebBanHangOnline.Data.Migrations
                     b.ToTable("tb_SystemSetting");
                 });
 
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.UserProfile", b =>
+            modelBuilder.Entity("WebBanHangOnline.Data.Models.EF.UserProfile", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -873,9 +820,9 @@ namespace WebBanHangOnline.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.Comments", b =>
+            modelBuilder.Entity("WebBanHangOnline.Data.Models.EF.Comments", b =>
                 {
-                    b.HasOne("WebBanHangOnline.Models.EF.Product", "Product")
+                    b.HasOne("WebBanHangOnline.Data.Models.EF.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -884,28 +831,24 @@ namespace WebBanHangOnline.Data.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.OrderDetail", b =>
+            modelBuilder.Entity("WebBanHangOnline.Data.Models.EF.OrderDetail", b =>
                 {
-                    b.HasOne("WebBanHangOnline.Models.EF.Order", "Order")
-                        .WithMany("OrderDetails")
+                    b.HasOne("WebBanHangOnline.Data.Models.EF.Order", null)
+                        .WithMany()
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WebBanHangOnline.Models.EF.Product", "Product")
-                        .WithMany("OrderDetails")
+                    b.HasOne("WebBanHangOnline.Data.Models.EF.Product", null)
+                        .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Order");
-
-                    b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.Product", b =>
+            modelBuilder.Entity("WebBanHangOnline.Data.Models.EF.Product", b =>
                 {
-                    b.HasOne("WebBanHangOnline.Models.EF.ProductCategory", "ProductCategory")
+                    b.HasOne("WebBanHangOnline.Data.Models.EF.ProductCategory", "ProductCategory")
                         .WithMany("Products")
                         .HasForeignKey("ProductCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -914,9 +857,9 @@ namespace WebBanHangOnline.Data.Migrations
                     b.Navigation("ProductCategory");
                 });
 
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.ProductImage", b =>
+            modelBuilder.Entity("WebBanHangOnline.Data.Models.EF.ProductImage", b =>
                 {
-                    b.HasOne("WebBanHangOnline.Models.EF.Product", "Product")
+                    b.HasOne("WebBanHangOnline.Data.Models.EF.Product", "Product")
                         .WithMany("ProductImages")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -925,19 +868,12 @@ namespace WebBanHangOnline.Data.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.Order", b =>
+            modelBuilder.Entity("WebBanHangOnline.Data.Models.EF.Product", b =>
                 {
-                    b.Navigation("OrderDetails");
-                });
-
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.Product", b =>
-                {
-                    b.Navigation("OrderDetails");
-
                     b.Navigation("ProductImages");
                 });
 
-            modelBuilder.Entity("WebBanHangOnline.Models.EF.ProductCategory", b =>
+            modelBuilder.Entity("WebBanHangOnline.Data.Models.EF.ProductCategory", b =>
                 {
                     b.Navigation("Products");
                 });

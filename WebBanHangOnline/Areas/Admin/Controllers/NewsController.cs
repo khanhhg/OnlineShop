@@ -4,9 +4,8 @@ using System.Security.Claims;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using WebBanHangOnline.Data.IRepository;
-using WebBanHangOnline.Models.EF;
+using WebBanHangOnline.Data.Models.EF;
+using WebBanHangOnline.Services.IRepository;
 using X.PagedList;
 
 namespace WebBanHangOnline.Areas.Admin.Controllers
@@ -109,10 +108,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                     objNewUpdate.Title = news.Title;
                     objNewUpdate.Description = news.Description;
                     objNewUpdate.Detail =  news.Detail.Replace("../..", String.Empty);
-                    objNewUpdate.Alias = news.Alias;
-                    objNewUpdate.SeoDescription = news.SeoDescription;
-                    objNewUpdate.SeoKeywords = news.SeoKeywords;
-                    objNewUpdate.SeoTitle = news.SeoTitle;
+                    objNewUpdate.Alias = news.Alias;                  
                     objNewUpdate.IsActive = news.IsActive;
                     await _newsRepository.Update(objNewUpdate);
                     _toastNotification.Success("Update News Success");

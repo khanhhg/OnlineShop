@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebBanHangOnline.Models.EF.OrderDetail>
+﻿@model IEnumerable<WebBanHangOnline.Data.Models.EF.OrderDetail>
 @if (Model != null && Model.Any())
 {
     int i = 1;
@@ -18,7 +18,7 @@
             {
                 <tr>
                     <td>@i</td>
-                    <td>@item.Product.Title</td>
+                   @*  <td>@item.Product.Title</td> *@
                     <td>@WebBanHangOnline.Common.Common.FormatNumber(item.Price, 0)</td>
                     <td>@item.Quantity</td>
                     <td>@WebBanHangOnline.Common.Common.FormatNumber((item.Price * item.Quantity), 0)</td>

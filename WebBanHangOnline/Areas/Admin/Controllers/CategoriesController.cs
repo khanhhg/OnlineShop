@@ -4,8 +4,8 @@ using System.Security.Claims;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using WebBanHangOnline.Data.IRepository;
-using WebBanHangOnline.Models.EF;
+using WebBanHangOnline.Data.Models.EF;
+using WebBanHangOnline.Services.IRepository;
 using X.PagedList;
 
 namespace WebBanHangOnline.Areas.Admin.Controllers

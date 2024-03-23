@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebBanHangOnline.Data;
-using WebBanHangOnline.Models.EF;
-using WebBanHangOnline.Models;
 using WebBanHangOnline.Common;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using WebBanHangOnline.Data.Models.EF;
+using WebBanHangOnline.Data.Models;
 
 namespace WebBanHangOnline.Controllers
 {
@@ -118,13 +118,13 @@ namespace WebBanHangOnline.Controllers
                     order.Phone = req.Phone;
                     order.Address = req.Address;
                     order.Email = req.Email;
-                    cart.Items.ForEach(x => order.OrderDetails.Add(new OrderDetail
-                    {
-                        ProductId = x.ProductId,
-                        Quantity = x.Quantity,
-                        Price = x.Price
-                    }));
-                    order.TotalAmount = cart.Items.Sum(x => (x.Price * x.Quantity));
+                    //cart.Items.ForEach(x => order.OrderDetail.Add(new OrderDetail
+                    //{
+                    //    ProductId = x.ProductId,
+                    //    Quantity = x.Quantity,
+                    //    Price = x.Price
+                    //}));
+                    //order.TotalAmount = cart.Items.Sum(x => (x.Price * x.Quantity));
                     order.TypePayment = req.TypePayment;
                     order.CreatedDate = DateTime.Now;
                     order.ModifiedDate = DateTime.Now;
@@ -137,13 +137,13 @@ namespace WebBanHangOnline.Controllers
                     _context.SaveChanges();
 
                     // Update UnitsOnOrder for Product
-                    foreach (var it in order.OrderDetails)
+                    foreach (var it in order.Products)
                     {
                         var objProduct = _context.Product.Where(x => x.ProductId == it.ProductId).FirstOrDefault();
                         if (objProduct != null)
                         {
                             _context.Product.Attach(objProduct);
-                            objProduct.UnitsOnOrder = objProduct.UnitsOnOrder + it.Quantity;
+                            objProduct.UnitsOnOrder = objProduct.UnitsOnOrder;
                             _context.Entry(objProduct).Property(x => x.UnitsOnOrder).IsModified = true;                        
                             _context.SaveChanges(true);
                         }

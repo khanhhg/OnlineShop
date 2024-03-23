@@ -4,8 +4,8 @@ using System.Security.Claims;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using WebBanHangOnline.Data.IRepository;
-using WebBanHangOnline.Models.EF;
+using WebBanHangOnline.Data.Models.EF;
+using WebBanHangOnline.Services.IRepository;
 using X.PagedList;
 
 namespace WebBanHangOnline.Areas.Admin.Controllers
@@ -111,9 +111,6 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                   
                     productCategory_Edit.Modifiedby = User.FindFirstValue(ClaimTypes.NameIdentifier);
                     productCategory_Edit.ModifiedDate = DateTime.Now;
-                    productCategory_Edit.SeoTitle = productCategory.SeoTitle;
-                    productCategory_Edit.SeoKeywords = productCategory.SeoKeywords;
-                    productCategory_Edit.SeoDescription = productCategory.SeoDescription;
                     productCategory_Edit.Title = productCategory.Title;
                     productCategory_Edit.Description = productCategory.Description;
                    await _IProductCategories.Update(productCategory_Edit);

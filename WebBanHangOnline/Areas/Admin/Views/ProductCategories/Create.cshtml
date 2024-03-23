@@ -1,4 +1,4 @@
-﻿@model WebBanHangOnline.Models.EF.ProductCategory
+﻿@model WebBanHangOnline.Data.Models.EF.ProductCategory
 
 @{
     ViewData["Title"] = "Create Product Category";
@@ -80,19 +80,6 @@
                         <div class="col-sm-6">
                                 <img id="PrevImg" src="https://placehold.jp/150x150.png" style="width:150px;height:150px; border:1px solid red; border-radius:10px;padding:10px" />
                         </div>                        
-                    </div>
-
-                    <div class="form-group">
-                            <label for="SeoTitle">Seo title</label>
-                        @Html.TextAreaFor(x => x.SeoTitle, new { @class = "form-control" })
-                    </div>
-                    <div class="form-group">
-                            <label for="SeoDescription">SeoDescription</label>
-                        @Html.TextAreaFor(x => x.SeoDescription, new { @class = "form-control" })
-                    </div>
-                    <div class="form-group">
-                            <label for="SeoKeywords">SeoKeywords</label>
-                        @Html.TextAreaFor(x => x.SeoKeywords, new { @class = "form-control" })
                     </div>
                     <div class="form-group">
 

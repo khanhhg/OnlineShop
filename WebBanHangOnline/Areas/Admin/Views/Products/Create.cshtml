@@ -1,4 +1,4 @@
-﻿@model WebBanHangOnline.Models.EF.Product
+﻿@model WebBanHangOnline.Data.Models.Dtos.ProductDto
 
 @{
     ViewData["Title"] = "Create";
@@ -160,25 +160,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                             
-
-                                <div class="form-group">
-                                    <label>SEO Title</label>                                  
-                                      @Html.TextBoxFor(x => x.SeoTitle, new { @class = "form-control", @placeholder = "SeoTitle" })
-                                </div>
-                                <div class="form-group">
-                                    <label>SEO Keywords</label>
-                                  
-                                        @Html.TextBoxFor(x => x.SeoKeywords, new { @class = "form-control", @placeholder = "SeoKeywords" })
-                                      
-                                  
-                                </div>
-                                <div class="form-group">
-                                    <label>SEO Description</label>                                  
-                                        @Html.TextBoxFor(x => x.SeoDescription, new { @class = "form-control", @placeholder = "SeoDescription" })                                                                    
-                                </div>
-
+                                    </div>                          
                                 <div class="form-group">
                                     <label>Image</label>
                                     <input type="file" name="files" class="form-control" multiple />

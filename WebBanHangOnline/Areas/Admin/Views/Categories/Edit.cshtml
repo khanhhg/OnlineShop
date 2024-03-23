@@ -1,4 +1,4 @@
-﻿@model WebBanHangOnline.Models.EF.Category
+﻿@model WebBanHangOnline.Data.Models.EF.Category
 @{
     ViewData["Title"] = "Edit Category";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -14,7 +14,7 @@
             <a href="/admin" class="nav-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="/admin/category" class="nav-link">Category</a>
+            <a href="/admin/categories" class="nav-link">Category</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a href="#" class="nav-link">Edit</a>
@@ -79,18 +79,6 @@
                     <div class="form-group">
                             <label for="Position">Position</label>
                         @Html.TextBoxFor(x => x.Position, new { @class = "form-control" })
-                    </div>
-                    <div class="form-group">
-                            <label for="SeoTitle">Seo title</label>
-                        @Html.TextAreaFor(x => x.SeoTitle, new { @class = "form-control" })
-                    </div>
-                    <div class="form-group">
-                            <label for="SeoDescription">SeoDescription</label>
-                        @Html.TextAreaFor(x => x.SeoDescription, new { @class = "form-control" })
-                    </div>
-                    <div class="form-group">
-                            <label for="SeoKeywords">SeoKeywords</label>
-                        @Html.TextAreaFor(x => x.SeoKeywords, new { @class = "form-control" })
                     </div>
                     <div class="form-group">                      
                         <button type="submit" class="btn btn-primary">Save</button>

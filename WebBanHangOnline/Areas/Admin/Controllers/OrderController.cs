@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
-using WebBanHangOnline.Data.IRepository;
+using WebBanHangOnline.Services.IRepository;
 using X.PagedList;
 
 namespace WebBanHangOnline.Areas.Admin.Controllers

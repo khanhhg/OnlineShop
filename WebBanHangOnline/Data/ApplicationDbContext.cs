@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
-using System.Linq.Expressions;
-using WebBanHangOnline.Models.EF;
+using WebBanHangOnline.Data.Models.EF;
 
 namespace WebBanHangOnline.Data
 {
@@ -26,6 +24,27 @@ namespace WebBanHangOnline.Data
         public DbSet<SystemSetting> SystemSetting { get; set; }
         public DbSet<UserProfile> UserProfile { get; set; }
         public DbSet<Comments> Comments { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ProductCategory>()
+                        .HasMany(e => e.Products)
+                        .WithOne(e => e.ProductCategory)
+                        .HasForeignKey(e => e.ProductCategoryId)
+                        .HasPrincipalKey(e => e.ProductCategoryId);
 
+            modelBuilder.Entity<Product>()
+                       .HasMany(e => e.ProductImages)
+                       .WithOne(e => e.Product)
+                       .HasForeignKey(e => e.ProductId)
+                       .HasPrincipalKey(e => e.ProductId);
+
+            modelBuilder.Entity<Product>()
+                        .HasMany(e => e.Orders)
+                        .WithMany(e => e.Products)
+                        .UsingEntity<OrderDetail>(
+                        l => l.HasOne<Order>().WithMany().HasForeignKey(e => e.OrderId),
+                        r => r.HasOne<Product>().WithMany().HasForeignKey(e => e.ProductId));        
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

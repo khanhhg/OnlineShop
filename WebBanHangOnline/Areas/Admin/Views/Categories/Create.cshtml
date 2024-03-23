@@ -1,4 +1,4 @@
-﻿@model WebBanHangOnline.Models.EF.Category
+﻿@model WebBanHangOnline.Data.Models.EF.Category
 
 @{
     ViewData["Title"] = "Create";
@@ -78,18 +78,6 @@
                     <div class="form-group">
                             <label for="Position">Position</label>
                         @Html.TextBoxFor(x => x.Position, new { @class = "form-control", @Value = "1" })
-                    </div>
-                    <div class="form-group">
-                            <label for="SeoTitle">SeoTitle</label>
-                            @Html.TextAreaFor(x => x.SeoTitle, new { @class = "form-control", @placeholder = "SeoTitle"  })
-                    </div>
-                    <div class="form-group">
-                            <label for="SeoDescription">SeoDescription</label>
-                            @Html.TextAreaFor(x => x.SeoDescription, new { @class = "form-control", @placeholder = "SeoDescription" })
-                    </div>
-                    <div class="form-group">
-                            <label for="SeoKeywords">SeoKeywords</label>
-                            @Html.TextAreaFor(x => x.SeoKeywords, new { @class = "form-control" , @placeholder = "SeoKeywords" })
                     </div>
                     <div class="form-group">
                          <button type="submit" class="btn btn-primary">Save</button>

@@ -1,11 +1,8 @@
-﻿
-@model WebBanHangOnline.Models.EF.News
+﻿@model WebBanHangOnline.Data.Models.EF.News
 @{
     ViewBag.Title = "News";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
-
 @section naviheader{
     <!-- Left navbar links -->
     <ul class="navbar-nav">
@@ -92,20 +89,7 @@
                         <div class="form-group">
                                 <label >Active</label>
                             @Html.CheckBoxFor(x => x.IsActive)
-                        </div>
-                        <div class="form-group">
-                                <label for="SeoTitle">Seo title</label>
-                            @Html.TextAreaFor(x => x.SeoTitle, new { @class = "form-control" })
-                        </div>
-                        <div class="form-group">
-                                <label for="SeoDescription">SeoDescription</label>
-                            @Html.TextAreaFor(x => x.SeoDescription, new { @class = "form-control" })
-                        </div>
-                        <div class="form-group">
-                                <label for="SeoKeywords">SeoKeywords</label>
-                            @Html.TextAreaFor(x => x.SeoKeywords, new { @class = "form-control" })
-                        </div>
-
+                        </div>                      
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Save</button>
                             <a href="/admin/news" class="btn btn-danger">Back</a>

@@ -1,5 +1,4 @@
-﻿
-@model WebBanHangOnline.Models.EF.News
+﻿@model WebBanHangOnline.Data.Models.EF.News
 @{
     ViewBag.Title = "News";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -89,19 +88,7 @@
                     <div class="form-group">
                             <label>Active</label>
                         @Html.CheckBoxFor(x => x.IsActive,new { @checked= "@checked" })
-                    </div>
-                    <div class="form-group">
-                            <label >Seo title</label>
-                        @Html.TextAreaFor(x => x.SeoTitle, new { @class = "form-control" })
-                    </div>
-                    <div class="form-group">
-                            <label >SeoDescription</label>
-                        @Html.TextAreaFor(x => x.SeoDescription, new { @class = "form-control" })
-                    </div>
-                    <div class="form-group">
-                            <label>SeoKeywords</label>
-                        @Html.TextAreaFor(x => x.SeoKeywords, new { @class = "form-control" })
-                    </div>
+                    </div>                  
                     <div class="form-group">
 
                         <button type="submit" class="btn btn-primary">Save</button>

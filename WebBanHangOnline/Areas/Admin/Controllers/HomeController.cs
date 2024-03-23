@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using WebBanHangOnline.Data;
-using WebBanHangOnline.Models;
+using WebBanHangOnline.Data.Models;
 
 namespace WebBanHangOnline.Areas.Admin.Controllers
 {
