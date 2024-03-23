@@ -1,0 +1,34 @@
+﻿@model IEnumerable<WebBanHangOnline.Data.Models.EF.Comments>
+
+@if (Model != null && Model.Any())
+{
+    <div class="tab_title reviews_title">
+        <h4>Reviews (@Model.Count())</h4>
+    </div>     
+       @foreach (var item in Model)
+        {
+        <div class="user_review_container d-flex flex-column flex-sm-row">
+            <div class="user">
+                <div class="user_pic"></div>
+                <div class="user_rating">
+                    <ul class="star_rating">
+                        <li><i class="@(item.Rate >= 1 ? "fa fa-star" : "fa fa-star-o")" aria-hidden="true"></i></li>
+                        <li><i class="@(item.Rate >= 2 ? "fa fa-star" : "fa fa-star-o")" aria-hidden="true"></i></li>
+                        <li><i class="@(item.Rate >= 3 ? "fa fa-star" : "fa fa-star-o")" aria-hidden="true"></i></li>
+                        <li><i class="@(item.Rate >= 4 ? "fa fa-star" : "fa fa-star-o")" aria-hidden="true"></i></li>
+                        <li><i class="@(item.Rate >= 5 ? "fa fa-star" : "fa fa-star-o")" aria-hidden="true"></i></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="review">
+                <div class="review_date">@item.CreatedDate.ToString("dd MMMM yyyy")</div>
+                <div class="user_name">@item.Name</div>
+                <p>@item.Content</p>
+            </div>
+        </div>
+        }
+  
+}
+
+
+

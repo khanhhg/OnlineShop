@@ -1,0 +1,103 @@
+﻿@model X.PagedList.PagedList<WebBanHangOnline.Data.Models.EF.Order>
+@using X.PagedList;
+@using X.PagedList.Mvc.Core; 
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Main content -->
+<div class="container contact_container">
+    <div class="row">
+        <div class="col">
+
+            <!-- Breadcrumbs -->
+
+            <div class="breadcrumbs d-flex flex-row align-items-center">
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li class="active"><i class="fa fa-angle-right" aria-hidden="true"></i>Order List</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+<section class="content ">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">List Order</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    @using (Html.BeginForm("index", "order", FormMethod.Get, new { }))
+                    {
+                        <div class="input-group input-group-sm">
+                            @Html.TextBox("Searchtext",null, new { @class = "form-control search-input" })
+                            <span class="input-group-append">
+                                    <button type="submit" class="btn btn-info btn-flat search-button">Search</button>
+                            </span>
+                        </div>
+                    }
+                </div>
+            </div>
+                <div class="responsive-table">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Order Code</th>
+                        <th>Customer Name</th>
+                        <th>Phone</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>CreateDate</th>
+                        <th width="150px"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        var i = ((ViewBag.Page - 1) * ViewBag.PageSize) + 1;
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@i</td>
+                                <td>@item.Code</td>
+                                <td>@item.CustomerName</td>
+                                <td>@item.Phone</td>
+                                <td>@WebBanHangOnline.Common.Common.FormatNumber(item.TotalAmount, 0)</td>
+                                <td>@(item.TypePayment == 1 ? "Waiting" : "complete")</td>
+                                <td>@item.CreatedDate?.ToString("dd/MM/yyyy")</td>
+                                <td>
+                                      <a href="@WebBanHangOnline.Common.ClassParamater.PathOrderDetail?id=@item.OrderId" class="btn btn-sm btn-primary">Order Details</a>
+                                </td>
+                            </tr>
+                            i++;
+                        }
+                    }
+                </tbody>
+            </table>
+            </div>
+            <div class="row">
+                <div class="col-6"></div>
+                <div class="col-6" style="text-align:right;">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                </div>
+            </div>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
+
+</section>
+</div>
+<!-- /.content -->
+
+

@@ -1,0 +1,41 @@
+﻿@model WebBanHangOnline.Data.Models.EF.Comments
+<div class="add_review">
+    @using (Html.BeginForm("create", "comments", FormMethod.Post, new { }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+@*        @Html.HiddenFor(model => model.CreatedDate,htmlAttributes: new {@Value=System.DateTime.Now })
+        @Html.HiddenFor(model => model.ProductId,htmlAttributes: new { @Value=ViewBag.ProductID })*@
+        <input type="hidden" name="CreatedDate" id="CreatedDate" value="@System.DateTime.Now" />      
+        <input type="hidden" name="ProductId" id="ProductId" value="@ViewBag.ProductID" />
+        <input type="hidden" name="Rate" id="Rate" value="4" />
+        <div>
+            <h1>Add Review</h1>            
+            @Html.TextBoxFor(x => x.Name, new { @class = "form_input input_name",@type="text", @placeholder = "Name*" })
+            @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" })
+            @*<input id="review_name" class="form_input input_name" type="text" name="name" placeholder="Name*" required="required" data-error="Name is required.">*@
+            @Html.TextBoxFor(x => x.Email, new { @class = "form_input input_email",@type="email" })
+            @Html.ValidationMessageFor(x => x.Email, null, new { @class = "text-danger" })
+          @*  <input id="review_email" class="form_input input_email" type="email" name="email" placeholder="Email*" required="required" data-error="Valid email is required.">*@
+        </div>
+        <div>
+            <h1>Your Rating:</h1>
+            <ul class="user_star_rating">
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+            </ul>
+            @Html.TextAreaFor(x => x.Content, new { @class = "input_review",@type="text",rows="4", @placeholder = "Your Review" })
+            @Html.ValidationMessageFor(x => x.Content, null, new { @class = "text-danger" })
+            @*<textarea id="review_message" class="input_review" name="message" placeholder="Your Review" rows="4" required data-error="Please, leave us a review."></textarea>*@
+        </div>
+        <div class="text-left text-sm-right">
+            <button id="review_submit" type="submit" class="red_button review_submit_btn trans_300" value="Submit">submit</button>
+        </div>
+    }
+</div>
+
+
+
