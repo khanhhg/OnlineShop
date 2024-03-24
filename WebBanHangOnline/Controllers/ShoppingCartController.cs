@@ -114,17 +114,13 @@ namespace WebBanHangOnline.Controllers
 				if (cart != null)
                 {
                     Order order = new Order();
+                    List<OrderDetail> orderDetails = new List<OrderDetail>();
                     order.CustomerName = req.CustomerName;
                     order.Phone = req.Phone;
                     order.Address = req.Address;
                     order.Email = req.Email;
-                    //cart.Items.ForEach(x => order.OrderDetail.Add(new OrderDetail
-                    //{
-                    //    ProductId = x.ProductId,
-                    //    Quantity = x.Quantity,
-                    //    Price = x.Price
-                    //}));
-                    //order.TotalAmount = cart.Items.Sum(x => (x.Price * x.Quantity));
+                                       
+                    order.TotalAmount = cart.Items.Sum(x => (x.Price * x.Quantity));
                     order.TypePayment = req.TypePayment;
                     order.CreatedDate = DateTime.Now;
                     order.ModifiedDate = DateTime.Now;
@@ -135,9 +131,19 @@ namespace WebBanHangOnline.Controllers
                     //order.E = req.CustomerName;
                     _context.Order.Add(order);
                     _context.SaveChanges();
+                    cart.Items.ForEach(x => orderDetails.Add(new OrderDetail
+                    {
+                        ProductId = x.ProductId,
+                        ProductName = x.ProductName,
+                        Quantity = x.Quantity,
+                        Price = x.Price,
+                        OrderId = order.OrderId
 
+                    }));
+                    _context.OrderDetail.AddRange(orderDetails);
+                    _context.SaveChanges();
                     // Update UnitsOnOrder for Product
-                    foreach (var it in order.Products)
+                    foreach (var it in orderDetails)
                     {
                         var objProduct = _context.Product.Where(x => x.ProductId == it.ProductId).FirstOrDefault();
                         if (objProduct != null)
@@ -148,7 +154,7 @@ namespace WebBanHangOnline.Controllers
                             _context.SaveChanges(true);
                         }
                     }
-
+                    
                     //send mail to customer
                     var strSanPham = "";
                     var thanhtien = decimal.Zero;

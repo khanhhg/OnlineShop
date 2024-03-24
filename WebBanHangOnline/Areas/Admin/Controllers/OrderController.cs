@@ -10,16 +10,16 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
     [Authorize(Roles = "Administrator")]
     public class OrderController : Controller
     {
-        IOrderRepository _IOrder;
+        IOrderRepository _order;
 
         public OrderController(IOrderRepository orderRepository)
         {
-            _IOrder = orderRepository;
+            _order = orderRepository;
         }
         // GET: Admin/Order
         public async Task<ActionResult> Index(string Searchtext, int? page = 1)
         {
-            var items = await _IOrder.GetAll();
+            var items = await _order.GetAll();
 
             if (page == null)
             {
@@ -38,22 +38,22 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
 
         public async Task<ActionResult> ViewOrder (int id)
         {
-            var  item = await _IOrder.Get(id);
+            var  item = await _order.Get(id);
             return View(item);
         }
         public async Task<ActionResult> Partial_Products(int id)
         {
-            var items = await _IOrder.GetOrderDetail(id);
+            var items = await _order.GetOrderDetail(id);
             return PartialView("_Partial_Products", items);
         }
 
         [HttpPost]
         public async Task<ActionResult> UpdateTT(int id, int status)
         {
-            var item = await _IOrder.Get(id);
+            var item = await _order.Get(id);
             if (item != null)
             {
-                await _IOrder.ChangeStatus(item, status);
+                await _order.ChangeStatus(item, status);
                 return Json(new { message = "Success", Success = true });
             }
             else

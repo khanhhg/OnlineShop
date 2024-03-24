@@ -10,6 +10,9 @@ namespace WebBanHangOnline.Data
         {
             CreateMap<ProductDto, Product>();
             CreateMap<Product, ProductDto>();
+
+            CreateMap<ProductCategory, ProductCategoryDto>();
+            CreateMap<ProductCategoryDto, ProductCategory>();
         }
     }  
 }

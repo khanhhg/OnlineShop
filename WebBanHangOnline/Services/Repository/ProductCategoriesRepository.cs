@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using WebBanHangOnline.Data;
+using WebBanHangOnline.Data.Models.Dtos;
 using WebBanHangOnline.Data.Models.EF;
 using WebBanHangOnline.Services.IRepository;
 
@@ -8,15 +10,20 @@ namespace WebBanHangOnline.Services.Repository
     public class ProductCategoriesRepository : IProductCategoriesRepository
     {
         private readonly ApplicationDbContext _context;
-        public ProductCategoriesRepository(ApplicationDbContext context)
+        private readonly IMapper _mapper;
+        public ProductCategoriesRepository(ApplicationDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        public async Task Add(ProductCategory productCategory)
+        public async Task<ProductCategory> Add(ProductCategoryDto productCategoryDto)
         {
-            _context.Add(productCategory);
+            var productCategory = _mapper.Map<ProductCategory>(productCategoryDto);
+            _context.ProductCategory.Add(productCategory);
             await _context.SaveChangesAsync();
+
+            return productCategory;
         }
 
         public async Task<bool> Delete(ProductCategory productCategory)
@@ -44,8 +51,9 @@ namespace WebBanHangOnline.Services.Repository
             return await _context.ProductCategory.FirstOrDefaultAsync(x => x.ProductCategoryId == Id);
         }
 
-        public async Task<ProductCategory> Update(ProductCategory productCategory)
+        public async Task<ProductCategory> Update(ProductCategoryDto productCategoryDto)
         {
+            var productCategory = _mapper.Map<ProductCategory>(productCategoryDto);
             var productCategoryChanges = _context.ProductCategory.Attach(productCategory);
             productCategoryChanges.State = EntityState.Modified;
             await _context.SaveChangesAsync();

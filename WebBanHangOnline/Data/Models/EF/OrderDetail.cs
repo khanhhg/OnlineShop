@@ -11,5 +11,6 @@ namespace WebBanHangOnline.Data.Models.EF
         [Column(TypeName = "decimal(18,4)")]
         public decimal Price { get; set; }
         public int Quantity { get; set; }
+        public string ProductName { get; set; }
     }
 }

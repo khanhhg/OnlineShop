@@ -2,8 +2,10 @@
 using System.Data;
 using System.Security.Claims;
 using AspNetCoreHero.ToastNotification.Abstractions;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using WebBanHangOnline.Data.Models.Dtos;
 using WebBanHangOnline.Data.Models.EF;
 using WebBanHangOnline.Services.IRepository;
 using X.PagedList;
@@ -14,18 +16,20 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
     [Authorize(Roles = "Administrator")]
     public class ProductCategoriesController : Controller
     {
-        IProductCategoriesRepository _IProductCategories;
+        IProductCategoriesRepository _category;
+        private readonly IMapper _mapper;
         private readonly INotyfService _toastNotification;
         string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\ProductCategory");
-        public ProductCategoriesController(IProductCategoriesRepository productCategoriesRepository, INotyfService toastNotification)
+        public ProductCategoriesController(IProductCategoriesRepository productCategoriesRepository, INotyfService toastNotification , IMapper mapper)
         {
-            _IProductCategories = productCategoriesRepository;
+            _category = productCategoriesRepository;
             _toastNotification = toastNotification;
+            _mapper = mapper;
         }
      
         public async Task<IActionResult> Index(string Searchtext, int? page = 1)
         {
-            IEnumerable<ProductCategory> items  = await _IProductCategories.GetAll() ;
+            IEnumerable<ProductCategory> items  = await _category.GetAll() ;
             var pageSize = 10;
             if (page == null)
             {
@@ -47,10 +51,8 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         }     
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create( ProductCategory productCategory,IFormFile fileImage)
+        public async Task<IActionResult> Create( ProductCategoryDto productCategory,IFormFile fileImage)
         {
-            ModelState.ClearValidationState("Products");
-            ModelState.MarkFieldValid("Products");
             if (ModelState.IsValid)
             {               
                 if (fileImage != null)
@@ -62,7 +64,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 productCategory.ModifiedDate = DateTime.Now;
                 productCategory.CreatedBy = User.FindFirstValue(ClaimTypes.NameIdentifier);
               
-                await _IProductCategories.Add(productCategory);
+                await _category.Add(productCategory);
                 _toastNotification.Success("Create Product Category Success");
                 return RedirectToAction(nameof(Index));
             }
@@ -76,44 +78,42 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         // GET: Admin/ProductCategories/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || await _IProductCategories.Get((int)id) == null)
+            if (id == null || await _category.Get((int)id) == null)
             {
                 return NotFound();
             }
 
-            var productCategory =  await _IProductCategories.Get((int)id);
+            var productCategory =  await _category.Get((int)id);
+            var productCategoryDto = _mapper.Map<ProductCategoryDto>(productCategory);
             if (productCategory == null)
             {
                 return NotFound();
             }
-            return View(productCategory);
+            return View(productCategoryDto);
         }
      
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, ProductCategory productCategory, IFormFile fileImage)
+        public async Task<IActionResult> Edit(int id, ProductCategoryDto productCategory, IFormFile fileImage)
         {
             if (id != productCategory.ProductCategoryId)
             {
                 return NotFound();
             }
-            ModelState.ClearValidationState("Products");
-            ModelState.MarkFieldValid("Products");
             ModelState.ClearValidationState("fileImage");
             ModelState.MarkFieldValid("fileImage");
-            var productCategory_Edit = await _IProductCategories.Get((int)id);
             if (ModelState.IsValid)
             {             
                 if (fileImage != null)
                  {
-                    productCategory_Edit.Icon = Common.Common.SaveFile(path, fileImage);                   
+                    productCategory.Icon = Common.Common.SaveFile(path, fileImage);                   
                  }
-                  
-                    productCategory_Edit.Modifiedby = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                    productCategory_Edit.ModifiedDate = DateTime.Now;
-                    productCategory_Edit.Title = productCategory.Title;
-                    productCategory_Edit.Description = productCategory.Description;
-                   await _IProductCategories.Update(productCategory_Edit);
+                productCategory.Modifiedby = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                productCategory.ModifiedDate = DateTime.Now;
+                productCategory.Title = productCategory.Title;
+                productCategory.Description = productCategory.Description;
+
+                await _category.Update(productCategory);
                 _toastNotification.Success("Update Product Category Success");
                 return RedirectToAction(nameof(Index));
             }
@@ -127,7 +127,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         [HttpPost]
         public async Task<ActionResult> Delete(int id)
         {
-            var item = await _IProductCategories.Get(id);
+            var item = await _category.Get(id);
             if (item != null )
             {
                 FileInfo file = new FileInfo(path + "\\" + item.Icon);
@@ -135,7 +135,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 {
                     file.Delete();
                 }
-                bool _delete = await _IProductCategories.Delete(item);
+                bool _delete = await _category.Delete(item);
                 if (_delete)
                 {
                     return Json(new { success = true });
@@ -160,7 +160,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                 {
                     foreach (var item in items)
                     {
-                        var obj = await _IProductCategories.Get(Convert.ToInt32(item));
+                        var obj = await _category.Get(Convert.ToInt32(item));
                         if (obj != null)
                         {
                             FileInfo file = new FileInfo(path + "\\" + obj.Icon);
@@ -168,7 +168,7 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
                             {
                                 file.Delete();
                             }
-                            await _IProductCategories.Delete(obj);
+                            await _category.Delete(obj);
                         }                                             
                     }
                 }

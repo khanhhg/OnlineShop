@@ -1,4 +1,4 @@
-﻿@model WebBanHangOnline.Data.Models.EF.ProductCategory
+﻿@model WebBanHangOnline.Data.Models.Dtos.ProductCategoryDto
 
 @{
     ViewData["Title"] = "Edit";
@@ -57,6 +57,7 @@
                     @Html.ValidationSummary(true)
                     @Html.HiddenFor(x=>x.ProductCategoryId)
                     @Html.HiddenFor(x=>x.CreatedDate)
+                    @Html.HiddenFor(x=>x.Icon)
                     <!-- your steps content here -->
                     <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
                         <div class="form-group">

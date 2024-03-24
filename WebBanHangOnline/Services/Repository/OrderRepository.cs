@@ -53,8 +53,7 @@ namespace WebBanHangOnline.Services.Repository
 
         public async Task<IList<OrderDetail>> GetOrderDetail(int orderID)
         {
-            var items = await _context.OrderDetail.Where(x => x.OrderId == orderID).ToListAsync();
-            var objProduct = await _context.Product.Include(x => x.Orders.Where(x => x.OrderId == orderID)).ToListAsync();          
+            var items = await _context.OrderDetail.Where(x => x.OrderId == orderID).ToListAsync();         
             return items;
         }
         public async Task<IList<Order>> GetOderByUser(string userID)

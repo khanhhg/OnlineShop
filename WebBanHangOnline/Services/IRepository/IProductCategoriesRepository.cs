@@ -1,4 +1,5 @@
-﻿using WebBanHangOnline.Data.Models.EF;
+﻿using WebBanHangOnline.Data.Models.Dtos;
+using WebBanHangOnline.Data.Models.EF;
 
 namespace WebBanHangOnline.Services.IRepository
 {
@@ -6,8 +7,8 @@ namespace WebBanHangOnline.Services.IRepository
     {
         Task<IList<ProductCategory>> GetAll();
         Task<ProductCategory> Get(int Id);
-        Task Add(ProductCategory Productcategory);
-        Task<ProductCategory> Update(ProductCategory Productcategory);
+        Task <ProductCategory> Add(ProductCategoryDto Productcategory);
+        Task<ProductCategory> Update(ProductCategoryDto Productcategory);
         Task<bool> Delete(ProductCategory Productcategory);
     }
 }
